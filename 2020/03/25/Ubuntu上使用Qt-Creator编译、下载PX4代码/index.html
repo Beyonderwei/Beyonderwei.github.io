@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          Git提交代码书写多行日志 - beyonderwei
+          Ubuntu上使用Qt Creator编译、下载PX4代码 - beyonderwei
         
     </title>
 
-    <link rel="canonical" href="http://beyonderwei.com/2019/08/12/Git-提交代码时书写多行日志（配置Git-commit-template/">
+    <link rel="canonical" href="http://beyonderwei.com/2020/03/25/Ubuntu上使用Qt-Creator编译、下载PX4代码/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -112,21 +112,21 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Git" title="Git">Git</a>
+                              <a class="tag" href="/tags/#无人机" title="无人机">无人机</a>
                             
                         </div>
-                        <h1>Git提交代码书写多行日志</h1>
+                        <h1>Ubuntu上使用Qt Creator编译、下载PX4代码</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Beyonderwei on
-                            2019-08-12
+                            2020-03-25
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">627</span> and
-                                Reading Time <span class="post-count">2</span> Minutes
+                                Words <span class="post-count">484</span> and
+                                Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -272,30 +272,28 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="一、应用场景"><a href="#一、应用场景" class="headerlink" title="一、应用场景"></a>一、应用场景</h2><p>&#8195;&#8195;通常我们会采用git commit -m “提交日志” 的方式去提交代码，但是如果我们程序更改的地方很多，那就需要写更多的日志来记录，当我们查看log以后是下面这个样子：（当然也可以在github上去点击查看效果）<br><img src="https://img-blog.csdnimg.cn/20190719104541808.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=80% height=80%><br>这样的提交日志就相对来说很清除，下面就来记录一下实现提交多行日志的方式。</p>
-<h2 id="二、配置-Git-提交模板"><a href="#二、配置-Git-提交模板" class="headerlink" title="二、配置 Git 提交模板"></a>二、配置 Git 提交模板</h2><ol>
-<li>在仓库的根目录下新建一个模板文件：如：git_commit_template.txt</li>
-<li>git config commit.template git_commit_template.txt     &#8195;&#8195; <strong>#注意这里文件要加后缀名，该方式设置的是当前分支的提交模板</strong><br>git config —global commit.template git_commit_template.txt  &#8195;&#8195;  <strong>#设置的是全局的提交模板。</strong></li>
-<li>git config —global core.editor vim  &#8195;&#8195; #设置模板的文本编辑器为vim,当然就需要我们在编写日志时会用简单的vim命令。</li>
-<li>git commit  &#8195;&#8195; #当我们再次提交时直接执行git commit 命令时会进入下图所示的模板界面，我们就可以“任意”书写多行的提交日志了。<br>&#8195;&#8195;日志模板中会提示当前所处的分支和修改过的文件可以很方便我们去写提交日志。<strong>强烈建议使用Git Bash   因为windows的命令行下不支持中文的输入，同时命令行对于高亮的支持也不好。</strong><br><img src="https://img-blog.csdnimg.cn/20190719111809358.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=80% height=80%><h2 id="三、日志模板书写格式"><a href="#三、日志模板书写格式" class="headerlink" title="三、日志模板书写格式"></a>三、日志模板书写格式</h2>&#8195;&#8195;当然我们可以写多行提交日志也不是随便的写，是有一些通用的格式的，下面部分从网上复制过来的常用的格式可以参考。<br>&#8195;&#8195;1. 常用格式：<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;type&gt;(&lt;scope&gt;):</span> <span class="string">&lt;subject&gt;</span></span><br><span class="line"><span class="string">//</span> <span class="string">空一行</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">//</span> <span class="string">空一行</span></span><br><span class="line"><span class="string">&lt;footer&gt;</span></span><br></pre></td></tr></table></figure>
-&#8195;&#8195;2. 参数要求<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">type</span>&gt;</span></span><br><span class="line">feat：新功能（feature）</span><br><span class="line">fix：修补bug</span><br><span class="line">docs：文档（documentation）</span><br><span class="line">style： 格式（不影响代码运行的变动）</span><br><span class="line">refactor：重构（即不是新增功能，也不是修改bug的代码变动）</span><br><span class="line">test：增加测试</span><br><span class="line">chore：构建过程或辅助工具的变动</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">Body 部分是对本次 commit 的详细描述，可以分成多行</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">可以根据自己的需要书写。如影响范围等。</span><br></pre></td></tr></table></figure>
-<h2 id="四、代码提交"><a href="#四、代码提交" class="headerlink" title="四、代码提交"></a>四、代码提交</h2>&#8195;&#8195;1. 书写完以后保存退出即可，直接git push 即可。<br>&#8195;&#8195;2. 提交后可以通过git log  或直接去github 上点击查看效果。</li>
-</ol>
+                <h2 id="一、创建工程文件"><a href="#一、创建工程文件" class="headerlink" title="一、创建工程文件"></a>一、创建工程文件</h2><p>在命令行执行以下几条命令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/src/Firmware</span><br><span class="line">mkdir ../Firmware-build</span><br><span class="line">cd ../Firmware-build</span><br><span class="line">cmake ../Firmware -G "CodeBlocks - Unix Makefiles" -DCONFIG=nuttx_px4fmu-v2_default</span><br></pre></td></tr></table></figure><br><strong>注意：官方文档通常没有<code>-DCONFIG</code>这个参数或者参数就是上面的<code>nuttx_px4fmu-v2_default</code>，这个需要根据自己的板子来选择</strong>：比如我的板子是雷迅的Pixhawk v3x，使用的参数就是：<code>nuttx_px4fmu-v3_default</code>，另外作为开发PX4，个人不推荐这个板子，因为只能运行1.8.0或者1.8.1的版本，建议买V5 或 Pixhawk4。</p>
+<h2 id="二、Qt-加载工程文件"><a href="#二、Qt-加载工程文件" class="headerlink" title="二、Qt 加载工程文件"></a>二、Qt 加载工程文件</h2><p>&ensp;&ensp;&ensp;&ensp;点击 Open Project，或者点击File -&gt; Open File or Project，选择在创建工程时Firmware目录下生成的 CMakeLists.txt文件。<br><img src="https://img-blog.csdnimg.cn/20200426173422735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
+width=80% height=80%><br>&ensp;&ensp;&ensp;&ensp;加载后如下：<br><img src="https://img-blog.csdnimg.cn/2020042617375434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
+width=80% height=80%></p>
+<h2 id="三、工程的配置"><a href="#三、工程的配置" class="headerlink" title="三、工程的配置"></a>三、工程的配置</h2><p>&ensp;&ensp;&ensp;&ensp;没有配置的情况下是只能编译，不能通过Qt下载程序到飞控板的。点击左侧Projects，第一次进来的界面如下图：<br><img src="https://img-blog.csdnimg.cn/20200426174308289.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
+width=80% height=80%><br>&ensp;&ensp;&ensp;&ensp;点击Add按钮，选择<strong>Custom Executable</strong>添加一个用户可执行的运行配置，具体输入内容如下图：<br><img src="https://img-blog.csdnimg.cn/20200426175007591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
+width=80% height=80%></p>
+<h2 id="四、编译工程"><a href="#四、编译工程" class="headerlink" title="四、编译工程"></a>四、编译工程</h2><p>&ensp;&ensp;&ensp;&ensp;回到Edit菜单栏，点击左下角的锤子图标，对工程进行编译，编译成功后如下：<br><img src="https://img-blog.csdnimg.cn/20200426175412845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
+width=80% height=80%></p>
+<h2 id="五、下载程序"><a href="#五、下载程序" class="headerlink" title="五、下载程序"></a>五、下载程序</h2><p>&ensp;&ensp;&ensp;&ensp;<strong>在下载之前请确保已经完成了第三部对于工程的配置，并通过USB线连接飞控。</strong> 该过程会再次对代码进行编译，然后下载到飞控，当然下载的版本就是我们加载工程时所显示的v1.8.0，当然你可以在当初选择任何适用于你板子的版本，成功后如下图所示：<br><img src="https://img-blog.csdnimg.cn/20200426180107251.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
+width=80% height=80%></p>
+<h2 id="六、连接QGC验证"><a href="#六、连接QGC验证" class="headerlink" title="六、连接QGC验证"></a>六、连接QGC验证</h2><p>&ensp;&ensp;&ensp;&ensp;打开QGC连接飞控，可以查看到所下载的代码版本，如下图所示，如果是第一次使用需要对传感器、遥控器等进行校准。<br><img src="https://img-blog.csdnimg.cn/20200426180728497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
+width=80% height=80%></p>
 
                 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/09/16/Python-环境搭建/" data-toggle="tooltip" data-placement="top" title="Python基础环境搭建">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/07/10/通过GPRS将GPS数据上传到服务器/" data-toggle="tooltip" data-placement="top" title="通过GPRS上传GPS数据到服务器">Next Post &rarr;</a>
+                        <a href="/2020/03/12/PX4开发环境搭建（Ubuntu1804-QGC-Qt-Creator-）/" data-toggle="tooltip" data-placement="top" title="PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -439,7 +437,7 @@ const myTheme = {
 
 
 const gitment = new Gitment({
-    id: 'Mon Aug 12 2019 14:23:40 GMT+0800', // optional
+    id: 'Wed Mar 25 2020 17:46:21 GMT+0800', // optional
     owner: "beyonderwei",
     repo: "gitment",
     oauth: {
@@ -486,7 +484,7 @@ const gitment = new Gitment({
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Git" title="Git">Git</a>
+                          <a class="tag" href="/tags/#无人机" title="无人机">无人机</a>
                         
                     </div>
                 </section>

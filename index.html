@@ -178,7 +178,7 @@
 
                         
                         <li>
-                            <a href="/categories/">分类</a>
+                            <a href="/tags/">标签</a>
                         </li>
                         
                     
@@ -192,7 +192,7 @@
 
                         
                         <li>
-                            <a href="/tags/">标签</a>
+                            <a href="/categories/">分类</a>
                         </li>
                         
                     
@@ -276,6 +276,38 @@
 
 
 <!-- Main Content -->
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/03/25/Ubuntu上使用Qt-Creator编译、下载PX4代码/">
+                <h2 class="post-title">
+                    Ubuntu上使用Qt Creator编译、下载PX4代码
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、创建工程文件在命令行执行以下几条命令：1234cd ~/src/Firmwaremkdir ../Firmware-buildcd ../Firmware-buildcmake ../Firmware -G "CodeBlocks - Unix Makefiles" -DCONFIG=nuttx_px4fmu-v2_default注意：官方文档通常没有-DCONFIG这个参数或者参数就是......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-03-25
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#无人机" title="无人机">无人机</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
 
     
 
@@ -597,41 +629,6 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
 
     
 
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/10/15/Ubuntu安装Docker（官方-阿里源）/">
-                <h2 class="post-title">
-                    Ubuntu安装Docker（官方/阿里源）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、为什么使用Docker&#8195;&#8195;构建后处处运行：Build Ship and Run Any App Anywhere&#8195;&#8195;Docker解决了因为配置、环境等不同造成的项目部署后无法运行的问题，避免多台机器部署时的反复配置。相对于虚拟机来说，因为Docker使用的是宿主机的内核，具有轻量、占用资源少、启动快等特点，容器间相互隔离，不会相互影响。
-二......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-10-15
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Docker" title="Docker">Docker</a>
-                    
-                      <a href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
 
 
 <!-- Pager -->
@@ -721,17 +718,7 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             
         
             
-            <a href="/tags/#无人机" title="无人机" rel="2">无人机</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
+            <a href="/tags/#无人机" title="无人机" rel="3">无人机</a>
             
         
             
@@ -760,6 +747,16 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         
             
             <a href="/tags/#排序" title="排序" rel="3">排序</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -880,6 +877,10 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
     <ul>
       
         <li>
+          <a href="/2020/03/25/Ubuntu%E4%B8%8A%E4%BD%BF%E7%94%A8Qt-Creator%E7%BC%96%E8%AF%91%E3%80%81%E4%B8%8B%E8%BD%BDPX4%E4%BB%A3%E7%A0%81/">Ubuntu上使用Qt Creator编译、下载PX4代码</a>
+        </li>
+      
+        <li>
           <a href="/2020/03/12/PX4%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88Ubuntu1804-QGC-Qt-Creator-%EF%BC%89/">PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）</a>
         </li>
       
@@ -893,10 +894,6 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
       
         <li>
           <a href="/2020/02/23/%E9%80%9A%E8%BF%87Docker%E9%83%A8%E7%BD%B2Flask%E5%BA%94%E7%94%A8%EF%BC%88gunicorn-gevent%EF%BC%89/">通过Docker部署Flask应用（gunicorn+gevent）</a>
-        </li>
-      
-        <li>
-          <a href="/2020/02/15/Docker%E5%AE%89%E8%A3%85Nginx%E5%AE%9E%E7%8E%B0%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">Docker安装Nginx实现反向代理</a>
         </li>
       
     </ul>
@@ -925,7 +922,7 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>
