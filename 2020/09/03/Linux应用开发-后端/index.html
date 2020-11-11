@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="baidu-site-verification" content="093lY4ziMu" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="A personal website.">
+    <meta name="keyword"  content="beyonderwei, 瞌睡遇上枕头">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+    <title>
+        
+          Linux应用开发-后端 - beyonderwei
+        
+    </title>
+
+    <link rel="canonical" href="http://beyonderwei.com/2020/09/03/Linux应用开发-后端/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS --> 
+    
+        
+<link rel="stylesheet" href="/css/dusign-light.css">
+
+        
+<link rel="stylesheet" href="/css/dusign-common-light.css">
+
+        
+<link rel="stylesheet" href="/css/font-awesome.css">
+
+        
+<link rel="stylesheet" href="/css/toc.css">
+
+        <!-- background effects end -->
+    
+    
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    
+<link rel="stylesheet" href="/css/widget.css">
+
+
+    
+<link rel="stylesheet" href="/css/rocket.css">
+
+
+    
+<link rel="stylesheet" href="/css/signature.css">
+
+
+    
+<link rel="stylesheet" href="/css/fonts.googleapis.css">
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- photography -->
+    
+<link rel="stylesheet" href="/css/photography.css">
+
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- background effects start -->
+    
+    <!-- background effects end -->
+
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
+                /*post*/
+            
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/dusign.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                            
+                        </div>
+                        <h1>Linux应用开发-后端</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Beyonderwei on
+                            2020-09-03
+                        </span>
+
+                        
+                            <div class="blank_box"></div>
+                            <span class="meta">
+                                Words <span class="post-count">3.7k</span> and
+                                Reading Time <span class="post-count">13</span> Minutes
+                            </span>
+                            <div class="blank_box"></div>
+                            <!-- 不蒜子统计 start -->
+                            <span class="meta">
+                                Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+                            </span>
+                            <!-- 不蒜子统计 end -->
+                        
+
+                    </div>
+                
+
+                </div>
+            </div>
+        </div>      
+    </div>
+
+    
+    <div class="waveWrapper">
+        <div class="wave wave_before" style="background-image: url('/img/wave-light.png')"></div>
+        <div class="wave wave_after" style="background-image: url('/img/wave-light.png')"></div>
+    </div>
+    
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Beyonderwei</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">分类</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">归档</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">关于作者</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">标签</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/photography/">相册</a>
+                        </li>
+                        
+                    
+
+                    <li>
+                        <a href="https://github.com/Beyonderwei" target="_blank">Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="Linux应用开发-后端"><a href="#Linux应用开发-后端" class="headerlink" title="Linux应用开发-后端"></a>Linux应用开发-后端</h1><p>Linux-林纳斯</p>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h3 id="1-主要的应用领域"><a href="#1-主要的应用领域" class="headerlink" title="1. 主要的应用领域"></a>1. 主要的应用领域</h3><ul>
+<li><p><strong>服务器</strong></p>
+<p>Linux生来就是被设计作为服务器的，众多服务程序均部署在Linux上。</p>
+</li>
+<li><p><strong>嵌入式系统</strong></p>
+<p>Linux完全开源，可对内核进行裁剪，最小可打到几百kb，常应用于嵌入式系统，如机顶盒、白家电等。安卓的内核也是Linux。</p>
+</li>
+</ul>
+<h3 id="2-学习阶段"><a href="#2-学习阶段" class="headerlink" title="2. 学习阶段"></a>2. 学习阶段</h3><ul>
+<li><strong>① 基本的操作命令</strong>：文件命令、编辑工具、linux用户管理</li>
+<li><strong>② 各种配置</strong>：环境变量、网络配置、服务配置</li>
+<li><strong>③ 搭建开发环境</strong>：如Java、python等的运行环境</li>
+<li><strong>④ shell脚本：</strong> 能对Linux进行维护，编写脚本文件。</li>
+<li><strong>⑤ 安全设置：</strong> 防止攻击、系统调优。</li>
+<li><strong>⑥ Linux内核：</strong> 熟练掌握大型网站应用架构的组成，熟练各个环节的部署和维护方法。</li>
+</ul>
+<h2 id="二、-Linux基础"><a href="#二、-Linux基础" class="headerlink" title="二、 Linux基础"></a>二、 Linux基础</h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h3><h4 id="①-特点"><a href="#①-特点" class="headerlink" title="① 特点"></a>① 特点</h4><ul>
+<li>免费、开源</li>
+<li>安全、高效、稳定（基本半年不用重启）</li>
+<li>处理高并发强悍（高并发场景）</li>
+<li>企业级项目的部署</li>
+</ul>
+<h4 id="②-吉祥物"><a href="#②-吉祥物" class="headerlink" title="② 吉祥物"></a>② 吉祥物</h4><p>吉祥物：Tux（企鹅）</p>
+<h4 id="③-发行版本"><a href="#③-发行版本" class="headerlink" title="③ 发行版本"></a>③ 发行版本</h4><p>Linux只是一个内核，在内核的基础上添加应用软件得到发行版本。<strong>国内常用Ubuntu 和 CentOS</strong> </p>
+<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-10-31_15-51-50.png" alt=""></p>
+<h4 id="④-Unix"><a href="#④-Unix" class="headerlink" title="④ Unix"></a>④ Unix</h4><p>Linux由Unix演化而来。</p>
+<p><strong>Ken tompson</strong></p>
+<ul>
+<li>用B语言开发了Unix</li>
+</ul>
+<p><strong>Dennis richres</strong> </p>
+<ul>
+<li>与Ken tompson 设计C语言，重写Unix</li>
+</ul>
+<p><strong>Linus</strong></p>
+<ul>
+<li>顺应GUN计划，在Unix基础上开发出Linux</li>
+</ul>
+<h2 id="三、目录结构"><a href="#三、目录结构" class="headerlink" title="三、目录结构"></a>三、目录结构</h2><p><strong>在linux中，一切皆文件</strong></p>
+<p>Linux会把所有的东西映射成一个文件来处理，如外接硬盘、cpu、应用程序、内存等。</p>
+<h2 id="四、vi-vim常用命令"><a href="#四、vi-vim常用命令" class="headerlink" title="四、vi vim常用命令"></a>四、vi vim常用命令</h2><p>参考：<a href="https://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener">菜鸟教程vi vim</a></p>
+<ul>
+<li>yy    复制当前行</li>
+<li>p    粘贴</li>
+<li>(n)yy    复制n行</li>
+<li>G    回到文件末尾</li>
+<li>gg    回到文件开头</li>
+<li>:set nu    设置行号</li>
+<li>:set noun    取消行号</li>
+<li>n shift+g    去第n行</li>
+</ul>
+<h2 id="五、开关机、重启与注销"><a href="#五、开关机、重启与注销" class="headerlink" title="五、开关机、重启与注销"></a>五、开关机、重启与注销</h2><ul>
+<li>sync    同步内存数据到磁盘（<strong>关机前执行</strong>）</li>
+<li>shutdwn<ul>
+<li>shutdown -h now    立即关机</li>
+<li>shutdown -h 1    一分钟后关机</li>
+<li>shutdown -r now    立即重启</li>
+</ul>
+</li>
+<li>halt    关机</li>
+<li><p>reboot    重启系统</p>
+</li>
+<li><p>logout    关闭当前用户的连接</p>
+</li>
+</ul>
+<h2 id="六、用户管理"><a href="#六、用户管理" class="headerlink" title="六、用户管理"></a>六、用户管理</h2><p>linux是一个多用户多任务的操作系统，想使用系统资源的用户需向管理员root申请一个账号，用来登录系统</p>
+<h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><ul>
+<li><strong>用户</strong>：linux系统的用户，可以有多个，root为管理员用户</li>
+<li><strong>用户组</strong>：每个用户可以被分配到一个或多个用户组（创建时指定或后期更换）</li>
+<li><strong>家目录</strong>：/home  每创建一个用户都会在home目录下分配一个子目录作为该用户的家目录，登陆后会进入该目录。</li>
+</ul>
+<h3 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h3><ul>
+<li><p>pwd    查看当前所在的目录</p>
+</li>
+<li><p>useradd [选项] 用户名    添加一个用户</p>
+<p>未指定用户组时会自动创建一个与用户同名的组，并将该用户添加到该用户组中。</p>
+<p><code>user add -g 用户组名 用户名</code>    添加到</p>
+</li>
+<li><p>passwd 用户名    为用户指定密码</p>
+</li>
+<li><p>userdel 用户名    删除用户（root用户来操作，用户家目录会保留）</p>
+</li>
+<li><p>userde -rl 用户名    删除用户（家目录也会被删掉，<strong>不推荐</strong>）</p>
+</li>
+<li><p>id 用户名    查询用户信息（id和所在组）</p>
+<p>uid-&gt;用户id    gid-&gt;用户组id    groups-&gt;用户组</p>
+</li>
+<li><p>su - 用户名    切换用户</p>
+</li>
+<li><p>exit    切换到上一个用户</p>
+</li>
+</ul>
+<h3 id="3-用户组"><a href="#3-用户组" class="headerlink" title="3. 用户组"></a>3. 用户组</h3><p>​    用户组用于对相同类别的用户进行统一管理，这些用户具有一些共性（如可以访问的文件的权限相同）。</p>
+<h4 id="①-用户组命令"><a href="#①-用户组命令" class="headerlink" title="① 用户组命令"></a>① 用户组命令</h4><ul>
+<li>groupadd 用户组名    添加用户组</li>
+<li>groupdel 用户组名    删除组</li>
+<li>usermod -g 用户组 用户名    将用户修改到别的用户组</li>
+<li>groups    查看当前登录用户组内的所有成员</li>
+<li>cat /etc/group    查看系统的用户组</li>
+<li>group 组名    查看该组内的所有成员</li>
+</ul>
+<h4 id="②-相关文件"><a href="#②-相关文件" class="headerlink" title="② 相关文件"></a>② 相关文件</h4><ul>
+<li><p>/etc/passwd</p>
+<p>保存用户信息的配置文件</p>
+<p>详细内容：用户名：用户口令（加密）：用户id：组id：：家目录：shell解释器</p>
+</li>
+<li><p>/etc/group</p>
+<p>保存用户组信息的配置文件</p>
+<p>详细内容：组名：组口令（加密）：组id</p>
+</li>
+<li><p>/etc/shadow</p>
+<p>口令的配置文件，包含用户的密码和登录信息。</p>
+<p>详细内容：用户名和密码等加密内容。</p>
+</li>
+</ul>
+<h2 id="七-运行级别"><a href="#七-运行级别" class="headerlink" title="七. 运行级别"></a>七. 运行级别</h2><p>​    系统运行级别德指定，包含七个运行级别，配置文件在/etc/inittab的id:5:initdefault这一行的数字，常用的运行级别是3和5。</p>
+<p><strong>运行级别的指定命令</strong>：<code>init [0123456]</code> </p>
+<ul>
+<li>0：关机</li>
+<li>1：单用户【找回丢失密码】</li>
+<li>2：多用户状态没有网络服务</li>
+<li><strong>3：多用户状态有网络服务（命令行界面）</strong> </li>
+<li>4：系统未使用，保留给用户</li>
+<li>5：图形界面</li>
+<li>6： 系统重启</li>
+</ul>
+<h2 id="八、root密码找回-（实体机）"><a href="#八、root密码找回-（实体机）" class="headerlink" title="八、root密码找回 （实体机）"></a>八、root密码找回 （实体机）</h2><p>进入到单用户模式，这时会以root身份登录系统，这时就可以更改root密码。</p>
+<ul>
+<li>开机引导时按：回车键 进入到引导开机前的界面</li>
+<li>输入e在booting之前编辑命令</li>
+<li>选择kernel 再按e</li>
+<li>输入空格1， 回车，告诉内核进入到单用户模式</li>
+<li>再输入b,启动boot</li>
+<li>passwd root    更改用户密码</li>
+</ul>
+<h2 id="九、-实用命令"><a href="#九、-实用命令" class="headerlink" title="九、 实用命令"></a>九、 实用命令</h2><h4 id="0-必知指令"><a href="#0-必知指令" class="headerlink" title="0. 必知指令"></a>0. 必知指令</h4><ul>
+<li>ln    软连接（link）<ul>
+<li>ln -s 源文件路径/名 软连接名    创建一个软连接，指向某个源文件或路径(之后便可直接对该软连接操作，如cd more等)</li>
+<li>rm -rf 软连接名    直接删除该软连接（是一个目录时）</li>
+</ul>
+</li>
+<li>history    查看历史执行过的指令<ul>
+<li>history n    显示最近执行过的n个指令</li>
+<li>!n    执行history中的第n条指令</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-帮助指令"><a href="#1-帮助指令" class="headerlink" title="1. 帮助指令"></a>1. 帮助指令</h4><ul>
+<li>man [命令或配置文件]    获取功能描述或帮助信息</li>
+<li>help 命令    获得shell内置命令的帮助信息</li>
+</ul>
+<h4 id="2-文件目录类"><a href="#2-文件目录类" class="headerlink" title="2. 文件目录类"></a>2. 文件目录类</h4><ul>
+<li><p>pwd    显示当前工作目录的绝对路径</p>
+</li>
+<li><p>ls 【选项】 【目录或者文件】    显示当前目录的信息</p>
+<ul>
+<li>-a    所有文件</li>
+<li>-l    以列表的方式显示信息</li>
+</ul>
+</li>
+<li><p>cd 【参数】    切换到指定目录</p>
+<ul>
+<li>cd ~    切换到自己的家目录</li>
+</ul>
+</li>
+<li><p>mkdir    创建一个目录</p>
+<p>make -p   /xxx/yyy    创建多级目录</p>
+</li>
+<li><p>rm [选项] 目录    删除指定文件或目录</p>
+<ul>
+<li>-r    递归删除整个文件夹</li>
+<li>-f    强制删除不提示（不提示是否删除？）</li>
+</ul>
+<p>rm -rf 目录    删除非空的目录</p>
+</li>
+<li><p>touch 文件名    创建一个空文件（可以多个 空格分开）</p>
+</li>
+<li><p>cp 【-r】source dest    将某个文件（文件夹下的所有内容）拷贝到dest路径</p>
+<p>-r：表示遍历</p>
+<p>\cp :表示复制时强制覆盖同名文件。</p>
+</li>
+<li><p>mv 旧文件名 新文件名    重命名文件</p>
+</li>
+<li><p>mv 源文件名（或目录） 新目录    将文件移动到新的目录（剪切）</p>
+</li>
+<li><p>cat 文件名    以只读的方式查看文件内容</p>
+<ul>
+<li>-n    查看内容的同时显示行号</li>
+<li>cat 文件名 | more    分页查看文件内容</li>
+</ul>
+</li>
+<li><p>more 文件名    以全屏方式显示文件内容（<strong>适合查看小文件</strong>）</p>
+<ul>
+<li>空格：向下翻页</li>
+<li>回车：向下翻一行</li>
+<li>Ctrl+F：向下滚动一屏</li>
+<li>Ctrl+B：向上滚动一屏</li>
+<li>=：显示行号</li>
+<li>:f ：输出文件名和当前行号</li>
+<li>q：立即离开</li>
+</ul>
+</li>
+<li><p>less 文件名   部分加载的方式，分屏查看文件（<strong>适合查看大文件</strong>）</p>
+<ul>
+<li>空格：向下翻页</li>
+<li>pagedown：向下翻页</li>
+<li>pageup：向上翻页</li>
+<li>/字符串：向下查找字符串</li>
+<li>?字符串：向上搜索字符串</li>
+<li>q：退出</li>
+</ul>
+</li>
+<li><p>echo：   输出内容到控制台</p>
+<ul>
+<li>echo $PATH    输出当前的环境变量</li>
+</ul>
+</li>
+<li><p>head    用于显示文件的前n行（默认10行）</p>
+<ul>
+<li>head -n 20 文件名    显示该文件的前20行</li>
+</ul>
+</li>
+<li><p>tail    用于查看文件的后10行</p>
+<ul>
+<li>tail -n 20 文件名    查看文件的后20行内容</li>
+<li>tail -f 文件名    实时监控文件的内容变化（<strong>重要：常用日志查看</strong>）</li>
+</ul>
+</li>
+<li><p>>：   输出重定向</p>
+<ul>
+<li>ls -l &gt; 文件名    列表内容写到文件中（覆盖写）</li>
+<li>cat 文件1 &gt; 文件2    将文件1（可带路径）的内容写到文件2（可带路径）</li>
+<li>echo “内容” &gt; 文件名    将内容写到文件中</li>
+</ul>
+</li>
+<li><p>>> ：   追加</p>
+<ul>
+<li>ls -l &gt;&gt; 文件名    列表的内容追加到文件的末尾</li>
+<li>echo “内容” &gt;&gt; 文件名    将内容追加到文件中</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-时间日期类"><a href="#3-时间日期类" class="headerlink" title="3. 时间日期类"></a>3. 时间日期类</h4><ul>
+<li><p>date     显示当前的时间日期（<strong>有格式的时候，加号必须有</strong>）</p>
+<ul>
+<li>date “+%Y-%m-%d”    显示年月日 用 - 连接    结果：2020-11-07</li>
+<li>date “+%Y年%m月%d日 %H:%M:%S”    结果：2020年11月07日 12:20:23</li>
+</ul>
+</li>
+<li><p>date -s “2020-11-07 12:20:20”    设置系统时间</p>
+</li>
+<li>cal    以日历的方式显示当前时间<ul>
+<li>cal 2020    显示2020年的日历</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-搜索查找类"><a href="#4-搜索查找类" class="headerlink" title="4. 搜索查找类"></a>4. 搜索查找类</h4><h5 id="①-find"><a href="#①-find" class="headerlink" title="① find"></a>① find</h5><ul>
+<li>find 某目录 -name 文件名    按名称查询某个目录下是否有该文件<ul>
+<li>find / -name *.txt    查询根目录下所有的txt文件</li>
+</ul>
+</li>
+<li>find 某目录 -size +20M    查询某个目录下大于20M的文件（<strong>查找包、日志等大文件使用很方便</strong>）<ul>
+<li>-20k    查询小于多少k的文件</li>
+</ul>
+</li>
+</ul>
+<h5 id="②-locate"><a href="#②-locate" class="headerlink" title="② locate"></a>② locate</h5><p>​    运行前要执行<code>updatedb</code>创建locate数据库</p>
+<ul>
+<li>locate 文件名    查询该文件所在目录</li>
+</ul>
+<h5 id="⑤-grep"><a href="#⑤-grep" class="headerlink" title="⑤ grep"></a>⑤ grep</h5><ul>
+<li>“|”   管道符号，表示将前一个命令的处理结果交给后面的命令处理。</li>
+<li>grep 【选项】 查找内容或源文件<ul>
+<li>-n    显示匹配行和行号</li>
+<li>-i    忽略字母的大小写</li>
+<li>eg：cat test.txt | grep -ni aaa    不区分大小写查询test.txt中的aaa，并显示行号</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-压缩与解压"><a href="#5-压缩与解压" class="headerlink" title="5. 压缩与解压"></a>5. 压缩与解压</h4><h5 id="①-zip-unzip"><a href="#①-zip-unzip" class="headerlink" title="① zip/unzip"></a>① zip/unzip</h5><ul>
+<li>zip -r 压缩文件名 压缩目录    对目录内的文件递归压缩<ul>
+<li>zip -r package.zip /root/    将root目录下的所有文件打包为package.zip</li>
+</ul>
+</li>
+<li>unzip -d /home/ package.zip    将文件解压到指定文件夹</li>
+</ul>
+<h5 id="②-tar"><a href="#②-tar" class="headerlink" title="② tar"></a>② tar</h5><ul>
+<li>tar 【选项】 xxx.tar.gz 打包内容<ul>
+<li>-c    产生.tar打包文件</li>
+<li>-v    显示详细信息</li>
+<li>-f    指定压缩后文件名</li>
+<li>-z    打包的同时压缩文件</li>
+<li>-x    解包.tar文件</li>
+</ul>
+</li>
+<li>tar -cxvf xxx.tar.gz 要打包的文件(一个或多个)    将文件打包为xxx.tar.gz</li>
+<li>tar -zxvf xxx.tar.gz -C 目标目录    将xxx.tar.gz 解压到指定目录（目录事先存在）</li>
+</ul>
+<h4 id="6-组管理"><a href="#6-组管理" class="headerlink" title="6. 组管理"></a>6. 组管理</h4><p>​    linux中每个文件都有 <strong>所有者、所在组、其他组的概念。</strong> </p>
+<h5 id="①-所有者"><a href="#①-所有者" class="headerlink" title="① 所有者"></a>① 所有者</h5><ul>
+<li>ls -ahl    查看文件的所有者和所在组<ul>
+<li>a    隐藏的文件</li>
+<li>l    列表详细显示（第三列：文件所有者；第四列：文件所在组）</li>
+<li>h    文件大小便于查看方式（G、K、M）</li>
+</ul>
+</li>
+<li>chown 用户名 文件或文件夹     改变文件的所有者（所在组不会变）</li>
+<li>chown 【选项】 新的所有者:新的所在组 文件名    同时改变文件的所有者和所在组<ul>
+<li>-R    递归更改某个目录下的所有文件的权限（该目录的子目录也会被更改）</li>
+</ul>
+</li>
+</ul>
+<h5 id="②-所在组"><a href="#②-所在组" class="headerlink" title="② 所在组"></a>② 所在组</h5><ul>
+<li>chgrp 组名 文件名    将文件所在组改为其他组</li>
+<li>usermod -g 组名 用户名    改变用户所在组</li>
+</ul>
+<h5 id="③-其他组"><a href="#③-其他组" class="headerlink" title="③ 其他组"></a>③ 其他组</h5><p>​    除所在组的组为该文件的其他组。</p>
+<h4 id="7-权限管理"><a href="#7-权限管理" class="headerlink" title="7. 权限管理"></a>7. 权限管理</h4><h5 id="①-文件详情解析"><a href="#①-文件详情解析" class="headerlink" title="① 文件详情解析"></a>① 文件详情解析</h5><p><code>-rw-rw--r--. 1 sivey root 20 11月 18 19：24 hello.txt</code> </p>
+<ul>
+<li><p>文件类型</p>
+<ul>
+<li>- ：普通文件</li>
+<li>d ：目录</li>
+<li>l ：软连接</li>
+<li>c ： 字符设备【鼠标键盘】</li>
+<li>b ：块文件【硬盘、U盘】</li>
+</ul>
+</li>
+<li><p>文件权限</p>
+<ul>
+<li>前三位    用户对该文件的权限</li>
+<li>中间三位    所属组对该文件的权限</li>
+<li>后三位    其他组对该文件的权限</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>文件数 / 硬连接数</p>
+<ul>
+<li>文件：1表示硬链接数</li>
+<li>目录：1表示目录内文件个数</li>
+</ul>
+</li>
+<li><p>sivey：文件所有者</p>
+</li>
+<li><p>root：文件所在用户组</p>
+</li>
+<li><p>文件大小：20k</p>
+</li>
+<li><p>最后修改时间：11月 18 19：24</p>
+</li>
+</ul>
+<h5 id="②-rwx文件权限"><a href="#②-rwx文件权限" class="headerlink" title="② rwx文件权限"></a>② rwx文件权限</h5><p><strong>r = 4， w = 2， x = 1，rwx=4+2+1=7</strong></p>
+<ul>
+<li>作用到文件<ul>
+<li>r：可读</li>
+<li>w：可写（但不代表可以删除，只有对该问价所在目录有写权限才能删除）</li>
+<li>x：执行</li>
+</ul>
+</li>
+<li>作用到目录<ul>
+<li>r：可读，ls查看目录内容</li>
+<li>w：可写，可修改目录，可创建、删除、重命名目录</li>
+<li>x：可执行，即可以进入目录</li>
+</ul>
+</li>
+</ul>
+<h5 id="③-修改权限"><a href="#③-修改权限" class="headerlink" title="③ 修改权限"></a>③ 修改权限</h5><ul>
+<li>通过 + - = 变更权限<ul>
+<li>chmod u=rwx,g=rx,o=x 文件或目录名    给文件或目录的所有者，所在组，其他组对应权限</li>
+<li>chmod o+w 文件或目录名    给文件或目录的其他组增加对应权限</li>
+<li>chmod a-x 文件或目录名    给文件的所有者、所在组、其他组去掉执行的权限</li>
+</ul>
+</li>
+<li>通过数字变更权限<ul>
+<li>chmod 751 文件或目录名    给文件或目录的所有者，所在组，其他组对应权限</li>
+</ul>
+</li>
+</ul>
+<h2 id="十、-任务调度（crond）"><a href="#十、-任务调度（crond）" class="headerlink" title="十、 任务调度（crond）"></a>十、 任务调度（crond）</h2><p>​    定时的执行一些脚本文件，如数据库的数据备份。</p>
+<ul>
+<li><p>crontab 【选项】</p>
+<ul>
+<li>-e    编辑crontab定时任务（简单任务不用写脚本，直接编辑复杂任务要写脚本文件）</li>
+<li>-l    查询crontab任务</li>
+<li>-r    删除当前用户所有的crontab任务</li>
+</ul>
+</li>
+<li><p>service crond restart    重启任务调度</p>
+</li>
+<li><p>举例：执行完crontab -e后输入下面的内容。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * ls -l /home &gt;&gt; /tmp/to.xtx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>时间参数说明</p>
+<p>| 位      | 含义               | 取值范围              |<br>| ———- | ————————— | ——————————- |<br>| 第1个 <em> | 一小时中的第几分钟 | 0-59                  |<br>| 第2个 </em> | 一天当中的第几小时 | 0-23                  |<br>| 第3个 <em> | 一个月当中的第几天 | 1-31                  |<br>| 第4个 </em> | 一年当中的第几月   | 1-12                  |<br>| 第5个 * | 一周当中的星期几   | 0-7（0和7都是星期日） |</p>
+</li>
+<li><p>特殊符号</p>
+<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-11-08_20-49-36.png" alt=""></p>
+</li>
+<li><p>特定时间执行的案例</p>
+<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-11-08_20-50-19.png" alt=""></p>
+</li>
+</ul>
+<h4 id="1-任务调度过程"><a href="#1-任务调度过程" class="headerlink" title="1. 任务调度过程"></a>1. 任务调度过程</h4><ul>
+<li><p>编写xxx.sh脚本文件，路径  /home/xw 文件内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l &#x2F;home &gt;&gt; &#x2F;tmp&#x2F;to.txt</span><br><span class="line">date &gt;&gt; &#x2F;tmp&#x2F;to.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给脚本文件可执行的权限</p>
+</li>
+<li><p>crontab -e </p>
+</li>
+<li><p><em>/1 </em> <em> </em> * /home/xxx.sh</p>
+</li>
+</ul>
+<h2 id="十一、-磁盘分区与挂载"><a href="#十一、-磁盘分区与挂载" class="headerlink" title="十一、 磁盘分区与挂载"></a>十一、 磁盘分区与挂载</h2><h4 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1. 常用命令"></a>1. 常用命令</h4><ul>
+<li>lsblk -f    查看系统的分区和挂载情况。带有分区类型</li>
+<li>lsblk    查看系统的分区和挂载情况。<strong>带有分区大小信息</strong></li>
+</ul>
+<h4 id="1-Linux的磁盘分区"><a href="#1-Linux的磁盘分区" class="headerlink" title="1. Linux的磁盘分区"></a>1. Linux的磁盘分区</h4><h5 id="①-介绍"><a href="#①-介绍" class="headerlink" title="① 介绍"></a>① 介绍</h5><p>​    磁盘分区包括主分区和扩展分区，系统必须装到主分区中，扩展分区还可以分成多个逻辑分区。</p>
+<p>​    对Linux来说无论有几个分区，分给哪一个目录使用，它只有一个根目录，有独立且唯一的目录结构，每个分区都用来组成整个文件系统的一部分。</p>
+<p>​    IDE硬盘，驱动器标识为hdx~,hd表示分区所在设备的类型，x：为盘号，</p>
+<ul>
+<li>挂载：将一个分区和一个目录联系起来，即将某分区挂载到某个目录，这时要载入的一个分区将使用他的存储空概念在一个目录下获得。</li>
+<li>卸载：将一个分区和一个目录取消联系。</li>
+</ul>
+<h4 id="②-实例分析"><a href="#②-实例分析" class="headerlink" title="② 实例分析"></a>② 实例分析</h4><p>lsblk 命令得到</p>
+<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-11-09_15-10-20.png" alt=""></p>
+<ul>
+<li>分区情况：—vda1 </li>
+<li>分区类型：ext4  </li>
+<li>uuid：4b499d76-769a-40a0-93dc-4a31a59add28</li>
+<li>挂载点：/</li>
+</ul>
+<p>​    </p>
+
+                
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2020/03/25/Ubuntu上使用Qt-Creator编译、下载PX4代码/" data-toggle="tooltip" data-placement="top" title="Ubuntu上使用Qt Creator编译、下载PX4代码">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                <!-- tip start -->
+                
+
+                
+                <div class="comment_notes">
+                    <p>
+                        本文为作者原创文章，未经作者允许不得转载。
+                    </p>
+                </div>
+                
+                <!-- tip end -->
+
+                <!-- Music start-->
+                
+                
+
+<link rel="stylesheet" href="/css/music-player/fonts/iconfont.css">
+
+
+<link rel="stylesheet" href="/css/music-player/css/reset.css">
+
+
+<link rel="stylesheet" href="/css/music-player/css/player.css">
+
+
+
+<div class="music-player">
+    <audio class="music-player__audio" ></audio>
+    <div class="music-player__main">
+        <div class="music-player__blur"></div>
+        <div class="music-player__disc">
+            <div class="music-player__image">
+                <img width="100%" src="" alt="">
+            </div>
+            <div class="music-player__pointer"><img width="100%" src="/img/cd_tou.png" alt=""></div>
+        </div>
+        <div class="music-player__controls">
+            <div class="music__info">
+                <h3 class="music__info--title">...</h3>
+                <p class="music__info--singer">...</p>
+            </div>
+            <div class="player-control">
+                <div class="player-control__content">
+                    <div class="player-control__btns">
+                        <div class="player-control__btn player-control__btn--prev"><i class="iconfont icon-prev"></i></div>
+                        <div class="player-control__btn player-control__btn--play"><i class="iconfont icon-play"></i></div>
+                        <div class="player-control__btn player-control__btn--next"><i class="iconfont icon-next"></i></div>
+                        <div class="player-control__btn player-control__btn--mode"><i class="iconfont icon-loop"></i></div>
+                    </div>
+                    <div class="player-control__volume">
+                        <div class="control__volume--icon player-control__btn"><i class="iconfont icon-volume"></i></div>
+                        <div class="control__volume--progress player_progress"></div>
+                    </div>
+                </div>
+                <div class="player-control__content">
+                    <div class="player__song--progress player_progress"></div>
+                    <div class="player__song--timeProgess nowTime">00:00</div>
+                    <div class="player__song--timeProgess totalTime">00:00</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/music-player/utill.js"></script>
+
+
+<script src="/js/music-player/jquery.min.js"></script>
+
+
+<script src="/js/music-player/player.js"></script>
+
+
+                
+                <!-- Music end -->
+
+                <!-- Sharing -->
+                
+                <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                <!--  css & js -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!-- Sharing -->
+
+                <!-- gitment start -->
+                
+                <hr>
+                <div id="blog_comments"></div>
+
+<!--
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+-->
+<!--
+<link rel="stylesheet" href="/css/gitment.css">
+<script type="text/javascript" src="/js/gitment.js"></script>
+-->
+
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css"/>
+
+<!--
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+-->
+
+<script>
+const myTheme = {
+  render(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    container.className = 'gitment-container gitment-root-container'
+    
+     // your custom component
+    container.appendChild(instance.renderSomething(state, instance))
+    
+    container.appendChild(instance.renderHeader(state, instance))
+    container.appendChild(instance.renderComments(state, instance))
+    container.appendChild(instance.renderEditor(state, instance))
+    //container.appendChild(instance.renderFooter(state, instance))
+    return container
+  },
+  renderSomething(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    container.className = 'hello_visitor'
+    if (state.user.login) {
+      container.innerText = `Hello ${state.user.login}, Welcome to comment system`
+    }
+    return container
+  }
+}
+
+
+const gitment = new Gitment({
+    id: 'Thu Sep 03 2020 15:31:45 GMT+0800', // optional
+    owner: "beyonderwei",
+    repo: "gitment",
+    oauth: {
+      client_id: "3154a4ba998ba4f00302",
+      client_secret: "bdef21bcc8a5357adad5f7c9b0371e40034a8246",
+    },
+    theme: myTheme,
+    // ...
+    // For more available options, check out the documentation below
+  })
+  
+  gitment.render('blog_comments')
+  // or
+  // gitment.render(document.getElementById('comments'))
+  // or
+  // document.body.appendChild(gitment.render())
+</script>
+                
+                <!-- gitment end -->
+
+                <!-- 来必力City版安装代码 -->
+                
+                <!-- City版安装代码已完成 -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/CSDN_X_W" target="_blank">CSDN</a></li>
+                    
+                        <li><a href="#" target="_blank">Web</a></li>
+                    
+                        <li><a href="https://github.com/Beyonderwei" target="_blank">Github</a></li>
+                    
+                        <li><a href="#" target="_blank">Other</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+
+
+<style  type="text/css">
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Beyonderwei 2020 
+                    <br>
+					瞌睡遇上枕头：
+                    <a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">吉ICP备20000556</a>
+                    <!--<a href="https://github.com/dusign/hexo-theme-snail" target="_blank" rel="noopener">
+                        <i>hexo-theme-snail</i>
+                    </a> | 
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0"
+                        width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=dusign&repo=hexo-theme-snail&type=star&count=true">
+                    </iframe>-->
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- Search -->
+
+<script src="/js/search.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://beyonderwei.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Search -->
+
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+    var path = "/" + search_path;
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- busuanzi -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+    
+        <!-- background effects line -->
+        
+
+        
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🌱&quot;,&quot;just do it&quot;,&quot;🌾&quot;,&quot;🍀&quot;,&quot;don&#39;t give up&quot;,&quot;🍂&quot;,&quot;🌻&quot;,&quot;try it again&quot;,&quot;🍃&quot;,&quot;never say die&quot;,&quot;🌵&quot;,&quot;🌿&quot;,&quot;🌴&quot;]' color='[&quot;rgb(121,93,179)&quot; ,&quot;rgb(76,180,231)&quot; ,&quot;rgb(184,90,154)&quot; ,&quot;rgb(157,211,250)&quot; ,&quot;rgb(255,0,0)&quot; ,&quot;rgb(242,153,29)&quot; ,&quot;rgb(23,204,16)&quot; ,&quot;rgb(222,0,0)&quot; ,&quot;rgb(22,36,92)&quot; ,&quot;rgb(127,24,116)&quot; ,&quot;rgb(119,195,79)&quot; ,&quot;rgb(4,77,34)&quot; ,&quot;rgb(122,2,60)&quot;]'></script>
+        
+
+        <!-- background effects end -->
+    
+
+    <!--<script size="50" alpha='0.3' zIndex="-999" src="/js/ribbonStatic.js"></script>-->
+    
+        <script src="/js/ribbonDynamic.js"></script>
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
