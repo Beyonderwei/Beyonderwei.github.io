@@ -171,6 +171,13 @@
 
                         
                         <li>
+                            <a href="/categories/">分类</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">归档</a>
                         </li>
                         
@@ -179,13 +186,6 @@
                         
                         <li>
                             <a href="/photography/">相册</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/categories/">分类</a>
                         </li>
                         
                     
@@ -276,6 +276,77 @@
 
 
 <!-- Main Content -->
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2019/03/15/数据结构——选择排序/">
+                <h2 class="post-title">
+                    数据结构——选择排序
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、排序思想每一次取出没有被排序的元素中最小的元素。
+二、图解
+先从已有的七个中找到最小的（下标为2），记住下标，与下标为0的交换。
+从剩下的六个中再找到这六个中最小的（下标为3），记住下标，与下标为1的交换。
+直到循环六次（N-1次），全部排好。三、代码实现1234567891011121314151617181920212223242526272829303132333435363738......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2019-03-15
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#排序" title="排序">排序</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2019/02/20/数据结构——查找（平衡二叉树、分块索引、哈希表对比）/">
+                <h2 class="post-title">
+                    数据结构——查找（平衡二叉树、分块索引、哈希表）
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、平衡二叉树1. 解决的问题&ensp;&ensp;&ensp;&ensp;&ensp;对于顺序存储的有序表在查找时可以采用二分法、插值法等查找方式，使查找的时间复杂度由 $O[n]$ 提高到了$O[log_n]$ ,但是面临的问题是，顺序存储的有序表在插入和删除元素时的效率很低，为 $O[n]$，因此如何使查找、插入和删除的的效率都很高呢？
+2. 概念&ensp;&ensp;&ensp;......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2019-02-20
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#二叉树" title="二叉树">二叉树</a>
+                    
+                      <a href="/tags/#Hash" title="Hash">Hash</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
 
     
 
@@ -602,75 +673,6 @@ PID控制器的输入：目标值 - 测量值......
 
     
 
-    
-
-        <div class="post-preview">
-
-            <a href="/2018/05/02/CC3200上传数据到服务器-实现一个简单的物联网系统-4/">
-                <h2 class="post-title">
-                    CC3200上传数据到服务器（实现一个简单的物联网系统-4）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、序言&#8195;&#8195;上篇文章已经完成了从服务器 get 数据，这篇将通过 post 的方式，将通过CC3200测得的花卉状态信息（如土壤湿度、光照强度）上传到服务器。其实post的方式也实现了接收服务器返回的数据，所以只发送一个post请求就可以完成数据的上传和获取，具体在下面说明。
-二、CC3200 连接到路由器（AP）&#8195;&#8195;这里已经在上篇文章说过了，......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2018-05-02
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#IOT" title="IOT">IOT</a>
-                    
-                      <a href="/tags/#CC3200" title="CC3200">CC3200</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2018/04/28/CC3200-从服务器获取数据-实现一个简单的物联网系统-3/">
-                <h2 class="post-title">
-                    CC3200从服务器获取数据（实现一个简单的物联网系统-3）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、序言&#8195;&#8195;借助 TI 公司的 CC3200 我们可以通过 http 轻松的完成与服务器之间的数据交互，体验CC3200的开箱即用的感觉，下面借助 http_client_demo 这个历程来实现从服务器 get 数据。实现我们从服务器得到用户的浇水信息。&#8195;&#8195;CC3200的SDK 里面提供了所有的关于CC3200的资料，真的非常重要。 如：AP......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2018-04-28
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#IOT" title="IOT">IOT</a>
-                    
-                      <a href="/tags/#CC3200" title="CC3200">CC3200</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
 
 
 <!-- Pager -->
@@ -732,15 +734,15 @@ PID控制器的输入：目标值 - 测量值......
     <div class="tags">
         
             
+        
+            
             <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
             
         
             
+        
+            
             <a href="/tags/#CC3200" title="CC3200" rel="4">CC3200</a>
-            
-        
-            
-        
             
         
             
@@ -760,6 +762,12 @@ PID控制器的输入：目标值 - 测量值......
             
         
             
+        
+            
+            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
+            
+        
+            
             <a href="/tags/#无人机" title="无人机" rel="3">无人机</a>
             
         
@@ -773,8 +781,6 @@ PID控制器的输入：目标值 - 测量值......
         
             
         
-            
-            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
             
         
             
@@ -925,6 +931,14 @@ PID控制器的输入：目标值 - 测量值......
     <ul>
       
         <li>
+          <a href="/2020/10/12/npm%E5%9F%BA%E7%A1%80%E5%BF%85%E5%A4%87/">npm基础必备</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/08/webpack%E5%9F%BA%E7%A1%80%E5%BF%85%E5%A4%87/">Webpack基础必备</a>
+        </li>
+      
+        <li>
           <a href="/2020/09/03/Linux%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E5%90%8E%E7%AB%AF/">Linux应用开发-后端</a>
         </li>
       
@@ -934,14 +948,6 @@ PID控制器的输入：目标值 - 测量值......
       
         <li>
           <a href="/2020/03/12/PX4%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88Ubuntu1804-QGC-Qt-Creator-%EF%BC%89/">PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）</a>
-        </li>
-      
-        <li>
-          <a href="/2020/03/07/PX4%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/">PX4开发基础</a>
-        </li>
-      
-        <li>
-          <a href="/2020/02/25/Nginx%E4%BB%A3%E7%90%86%E6%97%B6%E5%9C%A8gunicorn%E7%9A%84%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%9C%9F%E5%AE%9E%E8%AE%BF%E9%97%AEIP/">Nginx代理时在gunicorn的日志中记录真实访问IP</a>
         </li>
       
     </ul>
@@ -970,7 +976,7 @@ PID控制器的输入：目标值 - 测量值......
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>
@@ -985,11 +991,11 @@ PID控制器的输入：目标值 - 测量值......
         
           <a href="categories/#后端"><li>后端</li></a>
         
+          <a href="categories/#版本控制"><li>版本控制</li></a>
+        
           <a href="categories/#嵌入式"><li>嵌入式</li></a>
         
           <a href="categories/#Python"><li>Python</li></a>
-        
-          <a href="categories/#版本控制"><li>版本控制</li></a>
         
           <a href="categories/#前端"><li>前端</li></a>
         
