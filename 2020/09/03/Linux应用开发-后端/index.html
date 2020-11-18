@@ -125,8 +125,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">3.7k</span> and
-                                Reading Time <span class="post-count">13</span> Minutes
+                                Words <span class="post-count">5.5k</span> and
+                                Reading Time <span class="post-count">20</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -187,7 +187,7 @@
 
                         
                         <li>
-                            <a href="/categories/">分类</a>
+                            <a href="/about/">关于作者</a>
                         </li>
                         
                     
@@ -201,7 +201,14 @@
 
                         
                         <li>
-                            <a href="/about/">关于作者</a>
+                            <a href="/photography/">相册</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">分类</a>
                         </li>
                         
                     
@@ -209,13 +216,6 @@
                         
                         <li>
                             <a href="/tags/">标签</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/photography/">相册</a>
                         </li>
                         
                     
@@ -272,8 +272,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Linux应用开发-后端"><a href="#Linux应用开发-后端" class="headerlink" title="Linux应用开发-后端"></a>Linux应用开发-后端</h1><p>Linux-林纳斯</p>
-<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h3 id="1-主要的应用领域"><a href="#1-主要的应用领域" class="headerlink" title="1. 主要的应用领域"></a>1. 主要的应用领域</h3><ul>
+                <h1 id="Linux（林纳斯）"><a href="#Linux（林纳斯）" class="headerlink" title="Linux（林纳斯）"></a>Linux（林纳斯）</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h3 id="1-主要的应用领域"><a href="#1-主要的应用领域" class="headerlink" title="1. 主要的应用领域"></a>1. 主要的应用领域</h3><ul>
 <li><p><strong>服务器</strong></p>
 <p>Linux生来就是被设计作为服务器的，众多服务程序均部署在Linux上。</p>
 </li>
@@ -296,8 +295,7 @@
 <li>企业级项目的部署</li>
 </ul>
 <h4 id="②-吉祥物"><a href="#②-吉祥物" class="headerlink" title="② 吉祥物"></a>② 吉祥物</h4><p>吉祥物：Tux（企鹅）</p>
-<h4 id="③-发行版本"><a href="#③-发行版本" class="headerlink" title="③ 发行版本"></a>③ 发行版本</h4><p>Linux只是一个内核，在内核的基础上添加应用软件得到发行版本。<strong>国内常用Ubuntu 和 CentOS</strong> </p>
-<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-10-31_15-51-50.png" alt=""></p>
+<h4 id="③-发行版本"><a href="#③-发行版本" class="headerlink" title="③ 发行版本"></a>③ 发行版本</h4><p>Linux只是一个内核，在内核的基础上添加应用软件得到发行版本。<strong>国内常用Ubuntu 和 CentOS</strong> （CentOS属于redhat的免费版）</p>
 <h4 id="④-Unix"><a href="#④-Unix" class="headerlink" title="④ Unix"></a>④ Unix</h4><p>Linux由Unix演化而来。</p>
 <p><strong>Ken tompson</strong></p>
 <ul>
@@ -549,6 +547,7 @@
 <li>-n    显示匹配行和行号</li>
 <li>-i    忽略字母的大小写</li>
 <li>eg：cat test.txt | grep -ni aaa    不区分大小写查询test.txt中的aaa，并显示行号</li>
+<li>eg：ls -l /home |grep “^-“ | wc -l    统计/home目录下的文件的个数</li>
 </ul>
 </li>
 </ul>
@@ -670,10 +669,24 @@
 <p>| 位      | 含义               | 取值范围              |<br>| ———- | ————————— | ——————————- |<br>| 第1个 <em> | 一小时中的第几分钟 | 0-59                  |<br>| 第2个 </em> | 一天当中的第几小时 | 0-23                  |<br>| 第3个 <em> | 一个月当中的第几天 | 1-31                  |<br>| 第4个 </em> | 一年当中的第几月   | 1-12                  |<br>| 第5个 * | 一周当中的星期几   | 0-7（0和7都是星期日） |</p>
 </li>
 <li><p>特殊符号</p>
-<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-11-08_20-49-36.png" alt=""></p>
+<ul>
+<li>*  ：代表任何时间，比如第一个*就代表一个小时中每分钟都执行一次的意思</li>
+<li>,   ：代表不连续的时间，比如”0 8,12,16 <em> </em> *命令”，就代表再每天的8点0分，12点0分，16点0分都执行一次。</li>
+<li>-    ：代表连续的时间范围，比如“<em>/10 </em> <em> </em> * 命令”，代表在周一到周六的凌晨5点0分执行命令。</li>
+<li><em>/n    ：代表多久执行一次，比如“\</em>/10 <em> </em> <em> </em> 命令”，代表每隔十分钟就执行一遍命令。</li>
+</ul>
 </li>
 <li><p>特定时间执行的案例</p>
-<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-11-08_20-50-19.png" alt=""></p>
+<ul>
+<li>45 22 <em> </em> * 命令    在22点45分执行</li>
+</ul>
+</li>
+<li>0 17 <em> </em> 1 命令    每周1的17点0分执行<ul>
+<li>0 5 1，15 <em> </em> 命令    每月1号和15号的凌晨5点0分执行</li>
+<li>40 4 <em> </em> 1-5 命令    每周一到周五的凌晨4点40分执行命令</li>
+<li><em>/10 4 </em> <em> </em> 命令    每天的凌晨4点，每隔10分钟执行一次命令</li>
+<li>0 0 1，15 * 1 命令    每月的1号和15号，每周1的0点0分都会执行命令。注：星期几和几号最好不要同时出现，因为他们定义的都是天，容易混乱。</li>
+</ul>
 </li>
 </ul>
 <h4 id="1-任务调度过程"><a href="#1-任务调度过程" class="headerlink" title="1. 任务调度过程"></a>1. 任务调度过程</h4><ul>
@@ -691,22 +704,183 @@
 <li>lsblk -f    查看系统的分区和挂载情况。带有分区类型</li>
 <li>lsblk    查看系统的分区和挂载情况。<strong>带有分区大小信息</strong></li>
 </ul>
-<h4 id="1-Linux的磁盘分区"><a href="#1-Linux的磁盘分区" class="headerlink" title="1. Linux的磁盘分区"></a>1. Linux的磁盘分区</h4><h5 id="①-介绍"><a href="#①-介绍" class="headerlink" title="① 介绍"></a>① 介绍</h5><p>​    磁盘分区包括主分区和扩展分区，系统必须装到主分区中，扩展分区还可以分成多个逻辑分区。</p>
+<h4 id="2-Linux的磁盘分区"><a href="#2-Linux的磁盘分区" class="headerlink" title="2. Linux的磁盘分区"></a>2. Linux的磁盘分区</h4><h5 id="①-介绍"><a href="#①-介绍" class="headerlink" title="① 介绍"></a>① 介绍</h5><p>​    磁盘分区包括主分区和扩展分区，系统必须装到主分区中，扩展分区还可以分成多个逻辑分区。</p>
 <p>​    对Linux来说无论有几个分区，分给哪一个目录使用，它只有一个根目录，有独立且唯一的目录结构，每个分区都用来组成整个文件系统的一部分。</p>
 <p>​    IDE硬盘，驱动器标识为hdx~,hd表示分区所在设备的类型，x：为盘号，</p>
 <ul>
 <li>挂载：将一个分区和一个目录联系起来，即将某分区挂载到某个目录，这时要载入的一个分区将使用他的存储空概念在一个目录下获得。</li>
 <li>卸载：将一个分区和一个目录取消联系。</li>
 </ul>
-<h4 id="②-实例分析"><a href="#②-实例分析" class="headerlink" title="② 实例分析"></a>② 实例分析</h4><p>lsblk 命令得到</p>
-<p><img src="G:\后端\Linux\个人学习笔记\images\Snipaste_2020-11-09_15-10-20.png" alt=""></p>
+<h5 id="②-实例分析"><a href="#②-实例分析" class="headerlink" title="② 实例分析"></a>② 实例分析</h5><p>lsblk 命令得到</p>
+<p><img src="http://qiniu.beyonderwei.com/linux-action.png" alt=""></p>
 <ul>
 <li>分区情况：—vda1 </li>
 <li>分区类型：ext4  </li>
 <li>uuid：4b499d76-769a-40a0-93dc-4a31a59add28</li>
 <li>挂载点：/</li>
 </ul>
-<p>​    </p>
+<h4 id="3-磁盘情况查询"><a href="#3-磁盘情况查询" class="headerlink" title="3. 磁盘情况查询"></a>3. 磁盘情况查询</h4><ul>
+<li>df -lh    查询系统磁盘整体的使用情况</li>
+<li>du -h /目录    查询指定目录的磁盘占用情况<ul>
+<li>-s    指定目录占用大小汇总</li>
+<li>-h    带计量单位</li>
+<li>-a    含文件</li>
+<li>—max-depth=1    子目录深度</li>
+<li>-c    列出明细的同时，增加汇总值</li>
+</ul>
+</li>
+<li>yum install tree    安装tree指令</li>
+</ul>
+<h2 id="十二、网络配置"><a href="#十二、网络配置" class="headerlink" title="十二、网络配置"></a>十二、网络配置</h2><ul>
+<li>ifconfig    查看网络情况<ul>
+<li>eth0  表示第一块网卡</li>
+<li>eth1  表示第二块网卡</li>
+</ul>
+</li>
+<li>ping ip或域名    查看网络的联通情况</li>
+<li>/etc/sysconfig/network-scripts/ifcfg-eth0    网卡的配置目录<ul>
+<li>BOOTPROTO=static    以静态的方式获取IP（每次不变）默认none</li>
+<li>IPADDR    系统的IP地址</li>
+<li>ONBOOT=yes    </li>
+</ul>
+</li>
+<li>service network restart    重启网络服务</li>
+</ul>
+<h2 id="十三、进程管理"><a href="#十三、进程管理" class="headerlink" title="十三、进程管理"></a>十三、进程管理</h2><h4 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h4><ul>
+<li>linux中每一个执行的程序都为一个进程，每一个进程都被分配一个ID（PID）来管理</li>
+<li>每一个进程都会对应一个父进程，父进程可以复制多个子进程。linux的总父进程为init.</li>
+<li>进程以两种方式存在，前台和后台。</li>
+<li>一般系统服务都是以后台进程方式存在，一般都会常驻在系统中，直到关机才结束。</li>
+</ul>
+<h4 id="2-进程查询"><a href="#2-进程查询" class="headerlink" title="2. 进程查询"></a>2. 进程查询</h4><h5 id="①-ps-aux-查看程序"><a href="#①-ps-aux-查看程序" class="headerlink" title="①. ps -aux    查看程序"></a>①. ps -aux    查看程序</h5><ul>
+<li><p>-a    显示当前终端的所有进程</p>
+</li>
+<li><p>-u    以用户格式显示进程信息</p>
+</li>
+<li>-x    显示后台进程运行的参数</li>
+</ul>
+<p><strong>注：</strong> bash或/bin/bash表示终端的进程</p>
+<p>参数列表：</p>
+<ul>
+<li>USER    用户名</li>
+<li>PID    进程ID</li>
+<li>%CPU    CPU占用率</li>
+<li>%MEM    内存占用率</li>
+<li>VSZ    虚拟内存占用情况</li>
+<li>RSS    物理内存占用情况</li>
+<li>TTY    使用的终端</li>
+<li>STAT    进程的状态<ul>
+<li>s    休眠</li>
+<li>r    运行</li>
+<li>D    短期等待</li>
+<li>Z    僵死进程</li>
+<li>T    被跟踪或被停止</li>
+</ul>
+</li>
+<li>START    启动时间</li>
+<li>TIME    占用CPU的总共时间</li>
+<li>COMMAND    进程执行时的命令行</li>
+</ul>
+<h5 id="②-ps-ef-查看进程的同时查看父进程"><a href="#②-ps-ef-查看进程的同时查看父进程" class="headerlink" title="②. ps -ef    查看进程的同时查看父进程"></a>②. ps -ef    查看进程的同时查看父进程</h5><ul>
+<li>PPID    父进程ID</li>
+</ul>
+<p>eg：ps -ef | grep sshd    查看sshd（远程连接服务）进程的父进程</p>
+<h5 id="③-pstree-以树状的形式查询进程"><a href="#③-pstree-以树状的形式查询进程" class="headerlink" title="③. pstree 以树状的形式查询进程"></a>③. pstree 以树状的形式查询进程</h5><ul>
+<li>-p    显示PID</li>
+<li>-u    显示进程 所属用户</li>
+</ul>
+<h4 id="3-终止进程"><a href="#3-终止进程" class="headerlink" title="3. 终止进程"></a>3. 终止进程</h4><ul>
+<li>kill [选项] 进程号<ul>
+<li>kill -9  进程号    强制停止某个进程（如终端进程会忽略kill，需要使用 -9 ）</li>
+</ul>
+</li>
+<li>killall 进程名称    通过一个进程的名称，将一个父进程及其所有子进程全部终止</li>
+</ul>
+<h4 id="4-服务管理"><a href="#4-服务管理" class="headerlink" title="4. 服务管理"></a>4. 服务管理</h4><h5 id="①-简介"><a href="#①-简介" class="headerlink" title="① 简介"></a>① 简介</h5><p>​    服务本质上就是一个进程，但是是运行在后台的，通常会监听一个端口，通过这个端口等待其他请求的连接。如sshd 防火墙 mysql等，又称守护进程。</p>
+<h5 id="②-管理指令"><a href="#②-管理指令" class="headerlink" title="② 管理指令"></a>② 管理指令</h5><ul>
+<li><strong>centos7.0以前：</strong> service 服务名 start stop restart reload status</li>
+<li><strong>centos7.0以后：</strong> systemctl 指令代替 service</li>
+</ul>
+<p>eg：service iptables status    查看防火墙（iptables）的状态</p>
+<h5 id="③-查看端口状态"><a href="#③-查看端口状态" class="headerlink" title="③ 查看端口状态"></a>③ 查看端口状态</h5><ul>
+<li>telnet ip 端口号    在windos上查看某个ip的端口号是否在监听状态</li>
+</ul>
+<h5 id="④-查看系统的服务"><a href="#④-查看系统的服务" class="headerlink" title="④ 查看系统的服务"></a>④ 查看系统的服务</h5><ul>
+<li>setup -&gt; 系统服务    可以看到有哪些系统服务<ul>
+<li>带有星号的表示自启动的。</li>
+</ul>
+</li>
+<li>ls -l /etc/init.d/    查看有哪些服务</li>
+</ul>
+<h5 id="⑤-开机流程"><a href="#⑤-开机流程" class="headerlink" title="⑤ 开机流程"></a>⑤ 开机流程</h5><p>​    开机 - BIOS - /boot - init进程1 - <strong>运行级别</strong> - 运行级别对应的服务</p>
+<p>每一个进程，针对每一个运行级别都设置了是否自启动。</p>
+<h5 id="⑥-服务自启动（设置级别）"><a href="#⑥-服务自启动（设置级别）" class="headerlink" title="⑥. 服务自启动（设置级别）"></a>⑥. 服务自启动（设置级别）</h5><ul>
+<li><p>chkconfig —list    查看每个服务的各个运行级别设置是否自启动/关闭</p>
+</li>
+<li><p>chkconfig 服务名 —list    查看某个服务的各个运行级别设置是否自启动/关闭</p>
+</li>
+<li>chkconfig —level 5 服务名 on/off    为某个服务设置在某个运行级别下是否自启动</li>
+</ul>
+<h4 id="5-监控服务"><a href="#5-监控服务" class="headerlink" title="5. 监控服务"></a>5. 监控服务</h4><h5 id="①-动态进程监控"><a href="#①-动态进程监控" class="headerlink" title="①. 动态进程监控"></a>①. 动态进程监控</h5><ul>
+<li><p>top [选项]    显示正在执行的进程</p>
+<ul>
+<li>-d    指定top每隔几秒更新（默认3秒）</li>
+<li>-i    不显示任何限制或僵死的进程</li>
+<li>-p    查看指定PID的进程的状态</li>
+</ul>
+<p><strong>交互操作说明：</strong></p>
+<ul>
+<li>P    以cpu使用率排序（默认）</li>
+<li>M    以内存使用率排序</li>
+<li>N    以PID排序</li>
+<li>u    输入u以后输入用户名回车，查看指定用户的进程</li>
+<li>k    输入k以后输入进程号，会杀死相应的进程</li>
+<li>Q   退出</li>
+</ul>
+</li>
+</ul>
+<h5 id="②-网络状态监控"><a href="#②-网络状态监控" class="headerlink" title="②. 网络状态监控"></a>②. 网络状态监控</h5><ul>
+<li><p>netstat -anp    查看所有的网络服务</p>
+<ul>
+<li>-an    按一定顺序排列输出</li>
+<li>-p    显示哪个进程在调用</li>
+</ul>
+<p>eg：</p>
+<ul>
+<li>netstat -anp |grep sshd    查看sshd服务的网络在那个太</li>
+<li>netstat -anp |grep 6379    查看6379端口的网络状态</li>
+</ul>
+</li>
+</ul>
+<h2 id="十四、-RPM和YUM"><a href="#十四、-RPM和YUM" class="headerlink" title="十四、 RPM和YUM"></a>十四、 RPM和YUM</h2><h4 id="1-RPM"><a href="#1-RPM" class="headerlink" title="1.  RPM"></a>1.  RPM</h4><p>​    全称：Redhat Package Manager 类似windos的.exe安装包，RPM被redhat、centos等发行版本所使用。</p>
+<h5 id="①-命令"><a href="#①-命令" class="headerlink" title="①. 命令"></a>①. 命令</h5><ul>
+<li><p>rpm -qa    查询已安装的rpm软件</p>
+<p>eg：rpm -qa | grep xxx    查询系统是否安装了xxx</p>
+</li>
+<li><p>rpm -qa    查询已经安装的所有安装包</p>
+</li>
+<li><p>rpm -qi 软件包名    查看安装的rpm软件的详细信息（版本、安装时间等）</p>
+</li>
+<li><p>rpm -ql 软件包名    查看安装的软件安装了哪些文件（<strong>安装位置</strong>）</p>
+</li>
+<li><p>rpm -qf 目录    查看某个目录是属于哪个RPM包的</p>
+<p>eg: rpm -qf /etc/passwd</p>
+</li>
+<li><p>rpm -e 软件包名    删除某个软件包（当该包被其他包依赖时会提示是否强制删除）</p>
+</li>
+<li><p>rpm -ivh  路径/软件包名    安装某个rpm软件包（要先有安装包，才能安装）</p>
+<ul>
+<li>-i    install  安装</li>
+<li>-v    verbose 提示</li>
+<li>-h    hash  进度条</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-YUM-主流"><a href="#2-YUM-主流" class="headerlink" title="2.YUM(主流)"></a>2.YUM(主流)</h4><h5 id="①-简介-1"><a href="#①-简介-1" class="headerlink" title="①. 简介"></a>①. 简介</h5><p>​    shell前端软件包管理工具，基于RPM包，可以从指定的服务器自动下载rpm包并进行安装，也可以自动处理依赖关系，并且一次性安装所有依赖的软件包。</p>
+<h5 id="②-基本命令"><a href="#②-基本命令" class="headerlink" title="②. 基本命令"></a>②. 基本命令</h5><ul>
+<li>yum list | grep 软件包名称    查询远程服务器是否有该安装包</li>
+<li>yum install 软件包名称   安装某个软件（<strong>默认安装最新的，安装后自动删除安装包</strong>）</li>
+</ul>
 
                 
                 <hr>

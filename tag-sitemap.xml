@@ -4,7 +4,7 @@
 
     <url>
         <loc>http://beyonderwei.com/tags/Linux/</loc>
-        <lastmod>2020-11-11T11:12:26.165Z</lastmod>
+        <lastmod>2020-11-18T09:01:42.215Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -31,14 +31,14 @@
     </url>
 
     <url>
-        <loc>http://beyonderwei.com/tags/Docker/</loc>
+        <loc>http://beyonderwei.com/tags/Flask/</loc>
         <lastmod>2020-03-27T14:43:58.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://beyonderwei.com/tags/Flask/</loc>
+        <loc>http://beyonderwei.com/tags/Docker/</loc>
         <lastmod>2020-03-27T14:43:58.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -136,14 +136,14 @@
     </url>
 
     <url>
-        <loc>http://beyonderwei.com/tags/IOT/</loc>
+        <loc>http://beyonderwei.com/tags/%25E4%25BA%2591%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
         <lastmod>2020-02-29T12:17:11.296Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://beyonderwei.com/tags/%25E4%25BA%2591%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
+        <loc>http://beyonderwei.com/tags/IOT/</loc>
         <lastmod>2020-02-29T12:17:11.296Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
