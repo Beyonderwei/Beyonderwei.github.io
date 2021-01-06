@@ -276,8 +276,7 @@
 <h2 id="二、GitBook特点"><a href="#二、GitBook特点" class="headerlink" title="二、GitBook特点"></a>二、GitBook特点</h2><ol>
 <li>凭借这个平台可以创建精美的个人笔记、说明文档、甚至是写书等…</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20200115111556464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=80% height=80%></p>
+<p><img src="https://img-blog.csdnimg.cn/20200115111556464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="80%" height="80%"></p>
 <ol>
 <li>Markdown书写，简单方便</li>
 <li><strong>多地同步：</strong> 文档与GitHub仓库绑定，本地创作Push到Github后可自动同步到GitBook并展示，在GitBook上创作后可一键提交到Github仓库。</li>
@@ -286,27 +285,22 @@ width=80% height=80%></p>
 <li>在Github上创建一个仓库，并克隆到本地</li>
 <li>注册登录GitBook（通过Github账号登录，方便后期绑定仓库），创建一个新的Space</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20200115114648213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=80% height=80%></p>
+<p><img src="https://img-blog.csdnimg.cn/20200115114648213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="80%" height="80%"></p>
 <ol>
 <li>进入到创建好的Book中，在左侧intergrations开启Github并绑定之前创建好的仓库</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20200115115220228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=80% height=80%></p>
+<p><img src="https://img-blog.csdnimg.cn/20200115115220228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="80%" height="80%"></p>
 <ol>
 <li>因为GitBook是基于Node.js的工具，因此需要在计算机本地安装Node.js，可以在<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> 下载并傻瓜式安装，安装完成后可以在命令行通过 <code>node -v</code> 和 <code>npm -v</code> 查看版本号</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20200115114302945.png"
-width=60% height=60%></p>
+<p><img src="https://img-blog.csdnimg.cn/20200115114302945.png" width="60%" height="60%"></p>
 <ol>
 <li>在本地安装GitBook脚手架：<code>npm install gitbook-cli -g</code>  通过 <code>gitbook -V</code> 查看gitbook和CLI的版本。</li>
 <li>在之前拉取的仓库目录下执行 <code>gitbook init</code> 来初始化书籍，这时由于已经有了原有仓库的README.dm  因此GitBook自带的README.md便不会再生成。成功后会包含如下三个文件夹：</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20200115120133652.png" 
-width=60% height=60%></p>
+<p><img src="https://img-blog.csdnimg.cn/20200115120133652.png" width="60%" height="60%"></p>
 <p> 注：_book为自动生成的文件，SUMMARY.md为书籍的目录文件，这个需要按照一定格式来书写，很简单，以下分别表示一级、二级…目录，以此类推。括号内为与之绑定要显示的内容的文件</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200115120716178.png" 
-width=60% height=60%></p>
+<p> <img src="https://img-blog.csdnimg.cn/20200115120716178.png" width="60%" height="60%"></p>
 <ol>
 <li>运行 <code>gitbook serve</code> 即可在本地运行项目，并可以通过 访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 查看效果。</li>
 <li>最后add commit push 项目到github 仓库，这时由于GitBook已经绑定了该仓库，因此，访问GitBook即可查看到最新的书籍状态。</li>

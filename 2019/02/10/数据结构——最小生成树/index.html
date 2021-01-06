@@ -279,22 +279,19 @@
                 <h2 id="一、相关概念"><a href="#一、相关概念" class="headerlink" title="一、相关概念"></a>一、相关概念</h2><ol>
 <li>连通图：图中的任意两个节点之间都是联通的，即：总能从A节点按照一定路径走到B节点。</li>
 <li>生成树：为联通图的一个联通子图，包含N个结点和N-1条边。</li>
-<li>最小生成树：当联通图中的每条边带有权值时，所有边权值和最小的生成树。<h2 id="二、问题导向"><a href="#二、问题导向" class="headerlink" title="二、问题导向"></a>二、问题导向</h2>&ensp;&ensp;&ensp;&ensp;各个城市之间修建铁路，城市之间铺设电缆、水管等，不考虑环境等复杂因素，肯定最小生成树对应的权值（对应管线、铁路等长度）和最小怎样才能成本最低。因此如何铺设的问题转化成了找到这个最小生成树的问题。如下图(A~F表示城市，线上的数字表示距离)：<br><img src="https://img-blog.csdnimg.cn/20200228215520217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width = 60% height = 60%><h2 id="三、相关算法"><a href="#三、相关算法" class="headerlink" title="三、相关算法"></a>三、相关算法</h2>注：正常情况下没有办法一眼看出来该如何选择的，如果更复杂一点的话就更难用眼睛看出来的了，因此面对该问题需要有响应的算法来解决。<strong>听着很高端、实际实现的代码逻辑很复杂，但是懂了思想理解起来很容易。</strong><br><strong>最终目的：</strong> 找到我们想要的N-1条线。<h4 id="Prim算法："><a href="#Prim算法：" class="headerlink" title="Prim算法："></a>Prim算法：</h4><strong>通俗理解：</strong> </li>
+<li>最小生成树：当联通图中的每条边带有权值时，所有边权值和最小的生成树。<h2 id="二、问题导向"><a href="#二、问题导向" class="headerlink" title="二、问题导向"></a>二、问题导向</h2>&ensp;&ensp;&ensp;&ensp;各个城市之间修建铁路，城市之间铺设电缆、水管等，不考虑环境等复杂因素，肯定最小生成树对应的权值（对应管线、铁路等长度）和最小怎样才能成本最低。因此如何铺设的问题转化成了找到这个最小生成树的问题。如下图(A~F表示城市，线上的数字表示距离)：<br><img src="https://img-blog.csdnimg.cn/20200228215520217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="60%" height="60%"><h2 id="三、相关算法"><a href="#三、相关算法" class="headerlink" title="三、相关算法"></a>三、相关算法</h2>注：正常情况下没有办法一眼看出来该如何选择的，如果更复杂一点的话就更难用眼睛看出来的了，因此面对该问题需要有响应的算法来解决。<strong>听着很高端、实际实现的代码逻辑很复杂，但是懂了思想理解起来很容易。</strong><br><strong>最终目的：</strong> 找到我们想要的N-1条线。<h4 id="Prim算法："><a href="#Prim算法：" class="headerlink" title="Prim算法："></a>Prim算法：</h4><strong>通俗理解：</strong> </li>
 <li>任意选择一个结点开始（从此已有结点多了一个0到1）</li>
 <li>从已有的结点中，找与已有结点和剩下的结点连线权限最小的那个</li>
 <li>迭代重复第二步，直到所有结点都被连接。此时刚哈N-1条边。</li>
 </ol>
-<p><strong>举例：</strong> 假设以A为第一个点，我们依次被连接的顶点顺序为：A-&gt;F-&gt;E-&gt;D-&gt;C-&gt;B，边被选择的顺序为：4、2、3、4、3。步骤为红色12345的顺序。<br><img src="https://img-blog.csdnimg.cn/20200228215957777.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width = 60% height = 60%></p>
+<p><strong>举例：</strong> 假设以A为第一个点，我们依次被连接的顶点顺序为：A-&gt;F-&gt;E-&gt;D-&gt;C-&gt;B，边被选择的顺序为：4、2、3、4、3。步骤为红色12345的顺序。<br><img src="https://img-blog.csdnimg.cn/20200228215957777.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="60%" height="60%"></p>
 <h4 id="Kruskal算法："><a href="#Kruskal算法：" class="headerlink" title="Kruskal算法："></a>Kruskal算法：</h4><p><strong>通俗理解：</strong></p>
 <ol>
 <li>从所有的边中找最短的边</li>
 <li>保证，所有的边连起来不能构成环路，如果构成环路则选择次小的边、或者次次小的边，</li>
 <li>按照第二部的要求，重复第一步的过程，直到所有的结点被连接。</li>
 </ol>
-<p><strong>举例：</strong> 依次被选择的边：2(EF)-&gt;3(D)-&gt;3(BC)-&gt;4(A)-&gt;4。步骤为红色12345的顺序。<br><img src="https://img-blog.csdnimg.cn/20200228220137507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width = 60% height = 60%></p>
+<p><strong>举例：</strong> 依次被选择的边：2(EF)-&gt;3(D)-&gt;3(BC)-&gt;4(A)-&gt;4。步骤为红色12345的顺序。<br><img src="https://img-blog.csdnimg.cn/20200228220137507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="60%" height="60%"></p>
 
                 
                 <hr>

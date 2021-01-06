@@ -276,14 +276,12 @@
 
                 <h2 id="一、PID-原理"><a href="#一、PID-原理" class="headerlink" title="一、PID 原理"></a>一、PID 原理</h2><p>&#8195;&#8195; <strong>偏差控制</strong>，利用目标值（期望值）与实际测量值构成的偏差（误差）对被控对象进行线性的控制。<strong>偏差 = 目标值 - 测量值</strong>。</p>
 <h2 id="二、四旋翼串级双闭环-PID-控制"><a href="#二、四旋翼串级双闭环-PID-控制" class="headerlink" title="二、四旋翼串级双闭环 PID 控制"></a>二、四旋翼串级双闭环 PID 控制</h2><p>&#8195;&#8195;对于四旋翼，可以理解外环为角度环，内环是角速度环。</p>
-<h3 id="1-外环"><a href="#1-外环" class="headerlink" title="1. 外环"></a>1. 外环</h3><p><img src="https://img-blog.csdnimg.cn/20190517170845818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=80% height=80%></p>
+<h3 id="1-外环"><a href="#1-外环" class="headerlink" title="1. 外环"></a>1. 外环</h3><p><img src="https://img-blog.csdnimg.cn/20190517170845818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="80%" height="80%"></p>
 <ol>
 <li>目标值：期望轨迹，即期望的姿态角度。</li>
 <li>测量值：实际的姿态角度。</li>
 <li>PID控制器的输入：目标值 - 测量值。</li>
-<li>PID控制器的输出：提供使测量值趋近于目标值的方法<br><strong>注：</strong><br>①. <strong>外环是位置反馈 -&gt; 反馈了当前的位置，即当前偏航了多少角度。</strong><br>②. <strong>外环控制是为了达到期望的角度，因为角度是由角速度积分得到，dT时间，外环输出的控制量反应角度的偏差值，dT时间的角度偏差即角速度，所以把外环PID的输出作为角速度来用，外环的输出就是我们想要达到的角速度。把外环的输出作为内环的输入（内环的目标值），即我们期望角速度进行怎么样的变化，才能使姿态角度达到我们期望的姿态角度。</strong> <h3 id="2-内环"><a href="#2-内环" class="headerlink" title="2.内环"></a>2.内环</h3><img src="https://img-blog.csdnimg.cn/20190517195252408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=80% height=80%></li>
+<li>PID控制器的输出：提供使测量值趋近于目标值的方法<br><strong>注：</strong><br>①. <strong>外环是位置反馈 -&gt; 反馈了当前的位置，即当前偏航了多少角度。</strong><br>②. <strong>外环控制是为了达到期望的角度，因为角度是由角速度积分得到，dT时间，外环输出的控制量反应角度的偏差值，dT时间的角度偏差即角速度，所以把外环PID的输出作为角速度来用，外环的输出就是我们想要达到的角速度。把外环的输出作为内环的输入（内环的目标值），即我们期望角速度进行怎么样的变化，才能使姿态角度达到我们期望的姿态角度。</strong> <h3 id="2-内环"><a href="#2-内环" class="headerlink" title="2.内环"></a>2.内环</h3><img src="https://img-blog.csdnimg.cn/20190517195252408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="80%" height="80%"></li>
 <li>目标值：外环的输出，即期望的角速度。</li>
 <li>测量值：实际的角速度。</li>
 <li>PID 输入：目标值减去测量值。</li>

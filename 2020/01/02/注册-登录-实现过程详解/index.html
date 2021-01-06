@@ -275,15 +275,13 @@
                 post-container">
 
                 <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>&ensp;&ensp;&ensp;&ensp;一般的平台基本上都有用户管理这一部分，虽然我们都是各个平台的用户，对于一般的流程有所了解，看似简单，但是真正实现的过程中确遇到了很多的困难。</p>
-<h2 id="二、实现过程图解"><a href="#二、实现过程图解" class="headerlink" title="二、实现过程图解"></a>二、实现过程图解</h2><h3 id="注册："><a href="#注册：" class="headerlink" title="注册："></a>注册：</h3><p><img src="https://img-blog.csdnimg.cn/20200123183013482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" 
-width=90% height=90%><br>看似过程似乎很简单但是这过程还有很多需要考虑的因素，采取邮箱发送验证码的方式实现验证：</p>
+<h2 id="二、实现过程图解"><a href="#二、实现过程图解" class="headerlink" title="二、实现过程图解"></a>二、实现过程图解</h2><h3 id="注册："><a href="#注册：" class="headerlink" title="注册："></a>注册：</h3><p><img src="https://img-blog.csdnimg.cn/20200123183013482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="90%" height="90%"><br>看似过程似乎很简单但是这过程还有很多需要考虑的因素，采取邮箱发送验证码的方式实现验证：</p>
 <ol>
 <li>验证码如何产生：<br> &ensp;&ensp;&ensp;&ensp;通常我们的验证码是0-9中的六个或者四个数字，因此需要循环产生四个或者六个随机数字。python版可参考：<a href="https://blog.csdn.net/CSDN_X_W/article/details/103844723" target="_blank" rel="noopener">使用Flask发送邮件</a></li>
 <li>验证码保存到哪里？如何设置验证码的有效期？<br> &ensp;&ensp;&ensp;&ensp;验证码和用户邮箱是需要绑定存储到数据库用来后端验证的，而验证码是有有效期的，因此采用Redis来存储更为方便，在set数据时直接设置数据的有效期。当然也可以通过MySQL来实现。只是稍微繁琐些，但注册成功后的用户数据一般都是存储在MySQL中。</li>
 <li>验证成功后，为了保证安全，用户名和密码等需要加密后存储到数据库<br>&ensp;&ensp;&ensp;&ensp;那么如何加密呢？加密算法有很多（对称、非对称、线性散列算法等），而用户的密码等信息是对安全度要求很高的信息，因此采用了SHA-1（线性散列加密的一种）加密。</li>
 </ol>
-<h3 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h3><p><img src="https://img-blog.csdnimg.cn/20200123201003163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"
-width=90% height=90%></p>
+<h3 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h3><p><img src="https://img-blog.csdnimg.cn/20200123201003163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" width="90%" height="90%"></p>
 <ol>
 <li>通常有些接口的访问都是有权限的，那么如何进行验证呢？<br>&ensp;&ensp;&ensp;&ensp;验证方式通常有cookie、session、token、JWT等，和加密方式一样，需要根据不同情况进行选择，在前后端分离中使用了JWT（Json Web Token），JWT使用公钥签名生成并保存到用户本地，减少了查询服务器的压力。</li>
 <li>既然前端访问接口时需要携带jwt，那么jwt字符串存储在哪里呢？<br>因为每次访问某些接口时都需要携带jwt字符串，那么存储在哪里也是个问题，可以考虑的方式包括：cookie等（可根据场景选择），我选择的方式是localStrong方式来存储。</li>
