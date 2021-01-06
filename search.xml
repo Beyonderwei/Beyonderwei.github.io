@@ -197,9 +197,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Flask </tag>
             
             <tag> gunicorn </tag>
             
