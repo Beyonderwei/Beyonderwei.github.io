@@ -30,10 +30,10 @@
     <!-- Custom CSS --> 
     
         
-<link rel="stylesheet" href="/css/dusign-light.css">
+<link rel="stylesheet" href="/css/dusign-dark.css">
 
         
-<link rel="stylesheet" href="/css/dusign-common-light.css">
+<link rel="stylesheet" href="/css/dusign-common-dark.css">
 
         
 <link rel="stylesheet" href="/css/font-awesome.css">
@@ -41,7 +41,6 @@
         
 <link rel="stylesheet" href="/css/toc.css">
 
-        <!-- background effects end -->
     
     
     <!-- Pygments Highlight CSS -->
@@ -90,7 +89,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/img/header_img/home-bg-1-dark.jpg') 
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/img/header_img/home-bg-1-dark.jpg') 
                 /*config*/
             
         
@@ -123,8 +122,8 @@
 
     
     <div class="waveWrapper">
-        <div class="wave wave_before" style="background-image: url('/img/wave-light.png')"></div>
-        <div class="wave wave_after" style="background-image: url('/img/wave-light.png')"></div>
+        <div class="wave wave_before" style="background-image: url('/img/wave-dark.png')"></div>
+        <div class="wave wave_after" style="background-image: url('/img/wave-dark.png')"></div>
     </div>
     
 </header>
@@ -276,6 +275,40 @@
 
 
 <!-- Main Content -->
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2019/04/02/数据结构——插入排序/">
+                <h2 class="post-title">
+                    数据结构——插入排序
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、排序思想将数据元素，一个一个的插入到当前已经排序好的表中。
+二、图解
+三、代码实现12345678910111213141516171819202122232425262728void insertSort(int array[], int length)&#123;    int i, j, tmp;    for(i = 1; i &lt; length; i++)    &#123......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2019-04-02
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#排序" title="排序">排序</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
 
     
 
@@ -638,41 +671,6 @@ PID控制器的输入：目标值 - 测量值......
 
     
 
-    
-
-        <div class="post-preview">
-
-            <a href="/2018/05/10/CC3200简单易懂实现引脚拉高、拉低-实现一个简单的物联网系统-5/">
-                <h2 class="post-title">
-                    CC3200实现浇水控制（实现一个简单的物联网系统-5）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、序言&#8195;&#8195;前面已经可以实现从服务器获得用户想要的浇水量，下面就需要对IO口进行拉高拉低对水泵的启停进行控制。
-二、CC3200 GPIO 简介&#8195;&#8195;CC3200所有逻辑引脚和部分模拟引脚均可以用来作为通用输入/输出(GPIO)使用。GPIO功能可用于各种逻辑输入输出的场合。 GPIO有4组（GPIO A0~A3），每组8个。 具体如下：&#81......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2018-05-10
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#IOT" title="IOT">IOT</a>
-                    
-                      <a href="/tags/#CC3200" title="CC3200">CC3200</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
 
 
 <!-- Pager -->
@@ -734,15 +732,15 @@ PID控制器的输入：目标值 - 测量值......
     <div class="tags">
         
             
+        
+            
             <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
             
         
             
+        
+            
             <a href="/tags/#CC3200" title="CC3200" rel="4">CC3200</a>
-            
-        
-            
-        
             
         
             
@@ -754,17 +752,21 @@ PID控制器的输入：目标值 - 测量值......
             
         
             
-        
-            
             <a href="/tags/#Flask" title="Flask" rel="2">Flask</a>
             
         
             
         
             
-            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
+        
             
         
+            
+        
+            
+        
+            
+            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
             
         
             
@@ -943,11 +945,11 @@ PID控制器的输入：目标值 - 测量值......
         </li>
       
         <li>
-          <a href="/2020/03/25/Ubuntu%E4%B8%8A%E4%BD%BF%E7%94%A8Qt-Creator%E7%BC%96%E8%AF%91%E3%80%81%E4%B8%8B%E8%BD%BDPX4%E4%BB%A3%E7%A0%81/">Ubuntu上使用Qt Creator编译、下载PX4代码</a>
+          <a href="/2020/07/28/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">JUC并发编程</a>
         </li>
       
         <li>
-          <a href="/2020/03/12/PX4%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88Ubuntu1804-QGC-Qt-Creator-%EF%BC%89/">PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）</a>
+          <a href="/2020/02/25/Nginx%E4%BB%A3%E7%90%86%E6%97%B6%E5%9C%A8gunicorn%E7%9A%84%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%9C%9F%E5%AE%9E%E8%AE%BF%E9%97%AEIP/">Nginx代理时在gunicorn的日志中记录真实访问IP</a>
         </li>
       
     </ul>
@@ -976,7 +978,7 @@ PID控制器的输入：目标值 - 测量值......
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>

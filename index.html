@@ -30,10 +30,10 @@
     <!-- Custom CSS --> 
     
         
-<link rel="stylesheet" href="/css/dusign-light.css">
+<link rel="stylesheet" href="/css/dusign-dark.css">
 
         
-<link rel="stylesheet" href="/css/dusign-common-light.css">
+<link rel="stylesheet" href="/css/dusign-common-dark.css">
 
         
 <link rel="stylesheet" href="/css/font-awesome.css">
@@ -41,7 +41,6 @@
         
 <link rel="stylesheet" href="/css/toc.css">
 
-        <!-- background effects end -->
     
     
     <!-- Pygments Highlight CSS -->
@@ -90,7 +89,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/img/header_img/home-bg-1-dark.jpg') 
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/img/header_img/home-bg-1-dark.jpg') 
                 /*config*/
             
         
@@ -123,8 +122,8 @@
 
     
     <div class="waveWrapper">
-        <div class="wave wave_before" style="background-image: url('/img/wave-light.png')"></div>
-        <div class="wave wave_after" style="background-image: url('/img/wave-light.png')"></div>
+        <div class="wave wave_before" style="background-image: url('/img/wave-dark.png')"></div>
+        <div class="wave wave_after" style="background-image: url('/img/wave-dark.png')"></div>
     </div>
     
 </header>
@@ -406,98 +405,35 @@ Linux完全开源，可对内核进行裁剪，最小可打到几百kb，常应�
 
         <div class="post-preview">
 
-            <a href="/2020/03/25/Ubuntu上使用Qt-Creator编译、下载PX4代码/">
+            <a href="/2020/07/28/JUC并发编程/">
                 <h2 class="post-title">
-                    Ubuntu上使用Qt Creator编译、下载PX4代码
+                    JUC并发编程
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、创建工程文件在命令行执行以下几条命令：1234cd ~/src/Firmwaremkdir ../Firmware-buildcd ../Firmware-buildcmake ../Firmware -G "CodeBlocks - Unix Makefiles" -DCONFIG=nuttx_px4fmu-v2_default注意：官方文档通常没有-DCONFIG这个参数或者参数就是......
+                    JUC并发编程
+高内聚低耦合，线程操作资源类
+生产者、消费者：判断，干活，通知
+多线程交互（wait notify时）中要防止多线程的虚假唤醒 。条件的判断不能用if，只能用while。while循环体在线程被终止的时候会被重新判断而if不会被重新判断，即wait必须在while的循环体内。 
+标志位
+
+知识点
+synchronized 锁的不是某个方法，而是整个资源类，即当前的这个对象。
+......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2020-03-25
+                    2020-07-28
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
+                      <a href="/tags/#JUC" title="JUC">JUC</a>
                     
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/03/12/PX4开发环境搭建（Ubuntu1804-QGC-Qt-Creator-）/">
-                <h2 class="post-title">
-                    PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    前言在这之前作者完全没接触过PX4，安装过程遇到了很多坑，而且每安装下载一个东西都要等好久，出现问题又要重新开始，前后折腾了四天才弄好，希望此文对大家有所帮助。
-一、安装环境
-操作系统：windows10
-虚拟机：VMWare
-Linux系统：Ubuntu1804 Desktop（官网推荐）
-科学上网工具(f*q)：Shadowsocks
-
-备注：
-
-使用虚拟机而不使用双系统方式的原因在于环......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-03-12
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/03/07/PX4开发基础/">
-                <h2 class="post-title">
-                    PX4开发基础
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、与无人机的缘分&ensp;&ensp;&ensp;&ensp;做无人机是源于电赛，因为对无人机比较发烧就分到了无人机的组里，参加的三次电赛两次是做的无人机的题目，虽然后来不再做该方向的，但也算我的一项爱好吧，加上现在毕设是给老师搭建一个PX4的平台（比赛没用过PX4），因为无人机开发比较小众，价格贵、学习环境少并具有一定难度，外加发展的时间并不是很长，开发中就遇到了很多问题，在此做一些记......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-03-07
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
+                      <a href="/tags/#并发编程" title="并发编程">并发编程</a>
                     
                 </div>
             
@@ -649,6 +585,79 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
 
     
 
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/01/10/前端通过MathJax显示数学公式（vue-MathJax）/">
+                <h2 class="post-title">
+                    前端通过MathJax显示数学公式
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、关于MathJax
+官方网址：MathJax使用文档 
+简介：MathJax支持使用LaTeX，MathML或AsciiMath语法在网页中渲染数学公式。我们常用的语法为LaTex,比如该论坛支持的也是LaTex 。二、应用场景&ensp;&ensp;&ensp;&ensp;想实现在用户选择文件后能够直接在前端预览文件内容，如下：
+
+三、遇到的问题问题1(没有渲染效果)问题描述：&ens......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-01-10
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#MathJax" title="MathJax">MathJax</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/01/02/注册-登录-实现过程详解/">
+                <h2 class="post-title">
+                    注册-登录实现过程详解
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、前言&ensp;&ensp;&ensp;&ensp;一般的平台基本上都有用户管理这一部分，虽然我们都是各个平台的用户，对于一般的流程有所了解，看似简单，但是真正实现的过程中确遇到了很多的困难。
+二、实现过程图解注册：看似过程似乎很简单但是这过程还有很多需要考虑的因素，采取邮箱发送验证码的方式实现验证：
+
+验证码如何产生： &ensp;&ensp;&ensp;&ensp;通常我们的验证码是......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-01-02
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#登录" title="登录">登录</a>
+                    
+                      <a href="/tags/#注册" title="注册">注册</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
 
 
 <!-- Pager -->
@@ -706,15 +715,15 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
     <div class="tags">
         
             
+        
+            
             <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
             
         
             
+        
+            
             <a href="/tags/#CC3200" title="CC3200" rel="4">CC3200</a>
-            
-        
-            
-        
             
         
             
@@ -726,17 +735,21 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             
         
             
-        
-            
             <a href="/tags/#Flask" title="Flask" rel="2">Flask</a>
             
         
             
         
             
-            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
+        
             
         
+            
+        
+            
+        
+            
+            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
             
         
             
@@ -915,11 +928,11 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         </li>
       
         <li>
-          <a href="/2020/03/25/Ubuntu%E4%B8%8A%E4%BD%BF%E7%94%A8Qt-Creator%E7%BC%96%E8%AF%91%E3%80%81%E4%B8%8B%E8%BD%BDPX4%E4%BB%A3%E7%A0%81/">Ubuntu上使用Qt Creator编译、下载PX4代码</a>
+          <a href="/2020/07/28/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">JUC并发编程</a>
         </li>
       
         <li>
-          <a href="/2020/03/12/PX4%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88Ubuntu1804-QGC-Qt-Creator-%EF%BC%89/">PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）</a>
+          <a href="/2020/02/25/Nginx%E4%BB%A3%E7%90%86%E6%97%B6%E5%9C%A8gunicorn%E7%9A%84%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%9C%9F%E5%AE%9E%E8%AE%BF%E9%97%AEIP/">Nginx代理时在gunicorn的日志中记录真实访问IP</a>
         </li>
       
     </ul>
@@ -948,7 +961,7 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>

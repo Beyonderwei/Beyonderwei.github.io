@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          PX4开发基础 - beyonderwei
+          PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ） - beyonderwei
         
     </title>
 
-    <link rel="canonical" href="http://beyonderwei.com/2020/03/07/PX4开发基础/">
+    <link rel="canonical" href="http://beyonderwei.com/2019/06/12/PX4开发环境搭建（Ubuntu1804-QGC-Qt-Creator-）/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -30,10 +30,10 @@
     <!-- Custom CSS --> 
     
         
-<link rel="stylesheet" href="/css/dusign-light.css">
+<link rel="stylesheet" href="/css/dusign-dark.css">
 
         
-<link rel="stylesheet" href="/css/dusign-common-light.css">
+<link rel="stylesheet" href="/css/dusign-common-dark.css">
 
         
 <link rel="stylesheet" href="/css/font-awesome.css">
@@ -41,7 +41,6 @@
         
 <link rel="stylesheet" href="/css/toc.css">
 
-        <!-- background effects end -->
     
     
     <!-- Pygments Highlight CSS -->
@@ -90,7 +89,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('')
                 /*post*/
             
         
@@ -115,18 +114,18 @@
                               <a class="tag" href="/tags/#无人机" title="无人机">无人机</a>
                             
                         </div>
-                        <h1>PX4开发基础</h1>
+                        <h1>PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Beyonderwei on
-                            2020-03-07
+                            2019-06-12
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">902</span> and
-                                Reading Time <span class="post-count">3</span> Minutes
+                                Words <span class="post-count">1.1k</span> and
+                                Reading Time <span class="post-count">4</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -146,8 +145,8 @@
 
     
     <div class="waveWrapper">
-        <div class="wave wave_before" style="background-image: url('/img/wave-light.png')"></div>
-        <div class="wave wave_after" style="background-image: url('/img/wave-light.png')"></div>
+        <div class="wave wave_before" style="background-image: url('/img/wave-dark.png')"></div>
+        <div class="wave wave_after" style="background-image: url('/img/wave-dark.png')"></div>
     </div>
     
 </header>
@@ -272,28 +271,42 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="一、与无人机的缘分"><a href="#一、与无人机的缘分" class="headerlink" title="一、与无人机的缘分"></a>一、与无人机的缘分</h2><p>&ensp;&ensp;&ensp;&ensp;做无人机是源于<strong>电赛</strong>，因为对无人机比较发烧就分到了无人机的组里，参加的三次电赛两次是做的无人机的题目，虽然后来不再做该方向的，但也算我的一项爱好吧，加上现在毕设是给老师搭建一个<strong>PX4</strong>的平台（比赛没用过PX4），因为无人机开发比较小众，价格贵、学习环境少并具有一定难度，外加发展的时间并不是很长，开发中就遇到了很多问题，在此做一些记录。</p>
-<h2 id="二、开发前"><a href="#二、开发前" class="headerlink" title="二、开发前"></a>二、开发前</h2><p>&ensp;&ensp;&ensp;&ensp;这套开源软件的功能相当的齐全，实际上通过烧录PX4的固件，通过地面站的设置，就可以实现<strong>很多</strong>功能了，因此决定了你是否需要涉及到源码层面的开发。</p>
-<h2 id="三、背景知识"><a href="#三、背景知识" class="headerlink" title="三、背景知识"></a>三、背景知识</h2><p>注：内容来自于一些资料和自我总结</p>
-<h3 id="硬件PIXHAWK"><a href="#硬件PIXHAWK" class="headerlink" title="硬件PIXHAWK"></a>硬件PIXHAWK</h3><p>&ensp;&ensp;&ensp;&ensp;Pixhawk是第一款专门为PX4自驾软件而设计的无人机飞控。Pixhawk飞控是开源硬件架构，pixhawk系列”的板子在NuttX操作系统上运行PX4。全世界很多公司出品了基于Pixhawk的飞控产品。他们都有共同的硬件架构和相同的连接方式、输出接口及功能，仅仅是具体形式不同而已，例如接口的位置不同、外壳不同等等。</p>
-<h5 id="pixhawkV1："><a href="#pixhawkV1：" class="headerlink" title="pixhawkV1："></a>pixhawkV1：</h5><p>&ensp;&ensp;&ensp;&ensp;第一版飞控，也被称作FMUv1,它包含PX4FMU和PX4IO两部分。PX4FMU是Pixhawk v1飞控的核心控制部分，主要负责姿态解算等等算法的执行；PX4IO主要负责飞控各外设接口的管理。下面的样子（市面已经看不到了）：<br><img src="https://img-blog.csdnimg.cn/20200326214821478.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"></p>
-<h5 id="pixhawkV2："><a href="#pixhawkV2：" class="headerlink" title="pixhawkV2："></a>pixhawkV2：</h5><p>&ensp;&ensp;&ensp;&ensp;继FMUv1飞控之后，第二代飞控被称为Pixhawk v2或FMUv2。在FMUv2这个版本飞控中，第一代中的PX4FMU和PX4IO被合并到了一个PCB上，成为了真正的一体化飞控。（市面还有很多卖的主要都是在这个基础上改进优化，比如处理器、传感器等的提升）<br><img src="https://img-blog.csdnimg.cn/2020032621510640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"></p>
-<h5 id="pixhawkV3x："><a href="#pixhawkV3x：" class="headerlink" title="pixhawkV3x："></a>pixhawkV3x：</h5><p>&ensp;&ensp;&ensp;&ensp;比如我用的是如下的雷迅生产的V3x，到现在甚至已经出了到了<strong>V5</strong>，但是主要没有差太多。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200326215221385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70"></p>
-<h3 id="软件代码"><a href="#软件代码" class="headerlink" title="软件代码"></a>软件代码</h3><h5 id="ArduPilot"><a href="#ArduPilot" class="headerlink" title="ArduPilot"></a>ArduPilot</h5><p>&ensp;&ensp;&ensp;&ensp;APM固件程序比较<strong>混乱，零散</strong>。维护者多，代码风格不太统一，而且是单片机这种调用程序，<strong>不好入门。但是成熟稳定</strong>，支持硬件多。APM固件有ArduCopter社区支撑。</p>
-<h5 id="PX4（推荐）"><a href="#PX4（推荐）" class="headerlink" title="PX4（推荐）"></a>PX4（推荐）</h5><p>&ensp;&ensp;&ensp;&ensp;PX4固件，在<strong>nuttx</strong>嵌入式<strong>实时操作系统</strong>上运行。采用多任务，模块化设计。相对来说方便入门，代码风格比较统一。PX4的是BSD协议，BSD协议可以将开源软件<strong>二次开发后用作商业用途。</strong> 着=这也就是当前很多公司的产品甚至就是直接在这个上面改装的。</p>
-<h3 id="地面站（GCS）"><a href="#地面站（GCS）" class="headerlink" title="地面站（GCS）"></a>地面站（GCS）</h3><h5 id="Mission-Planner（MP）"><a href="#Mission-Planner（MP）" class="headerlink" title="Mission Planner（MP）"></a>Mission Planner（MP）</h5><p>&ensp;&ensp;&ensp;&ensp;支持Mavlink协议，一般用于APM的代码，当前使用的人比较多（截至到2020年之前），不支持Mac OS</p>
-<h5 id="QGroundControl（QGC）"><a href="#QGroundControl（QGC）" class="headerlink" title="QGroundControl（QGC）"></a>QGroundControl（QGC）</h5><p>&ensp;&ensp;&ensp;&ensp;支持Mavlink协议，一般用于PX4代码，使用的人较少（<strong>未来趋势</strong>），PX4官方推荐的地面站软件。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在这之前作者完全没接触过PX4，安装过程遇到了很多坑，而且每安装下载一个东西都要等好久，出现问题又要重新开始，前后折腾了四天才弄好，希望此文对大家有所帮助。</p>
+<h2 id="一、安装环境"><a href="#一、安装环境" class="headerlink" title="一、安装环境"></a>一、安装环境</h2><ol>
+<li>操作系统：windows10</li>
+<li>虚拟机：VMWare</li>
+<li>Linux系统：Ubuntu1804 Desktop（官网推荐）</li>
+<li>科学上网工具(f*q)：Shadowsocks</li>
+</ol>
+<p>备注：</p>
 <ul>
-<li>手机系统: Android 和 iOS (目前专注于平板电脑)</li>
-<li>桌面系统: Windows, Linux, Mac OS</li>
+<li>使用虚拟机而不使用双系统方式的原因在于环境不容易一次安装成功，虚拟机重装系统的话很方便。</li>
+<li>教程中在下载项目中子模块的时候需要科学上网。（当然也提出了另一种加速方式，不过作者没有试验过）<h2 id="二、PX4环境搭建"><a href="#二、PX4环境搭建" class="headerlink" title="二、PX4环境搭建"></a>二、PX4环境搭建</h2><h3 id="1-在虚拟机中安装Ubuntu"><a href="#1-在虚拟机中安装Ubuntu" class="headerlink" title="1. 在虚拟机中安装Ubuntu"></a>1. 在虚拟机中安装Ubuntu</h3>安装过程就不细讲了，可以去找些教程，简单安装即可。</li>
 </ul>
-<h2 id="四、我的开发环境"><a href="#四、我的开发环境" class="headerlink" title="四、我的开发环境"></a>四、我的开发环境</h2><ol>
-<li>硬件（hardware）：pixhawkV3x</li>
-<li>软件（software）：PX4</li>
-<li>操作系统（OS）：Ubuntu 1804 桌面版</li>
-<li>地面站（GCS）：QGC</li>
-<li>集成开发环境（IDE）：QT creater</li>
+<ol>
+<li>在电脑中安装VMware：<a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html" target="_blank" rel="noopener">VMware下载地址</a></li>
+<li>下载Ubuntu1804系统的镜像：<a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener">Ubuntu镜像下载地址</a><br>注：①. 镜像应下载桌面版（<strong>Desktop</strong>）而非服务器版本（Server），可以通过种子下载也可直接下载，建议用迅雷加速下载。②. <strong>不需要换源</strong>，直接使用系统已有的就好。</li>
+</ol>
+<h3 id="2-安装PX4环境"><a href="#2-安装PX4环境" class="headerlink" title="2. 安装PX4环境"></a>2. 安装PX4环境</h3><p>&ensp;&ensp;&ensp;&ensp;安装过程只有<strong>两步</strong>，只要这两步<strong>没有任何错误</strong>。</p>
+<p>&ensp;&ensp;&ensp;&ensp;参考教程：<a href="https://dev.px4.io/master/en/index.html" target="_blank" rel="noopener">官方教程首页</a>，链接是针对最新版本的代码的，当然搭建好以后也可以编译之前版本的代码，直接看英文的就完事了，中文的最新的可能会存在问题。</p>
+<p>&ensp;&ensp;&ensp;&ensp;即使你可以科学上网，未必也能下载成功，<strong>强烈建议</strong>科学上网的情况下，<strong>早上六点到八点</strong>之间下载源码及安装工具链，<strong>正常情况下执行命令下载是不应该出现Faile和Err的。否则最终就可能出问题。</strong></p>
+<h4 id="1-下载PX4源码："><a href="#1-下载PX4源码：" class="headerlink" title="(1)下载PX4源码："></a>(1)下载PX4源码：</h4><p>参考：<a href="https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html" target="_blank" rel="noopener">官方文档</a></p>
+<p>&ensp;&ensp;&ensp;&ensp;通过命令：<code>git clone https://github.com/PX4/Firmware.git --recursive</code> 克隆。克隆地址可以改成你的码云地址。如下：<br><img src="https://img-blog.csdnimg.cn/20200327163421203.png" alt="在这里插入图片描述"><br>①. 完整源码组成：完整的源码由PX4源码和其所需子模块，但是子模块的代码并没有在该仓库下，实际上 clone 时通过 <code>--recursive</code> 参数实现在其他仓库中拉取的。<br>②. 源码地址：<a href="https://github.com/PX4/Firmware" target="_blank" rel="noopener">PX4Github地址</a><br>③. 建议通过码云（国内的github）加速，就是在码云中新建自己的仓库，创建时选择从Github导入，这样相当于他给你做了加速下载这个过程，但是注意，<strong>其所需的子模块并没有实现加速。</strong>（我闲麻烦没有这样做：所有的所需 submodule子模块内容都可以通过修改 .gitmodules为国内码云上的地址来加速下载，当然就需要你为每一个子模块都在码云建一个仓库）</p>
+<p>码云的仓库：<br><img src="https://img-blog.csdnimg.cn/20200327161608471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt><br>如果你采取全部通过码云加速的方式，需要修改如下位置（可以科学上网f*q的话不建议）：<br><img src="https://img-blog.csdnimg.cn/20200327161857574.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="2-安装工具链"><a href="#2-安装工具链" class="headerlink" title="(2) 安装工具链"></a>(2) 安装工具链</h4><p><strong>重要</strong>：在这之前确保源码及其子模块都完整下载。<br>在Firmware目录下执行（建议早上8点前）：<code>bash ./Tools/setup/ubuntu.sh</code>，这个过程可能比较久，确保整个过程无错误，成功后最重要的就是已经安装了<strong>正确版本</strong>的arm-none-eabi-gcc，安装后执行<code>arm-none-eabi-gcc --version</code> 如下：<br><img src="https://img-blog.csdnimg.cn/20200327163909142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="3-jMAVSim仿真"><a href="#3-jMAVSim仿真" class="headerlink" title="(3)  jMAVSim仿真"></a>(3)  jMAVSim仿真</h4><p>参考官方教程Firmware下去执行：<code>make px4_sitl jmavsim</code>，效果如下：<br><img src="https://img-blog.csdnimg.cn/20200327171019491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="4-编译验证"><a href="#4-编译验证" class="headerlink" title="(4) 编译验证"></a>(4) 编译验证</h4><p>根据你要编译的版本，在Firmware目录下执行<br><img src="https://img-blog.csdnimg.cn/20200327170525152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="三、安装QGC"><a href="#三、安装QGC" class="headerlink" title="三、安装QGC"></a>三、安装QGC</h2><p>官方文档：<a href="https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html" target="_blank" rel="noopener">QGC安装教程</a>（建议点进来看看，因为我的所有内容都是按照官方教程写的）</p>
+<p>1.按顺序执行以下命令  然后<strong>重启</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -a -G dialout $USER</span><br><span class="line">sudo apt-get remove modemmanager -y</span><br><span class="line">sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav -y</span><br></pre></td></tr></table></figure><br>2.下载QGC<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;s3-us-west-2.amazonaws.com&#x2F;qgroundcontrol&#x2F;latest&#x2F;QGroundControl.AppImage</span><br></pre></td></tr></table></figure><br>3.安装<br><code>chmod +x ./QGroundControl.AppImage</code></p>
+<p>4.运行</p>
+<ul>
+<li>通过命令运行<code>./QGroundControl.AppImage</code></li>
+<li>或者双击图标：<br><img src="https://img-blog.csdnimg.cn/2020032716560175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="四、安装Qt-Creator"><a href="#四、安装Qt-Creator" class="headerlink" title="四、安装Qt Creator"></a>四、安装Qt Creator</h2></li>
+</ul>
+<ol>
+<li>更新源：<code>sudo apt-get update</code></li>
+<li>用户目录下直接执行 <code>sudo apt-get install qtcreator</code> </li>
+<li>在应用内找打图标运行就OK<br><img src="https://img-blog.csdnimg.cn/20200327170204463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通过QT Creator开发，照着文档做就好<br><img src="https://img-blog.csdnimg.cn/2020032717122713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRE5fWF9X,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
 </ol>
 
                 
@@ -302,12 +315,12 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2020/03/12/PX4开发环境搭建（Ubuntu1804-QGC-Qt-Creator-）/" data-toggle="tooltip" data-placement="top" title="PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）">&larr; Previous Post</a>
+                        <a href="/2019/07/10/通过GPRS将GPS数据上传到服务器/" data-toggle="tooltip" data-placement="top" title="通过GPRS上传GPS数据到服务器">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2020/02/25/Nginx代理时在gunicorn的日志中记录真实访问IP/" data-toggle="tooltip" data-placement="top" title="Nginx代理时在gunicorn的日志中记录真实访问IP">Next Post &rarr;</a>
+                        <a href="/2019/05/07/PX4开发基础/" data-toggle="tooltip" data-placement="top" title="PX4开发基础">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -451,7 +464,7 @@ const myTheme = {
 
 
 const gitment = new Gitment({
-    id: 'Sat Mar 07 2020 12:24:53 GMT+0800', // optional
+    id: 'Wed Jun 12 2019 15:36:48 GMT+0800', // optional
     owner: "beyonderwei",
     repo: "gitment",
     oauth: {
