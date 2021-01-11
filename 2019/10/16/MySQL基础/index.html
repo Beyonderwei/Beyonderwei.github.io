@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="baidu-site-verification" content="093lY4ziMu" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="A personal website.">
+    <meta name="keyword"  content="beyonderwei, 瞌睡遇上枕头">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+    <title>
+        
+          MySQL基础 - beyonderwei
+        
+    </title>
+
+    <link rel="canonical" href="http://beyonderwei.com/2019/10/16/MySQL基础/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS --> 
+    
+        
+<link rel="stylesheet" href="/css/dusign-dark.css">
+
+        
+<link rel="stylesheet" href="/css/dusign-common-dark.css">
+
+        
+<link rel="stylesheet" href="/css/font-awesome.css">
+
+        
+<link rel="stylesheet" href="/css/toc.css">
+
+    
+    
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    
+<link rel="stylesheet" href="/css/widget.css">
+
+
+    
+<link rel="stylesheet" href="/css/rocket.css">
+
+
+    
+<link rel="stylesheet" href="/css/signature.css">
+
+
+    
+<link rel="stylesheet" href="/css/fonts.googleapis.css">
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- photography -->
+    
+<link rel="stylesheet" href="/css/photography.css">
+
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- background effects start -->
+    
+    <!-- background effects end -->
+
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('')
+                /*post*/
+            
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/beyonderwei.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                            
+                        </div>
+                        <h1>MySQL基础</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Beyonderwei on
+                            2019-10-16
+                        </span>
+
+                        
+                            <div class="blank_box"></div>
+                            <span class="meta">
+                                Words <span class="post-count">9.6k</span> and
+                                Reading Time <span class="post-count">36</span> Minutes
+                            </span>
+                            <div class="blank_box"></div>
+                            <!-- 不蒜子统计 start -->
+                            <span class="meta">
+                                Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+                            </span>
+                            <!-- 不蒜子统计 end -->
+                        
+
+                    </div>
+                
+
+                </div>
+            </div>
+        </div>      
+    </div>
+
+    
+    <div class="waveWrapper">
+        <div class="wave wave_before" style="background-image: url('/img/wave-dark.png')"></div>
+        <div class="wave wave_after" style="background-image: url('/img/wave-dark.png')"></div>
+    </div>
+    
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Beyonderwei</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">关于作者</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">归档</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">分类</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/photography/">相册</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">标签</a>
+                        </li>
+                        
+                    
+
+                    <li>
+                        <a href="https://github.com/Beyonderwei" target="_blank">Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="DBMS："><a href="#DBMS：" class="headerlink" title="DBMS："></a>DBMS：</h2><ol>
+<li><p>DBMS：数据库管理系统</p>
+<p>实际上数据库还是通过一套软件来管理文件中的数据。</p>
+<ul>
+<li>基于共享文件系统的DBMS  如access</li>
+<li>基于客户机/<strong>服务器</strong>的DBMS： MySQL Oracle等</li>
+</ul>
+</li>
+</ol>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>注：画五角星的要随时都可以写出来。</p>
+<pre><code>一、为什么要学习数据库
+二、数据库的相关概念      
+    DBMS、DB、SQL
+三、数据库存储数据的特点
+四、初始MySQL
+    MySQL的介绍        
+    MySQL的安装          ★        
+    MySQL服务的启动和停止     ★
+    MySQL服务的登录和退出     ★      
+    MySQL的常见命令和语法规范      
+五、DQL语言的学习   ★              
+    基础查询        ★             
+    条件查询         ★            
+    排序查询         ★                
+    常见函数        ★               
+    分组函数        ★              
+    分组查询           ★            
+    连接查询         ★            
+    子查询       √                  
+    分页查询       ★              
+    union联合查询    √            
+
+六、DML语言的学习    ★             
+    插入语句                        
+    修改语句                        
+    删除语句                        
+七、DDL语言的学习  
+    库和表的管理     √                
+    常见数据类型介绍  √          
+    常见约束        √            
+八、TCL语言的学习
+    事务和事务处理                 
+九、视图的讲解           √
+十、变量                      
+十一、存储过程和函数   
+十二、流程控制结构       
+</code></pre><h2 id="一、数据库的好处"><a href="#一、数据库的好处" class="headerlink" title="一、数据库的好处"></a>一、数据库的好处</h2><p>​    1.持久化数据到本地<br>​    2.可以实现结构化查询，方便管理</p>
+<h2 id="二、数据库相关概念"><a href="#二、数据库相关概念" class="headerlink" title="二、数据库相关概念"></a>二、数据库相关概念</h2><p>​    1、DB：数据库，保存一组有组织的数据的容器<br>​    2、DBMS：数据库管理系统，又称为数据库软件（产品），用于管理DB中的数据<br>​    3、SQL:结构化查询语言，用于和DBMS通信的语言</p>
+<p>数据库存储数据的特点：</p>
+<p>​    1、将数据放到表中，表再放到库中<br>​    2、一个数据库中可以有多个表，每个表都有一个的名字，用来标识自己。表名具有唯一性。<br>​    3、表具有一些特性，这些特性定义了数据在表中如何存储，类似java中 “类”的设计。<br>​    4、表由列组成，我们也称为字段。所有表都是由一个或多个列组成的，每一列类似java 中的”属性”<br>​    5、表中的数据是按行存储的，每一行类似于java中的“对象”。</p>
+<h2 id="三、MySQL的介绍和安装"><a href="#三、MySQL的介绍和安装" class="headerlink" title="三、MySQL的介绍和安装"></a>三、MySQL的介绍和安装</h2><h3 id="配置文件位置"><a href="#配置文件位置" class="headerlink" title="配置文件位置"></a>配置文件位置</h3><ol>
+<li>进入MySQL容器 :<code>docker exec -it 容器ID /bin/bash</code></li>
+<li>/etc/mysql/my.cnf  （需要安装vim打开 <code>apt-get install -y vim</code>）</li>
+</ol>
+<h3 id="Docker中操作"><a href="#Docker中操作" class="headerlink" title="Docker中操作"></a>Docker中操作</h3><p>进入容器后：</p>
+<ol>
+<li>登录MySQL：<code>mysql -u root -p</code></li>
+<li>exit    退出MySQL </li>
+</ol>
+<h3 id="MySQL的常见命令"><a href="#MySQL的常见命令" class="headerlink" title="MySQL的常见命令"></a>MySQL的常见命令</h3><pre><code>1.查看当前所有的数据库
+show databases;
+2.打开指定的库
+use 库名
+3.查看当前库的所有表
+show tables;
+4.查看其它库的所有表
+show tables from 库名;
+5.创建表
+create table 表名(
+
+    列名 列类型,
+    列名 列类型，
+    。。。
+);
+6.查看表结构
+desc 表名;
+
+
+7.查看服务器的版本
+方式一：登录到mysql服务端
+select version();
+方式二：没有登录到mysql服务端
+mysql --version
+或
+mysql --V
+</code></pre><h3 id="MySQL的语法规范"><a href="#MySQL的语法规范" class="headerlink" title="MySQL的语法规范"></a>MySQL的语法规范</h3><p>​    1.不区分大小写,但建议关键字大写，表名、列名小写<br>​    2.每条命令最好用分号结尾<br>​    3.每条命令根据需要，可以进行缩进 或换行<br>​    4.注释<br>​        单行注释：#注释文字<br>​        单行注释：— 注释文字<br>​        多行注释：/<em> 注释文字  </em>/<br>​    5.<code>name</code> 1旁白你的字符，表示着重符，当表中存在纯大写的字段时加上着重符，防止被认为是关键字</p>
+<p>​<br>​    </p>
+<h3 id="SQL的语言分类"><a href="#SQL的语言分类" class="headerlink" title="SQL的语言分类"></a>SQL的语言分类</h3><p>​    DQL（Data Query Language）：数据查询语言<br>​        select<br>​    DML(Data Manipulate Language):数据操作语言<br>​        insert 、update、delete<br>​    DDL（Data Define Languge）：数据定义语言<br>​        create、drop、alter<br>​    TCL（Transaction Control Language）：事务控制语言<br>​        commit、rollback</p>
+<h3 id="SQL的常见命令"><a href="#SQL的常见命令" class="headerlink" title="SQL的常见命令"></a>SQL的常见命令</h3><pre><code>show databases； 查看所有的数据库
+use 库名； 打开指定 的库
+show tables ; 显示库中的所有表
+show tables from 库名;显示指定库中的所有表
+create table 表名(
+    字段名 字段类型,    
+    字段名 字段类型
+); 创建表
+
+desc 表名; 查看指定表的结构
+select * from 表名;显示表中的所有数据
+</code></pre><h2 id="四、DQL语言的学习"><a href="#四、DQL语言的学习" class="headerlink" title="四、DQL语言的学习"></a>四、DQL语言的学习</h2><p><strong>Data Query Language</strong> </p>
+<h3 id="进阶1：基础查询"><a href="#进阶1：基础查询" class="headerlink" title="进阶1：基础查询"></a>进阶1：基础查询</h3><p>​    语法：<br>​    SELECT 要查询的东西<br>​    【FROM 表名】;<br>​    </p>
+<pre><code>类似于Java中 :System.out.println(要打印的东西);
+特点：
+①通过select查询完的结果 ，是一个虚拟的表格，不是真实存在
+② 要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数
+</code></pre><ol>
+<li>select 常量值；    并不是去库中查询，是支持这样的运算</li>
+<li>select 表达式；    可以在要查询的东西中加入表达式</li>
+<li>select 函数；    调用该函数，并得到函数的返回值</li>
+<li>select name AS 名字 from account；    给查询的字段取一个别名。（为了在查询的字段中有重名时区分开来）住：AS可以不写 用空格代替，当别名中包含关键字时用双引号括起来。</li>
+<li>select DISTINCT class_number from class;    在要查询的字段前加上 <strong>DISTINCT</strong> 去除重复的班级号</li>
+<li>“+”    只是运算符，不会拼接字符串，<ul>
+<li>select ‘abc’+123    不能转换成数值的字符串都会被认为是0。</li>
+<li>select ‘123’+456      结果为579</li>
+<li>select null+123      有null则结果永远为null</li>
+<li><strong>注</strong> ：如果要将两个字段拼在一起查询用CONCAT函数，参考函数章节。</li>
+</ul>
+</li>
+</ol>
+<h3 id="进阶2：条件查询"><a href="#进阶2：条件查询" class="headerlink" title="进阶2：条件查询"></a>进阶2：条件查询</h3><pre><code>条件查询：根据条件过滤原始表的数据，查询到想要的数据
+语法：
+select 
+    要查询的字段|表达式|常量值|函数
+from 
+    表
+where 
+    条件 ;
+
+分类：
+一、条件表达式
+    示例：salary&gt;10000
+    条件运算符：
+    &gt; &lt; &gt;= &lt;= = &lt;&gt; != 
+
+二、逻辑表达式
+示例：salary&gt;10000 &amp;&amp; salary&lt;20000
+
+逻辑运算符：
+
+    and（&amp;&amp;）:两个条件如果同时成立，结果为true，否则为false
+    or(||)：两个条件只要有一个成立，结果为true，否则为false
+    not(!)：如果条件成立，则not后为false，否则为true
+
+三、模糊查询 
+    运算符：like、between and、in、is null、is not null
+    示例：last_name like &#39;a%&#39; 
+</code></pre><p><strong>①.LIKE</strong> </p>
+<ol>
+<li>select <em> from account where name LIKE ‘%a%’ ;    表示名字中带有字母a的（注：<strong>通配符</strong>% ，表示任意多个字符，<em>*不区分大小写</em></em>）</li>
+<li>select <em> from account where name LIKE ‘_a%’ ;    表示第二个字符为a的名字（<em>*通配符</em></em>下划线 表示任意单个字符）</li>
+<li>转义字符，比如查询带有下划线时，同样是通过“\”来转义</li>
+<li>自定义转义字符：select * from account where name LIKE ‘^_%’  ESCAPE ‘^’;    自定义”^” 为转义字符</li>
+</ol>
+<p><strong>②. BETWEEN AND</strong> </p>
+<ol>
+<li>select <em> from account where number BETWEEN 10 AND 20;    员工编号在10到 20之间。（使语法简洁，<em>*包含临界值</em></em>） </li>
+<li>规则：大于等于左边，小于的等于右边的值，<strong>不能颠倒</strong>。</li>
+</ol>
+<p><strong>③. IN</strong> </p>
+<ol>
+<li>select * from account where type IN (‘assistant’, ‘teacher’);     查询用户类型为助教和老师的用户（避免写过多的或判断条件）</li>
+<li>规则：IN 后（）中的内容类型应该相同，且括号中的内容不支持通配符。</li>
+</ol>
+<p><strong>④. is NULL</strong> </p>
+<ol>
+<li>select * from account where tel IS NOT NULL;    查询用户的tel信息为空（非空）的用户。</li>
+<li>规则：=  和 &lt;&gt; 无法判断该栏是否为空，同样is也不能判断是否等于一个值。</li>
+</ol>
+<h3 id="进阶3：排序查询"><a href="#进阶3：排序查询" class="headerlink" title="进阶3：排序查询"></a>进阶3：排序查询</h3><pre><code>语法：
+select
+    要查询的东西
+from
+    表
+where 
+    条件
+
+order by 排序的字段|表达式|函数|别名 【asc|desc】
+
+descend：降序  ascend：升序（可省略，加上order by 默认升序）
+</code></pre><ol>
+<li>select salary*12 年薪 FROM employee ORDER BY 年薪 DESC；    可按照表达式排序</li>
+<li>select salary FROM employee ORDER BY salary ASC，num DESC;    先按照员工的工资升序排列，工资一样的按工号降序排列。</li>
+</ol>
+<h3 id="进阶4：常见函数"><a href="#进阶4：常见函数" class="headerlink" title="进阶4：常见函数"></a>进阶4：常见函数</h3><ol>
+<li>调用函数：select 函数名（实参列表） [from 表名]；</li>
+<li>函数可以嵌套调用，某个函数的返回值可以作为另一个函数的参数。</li>
+<li>MySQL中的<strong>索引都是从1开始</strong>的。</li>
+<li>只有 LENGTH中是按照字节算，其余都按照字符算。</li>
+</ol>
+<p>一、<strong>单行函数</strong> </p>
+<pre><code>1、字符函数
+    concat拼接
+        select CONCAT(lastname,firstname) 姓名 from 表名
+    substr截取子串
+        select SUBSTR(name,1,5)  从1开始截取截取3个长度字符长度（不是字节长度）。
+    upper转换成大写
+    lower转换成小写
+    trim去前后指定的空格和字符
+        默认去空格，去特殊字符需指定。
+        select TRIM（&#39;_&#39; FROM name）  去掉name字段前后的下划线。
+    ltrim去左边空格
+    rtrim去右边空格
+    replace替换
+    lpad左填充
+    rpad右填充
+    instr返回子串第一次出现的索引
+    length 获取字节个数
+
+2、数学函数
+    round 四舍五入
+        select ROUND(1.456,2)  小数点后保留两位四舍五入
+    rand 随机数
+        返回大于等于该数的最小整数
+    floor向下取整
+        返回小于等于该数的最小整数
+    ceil向上取整
+    mod取余
+        MOD(a,b) 结果返回的为   a-a/b*b
+    truncate截断
+3、日期函数
+    now当前系统日期+时间
+        SELECT YEAR(NOW()) 年   只获取日期中的年 还包括MONTH()、MONTHNAME()
+    curdate当前系统日期
+    curtime当前系统时间
+    str_to_date 将字符转换成日期
+    date_format将日期转换成字符
+4、流程控制函数
+    if 处理双分支
+    case语句 处理多分支
+        情况1：处理等值判断
+        情况2：处理条件判断
+
+5、其他函数
+    select version();    版本
+    select database();    当前库
+    select user();    当前连接用户
+</code></pre><ol>
+<li><p>日期格式化输出 <strong>str_to_date</strong> </p>
+<p>select DATA_FORMAT(NOW(),’%y年%月%日’)；</p>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>格式符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>%Y</td>
+<td>四位年份</td>
+</tr>
+<tr>
+<td>2</td>
+<td>%y</td>
+<td>2位月份</td>
+</tr>
+<tr>
+<td>3</td>
+<td>%m</td>
+<td>月份（01,02…11,12）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>%c</td>
+<td>月份（1,2…11,12）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>%d</td>
+<td>时（01,02…）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>%H</td>
+<td>小时（24小时制）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>%h</td>
+<td>小时（12小时制）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>%i</td>
+<td>分钟（01,02，…59）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>%s</td>
+<td>秒（00,01，…59）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li><p>流程控制函数</p>
+<p>select IF(age&gt;35,’开除’, ‘不开除’) 状态 FROM account；    相当于三元运算符</p>
+</li>
+</ol>
+<p>二、<strong>分组函数</strong>（又叫<strong>统计函数</strong>或<strong>聚合函数</strong>）</p>
+<pre><code>    sum 求和（NULL不参与运算）
+    max 最大值（NULL不参与运算）
+    min 最小值（NULL不参与运算）
+    avg 平均值（NULL不参与运算）
+    count 计数（NULL不参与运算）
+
+    特点：
+    1、以上五个分组函数都忽略null值，除了count(*)
+    2、sum和avg一般用于处理数值型
+        max、min、count可以处理任何数据类型
+    3、都可以搭配distinct使用，用于统计去重后的结果
+    4、count的参数可以支持：
+        字段、*、常量值，一般放1
+
+       建议使用 count(*)  可查看有多少行（只要任意一个字段不为nUll就会被统计）
+</code></pre><ol>
+<li>select OCUNT(DISTINCT person_type)    对类型去重后计数，其他函数也可以这样用，可以被 IN 等代替，因此用的较少。<strong>这里，子查询后执行，子查询在主查询结果中筛选，因此也叫相关子查询。</strong> </li>
+<li><strong>和分组函数一起查询的字段要是GROUP BY 后的字段</strong>，其他不可以。不然会出现只查出一个的情况。</li>
+</ol>
+<h3 id="进阶5：分组查询"><a href="#进阶5：分组查询" class="headerlink" title="进阶5：分组查询"></a>进阶5：分组查询</h3><pre><code>语法：
+select 分组函数，查询的字段(要求出现在分组函数的后面)
+from 表
+where [筛选条件]
+group by 分组的字段[或者按函数结果分组]
+HAVING [筛选条件]    # 指上面分组后再筛选，支持别名判断
+</code></pre><p>​    特点：<br>​    1、可以按单个字段分组<br>​    2、和分组函数一同查询的字段最好是分组后的字段<br>​    3、分组筛选<br>​            针对的表    位置            关键字<br>​    分组前筛选：    原始表        group by的前面        where<br>​    分组后筛选：    分组后的结果集    group by的后面        having<br>​<br>​    4、可以按多个字段分组，字段之间用逗号隔开<br>​    5、可以支持排序<br>​    6、having后可以支持别名</p>
+<p>​    select COUNT(*), name FROM account GROUP BY LENGTH(name)    按照函数的结果分组</p>
+<h3 id="进阶6：多表连接查询"><a href="#进阶6：多表连接查询" class="headerlink" title="进阶6：多表连接查询"></a>进阶6：多表连接查询</h3><pre><code>笛卡尔乘积：如果连接条件省略或无效则会出现
+解决办法：添加上连接条件
+</code></pre><p>select boy_name, girl_name from boys, girls WHERE girls.boyfrend_id = boys.id;    查询每个男生的女朋友（当有多个查询条件是中间用AND连接）</p>
+<p>一、传统模式下的连接 ：等值连接——非等值连接</p>
+<pre><code>1.等值连接的结果 = 多个表的交集
+2.n表连接，至少需要n-1个连接条件
+3.多个表不分主次，没有顺序要求
+4.一般为表起别名，提高阅读性和性能
+</code></pre><p>二、sql99语法：通过join关键字实现连接</p>
+<pre><code>含义：1999年推出的sql语法
+支持：
+等值连接、非等值连接 （内连接）
+外连接
+交叉连接
+
+语法：
+
+select 字段，...
+from 表1
+【inner|left outer|right outer|cross】join 表2 on  连接条件
+【inner|left outer|right outer|cross】join 表3 on  连接条件
+【where 筛选条件】
+【group by 分组字段】
+【having 分组后的筛选条件】
+【order by 排序的字段或表达式】
+
+好处：语句上，连接条件和筛选条件实现了分离，简洁明了！
+</code></pre><p><strong>外连接</strong>：一个表中有，一个表中没有的查询</p>
+<p>如果从表中有匹配的值，则显示匹配的值，从表中没有则显示NULL</p>
+<p>外连接结果=内连接结果 + 主表有而从表没有的记录</p>
+<ul>
+<li>主表：left join左边，right join 右边，的是主表</li>
+<li>从表：</li>
+</ul>
+<p>连接类型：左外-&gt;left   右外-&gt;right   全外-&gt;full 三、自连接</p>
+<p><strong>使用场景：</strong>查询员工名和直接上级的名称，当表中有该员工的领导id，但领导同时也是员工，也在这张表中的情况下使用。</p>
+<p>sql99  （提高了可读性）</p>
+<pre><code>SELECT e.last_name,m.last_name
+FROM employees e
+JOIN employees m ON e.`manager_id`=m.`employee_id`;
+</code></pre><p>sql92</p>
+<pre><code>SELECT e.last_name,m.last_name
+FROM employees e,employees m 
+WHERE e.`manager_id`=m.`employee_id`;
+</code></pre><h2 id="进阶7：子查询"><a href="#进阶7：子查询" class="headerlink" title="进阶7：子查询"></a>进阶7：子查询</h2><p><strong>子查询出现的位置：</strong> （加黑为重要）</p>
+<p>select后  ：仅支持标量子查询（结果集为一行一列）</p>
+<p>from后 ：支持表子查询（查询结果为多行多列）</p>
+<p><strong>where或having后</strong> ：支持<strong>标量子查询</strong>，<strong>列子查询</strong>（查询结果为一列多行）、行子查询（查询结果为一行多列）</p>
+<p>exists后：支持表子查询</p>
+<p>含义：</p>
+<p>​    一条查询语句中又嵌套了另一条完整的select语句，其中被嵌套的select语句，称为子查询或内查询<br>在外面的查询语句，称为主查询或外查询 </p>
+<p>特点：</p>
+<p>1、子查询都放在小括号内（<strong>结尾不要带分号</strong>）<br>2、子查询可以放在from后面、select后面、where后面、having后面，但一般放在条件的右侧<br>3、子查询优先于主查询执行，主查询使用了子查询的执行结果<br>4、子查询根据查询结果的行数不同分为以下两类：<br>① 单行子查询<br>    结果集只有一行，一般搭配单行操作符使用：&gt; &lt; = &lt;&gt; &gt;= &lt;=<br>    非法使用子查询的情况：<br>    a、子查询的结果为一组值<br>    b、子查询的结果为空</p>
+<p>② 多行子查询<br>    结果集有多行<br>    一般搭配多行操作符使用：any、all、in、not in<br>    in： 属于子查询结果中的任意一个就行<br>    any和all往往可以用其他查询代替</p>
+<p><strong>exists：</strong> 只关心查询结果有还是没有，有的话返回为1，没有返回为0。</p>
+<p>例如： select EXISTS(select id from account where id=1000)    r如果exist中的子查询语句结果存在，则返回1，否则返回0。</p>
+<h2 id="进阶8：分页查询（重要、常用）"><a href="#进阶8：分页查询（重要、常用）" class="headerlink" title="进阶8：分页查询（重要、常用）"></a>进阶8：分页查询（重要、常用）</h2><p>应用场景：</p>
+<pre><code>实际的web项目中需要根据用户的需求提交对应的分页查询的sql语句
+</code></pre><p>语法：</p>
+<pre><code>select 字段|表达式,...
+from 表
+【where 条件】
+【group by 分组字段】
+【having 条件】
+【order by 排序的字段】
+limit 【offset，】size;
+
+offset:起始索引。
+size：要显示的条目数。
+</code></pre><p>特点：</p>
+<ol>
+<li><p><strong>起始条目索引从0开始</strong> </p>
+</li>
+<li><p>limit子句放在查询语句的最后</p>
+</li>
+<li><p>公式：select <em> from  表 limit （page-1）</em>sizePerPage,sizePerPage<br>假如:<br>每页显示条目数sizePerPage<br>要显示的页数 page</p>
+</li>
+</ol>
+<h2 id="进阶9：联合查询"><a href="#进阶9：联合查询" class="headerlink" title="进阶9：联合查询"></a>进阶9：联合查询</h2><p>引入：<br>    union 联合、合并，将多个查询的结果联合成一个结果</p>
+<p><strong>常用在在多个表中查询，多个表没有连接关系，但查询的信息一样，最后合并成一个结果</strong>：</p>
+<p>select  * from china where sex=’男’</p>
+<p>union </p>
+<p>select* from american where sex=’male’</p>
+<p>语法：</p>
+<pre><code>select 字段|常量|表达式|函数 【from 表】 【where 条件】
+union 
+select 字段|常量|表达式|函数 【from 表】 【where 条件】 
+union 
+.....
+select 字段|常量|表达式|函数 【from 表】 【where 条件】
+</code></pre><p><strong>特点：</strong> </p>
+<p>1、多条查询语句的查询的<strong>列数必须是一致的</strong><br>2、多条查询语句的查询的<strong>列的类型几乎相同</strong>,顺序一致。<br>3、<strong>union代表去重，union all代表不去重</strong> </p>
+<h2 id="DML语言"><a href="#DML语言" class="headerlink" title="DML语言"></a>DML语言</h2><p><strong>Data Manipulate Language</strong> </p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>语法一：(支持插入多行和子查询插入)<br>    insert into 表名 (字段名，…) values(值1，…);</p>
+<p>​    插入多行的情况：insert into 表名(字段名，…) values(值1，…)， values(值1，…)， values(值1，…);</p>
+<p><strong>子查询插入：</strong> 将查询的结果集插入。</p>
+<p>例如：  insert into 表名 （id, name）</p>
+<p>​            select id, name from 表名；</p>
+<p>语法二：</p>
+<p>​    insert into 表名</p>
+<p>​    set 字段名=值, 字段名=值, 字段名=值,…;</p>
+<p>特点：</p>
+<p>1、字段类型和值类型<strong>一致或兼容</strong>，而且一一对应<br>2、可以为空的字段，可以不用插入值，或用null填充<br>3、不可以为空的字段，必须插入值<br>4、<strong>字段个数和值的个数必须一致</strong><br>5、字段可以省略，但默认所有字段，并且顺序和表中的存储顺序一致</p>
+<p>6、列的顺序可以颠倒，但是插入的值要与之一一对应。</p>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>修改单表语法：</p>
+<pre><code>update 表名 set 字段=新值,字段=新值
+【where 条件】
+</code></pre><p>修改多表语法：</p>
+<pre><code>update 表1 别名1,表2 别名2
+set 字段=新值，字段=新值
+where 连接条件
+and 筛选条件
+</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>方式1：delete语句 </p>
+<p>单表的删除： ★<br>    delete from 表名 【where 筛选条件】</p>
+<p>多表的删除：<br>    delete 别名1，别名2    # 这里可以写一个表，这样只删除一个表的数据<br>    from 表1 别名1，表2 别名2<br>    where 连接条件<br>    and 筛选条件;</p>
+<p>方式2：truncate语句</p>
+<pre><code>truncate table 表名
+</code></pre><p>两种方式的区别【<strong>面试题</strong>】</p>
+<ol>
+<li><p><strong>truncate不能加where条件，而delete可以加where条件</strong> </p>
+</li>
+<li><p><strong>truncate的效率高一丢丢</strong> </p>
+</li>
+<li><p><strong>truncate 删除带自增长的列的表后，如果再插入数据，数据从1开始delete 删除带自增长列的表后，如果再插入数据，数据从上一次的断点处开始</strong> </p>
+</li>
+<li><p><strong>truncate删除不能回滚，delete删除可以回滚</strong></p>
+</li>
+</ol>
+<h2 id="五、DDL语句"><a href="#五、DDL语句" class="headerlink" title="五、DDL语句"></a>五、DDL语句</h2><p><strong>Data Define Language</strong> </p>
+<h3 id="库和表的管理"><a href="#库和表的管理" class="headerlink" title="库和表的管理"></a>库和表的管理</h3><p>库的管理：</p>
+<p>库名是不支持修改的。</p>
+<pre><code>一、创建库
+create database 库名
+CREATE database IF NOT EXISTS 库名    有的话就不会再创建了
+二、删除库
+drop database 库名
+DROP DATABASE IF EXISTS 库名;    如果存在才删除
+三、修改库的字符集
+alter database 库名 CHARACTER SET utf8;   默认为utf8
+</code></pre><p>表的管理：<br>    1.创建表</p>
+<pre><code>CREATE TABLE IF NOT EXISTS stuinfo(
+    stuId INT,
+    stuName VARCHAR(20),
+    gender CHAR,
+    bornDate DATETIME
+</code></pre><p>​    );<br>​<br>​    DESC studentinfo;    查看表结构</p>
+<p>​    2.修改表 alter<br>​    语法：ALTER TABLE 表名 ADD|MODIFY|DROP|CHANGE COLUMN 字段名 【字段类型】;<br>​<br>​    ①修改字段名</p>
+<p>​    ALTER TABLE studentinfo CHANGE  COLUMN sex gender CHAR;<br>​<br>​    ②修改表名</p>
+<p>​    ALTER TABLE stuinfo RENAME [TO]  studentinfo;</p>
+<p>​    ③修改字段类型和列级约束</p>
+<p>​    ALTER TABLE studentinfo MODIFY COLUMN borndate DATE ;</p>
+<p>​    ④添加字段</p>
+<p>​    ALTER TABLE studentinfo ADD COLUMN email VARCHAR(20) first;</p>
+<p>​    ⑤删除字段</p>
+<p>​    ALTER TABLE studentinfo DROP COLUMN email;<br>​    #3.删除表<br>​    DROP TABLE [IF EXISTS] studentinfo;</p>
+<p>​    </p>
+<h4 id="复制表："><a href="#复制表：" class="headerlink" title="复制表："></a>复制表：</h4><ol>
+<li><p>复制表的结构（数据不复制，仅复制表的结构）</p>
+<p>CREATE TABLE 表名(要得到的表) LIKE 表名(被复制的表)</p>
+</li>
+<li><p>复制部分结构，加部分数据</p>
+<p>CREATE TABLE 表名(要得到的表) </p>
+<p>SELECT 字段1，字段2 FROM 表名(被复制的表)</p>
+<p>WHERE 筛选条件；</p>
+</li>
+<li><p>仅复制表的部分结构（只需将筛选条件设为假）</p>
+<p>CREATE TABLE 表名(要得到的表) </p>
+<p>SELECT 字段1，字段2 FROM 表名(被复制的表)</p>
+<p>WHERE 0；</p>
+</li>
+</ol>
+<h3 id="常见类型"><a href="#常见类型" class="headerlink" title="常见类型"></a>常见类型</h3><ol>
+<li><p>数值型：</p>
+<ul>
+<li><p>整数型 ：tinyint 、smallint 、mediumint、 int/integer、bigint  </p>
+<p> <strong>整数形括号内的数值表示长度，对数值范围没有影响，仅仅影响在数据库表中显示的长度，不够长度用0填充。</strong></p>
+</li>
+<li><p>小数型：</p>
+<pre><code>浮点型：float（M,D）、double（M,D）
+  定点型：dec（M,D）保存精度更高时用。
+</code></pre><p>​        M: 总共的位数（等于小数点前的位数加上小数点后的位数）。</p>
+<p>​        D: 小数点后的位数（多的四舍五入，少的补零）</p>
+</li>
+</ul>
+</li>
+<li><p>字符型：</p>
+<p>|         | 写法       | M                     | 特点                        | 空间 | 效率 |<br>| ———- | ————— | ——————————- | —————————————- | —— | —— |<br>| char    | char(M)    | 最大字符数（0-255）   | 固定长度（M多大分配多大）   | 耗费 | 高   |<br>| varchar | varchar(M) | 最大字符数（0-65535） | 可变长度（小于M时按需分配） | 节省 | 低   |</p>
+<p><strong>注意：</strong>char中M可以省略，默认为1，varchar中不能省略。</p>
+<p><strong>如何选择</strong>：当固定字符数时用char,字符数不固定时用varchar。</p>
+<p>|      |                   |      |      |      |      |<br>| —— | ————————- | —— | —— | —— | —— |<br>| enum | enum(‘a’,’b’,’c’) |      |      |      |      |<br>|      |                   |      |      |      |      |</p>
+<p><strong>ENUM :</strong> 枚举类型，要求插入的值只能为列表中指定的值之一(每次插入一个值)。</p>
+<p>​    eg：create table tab_enum ( e1 ENUM(‘a’,’b’,’c’) );</p>
+<p>​            insert into tab_enum (e1) values(‘a’);</p>
+<p>使用场景：适合于存储性别等这种有固定个数且只能唯一选择一个的。</p>
+<p><strong>SET:</strong> 不同于枚举的是，允许插入多个。</p>
+<p>​    eg：create table tab_set ( s1 ENUM(‘a’,’b’,’c’) );</p>
+<p>​            insert into tab_set (s1) values(‘a,b’);</p>
+<p><strong>注：</strong> ENUM 和SET 均不区分大小写。</p>
+</li>
+<li><p>日期型：</p>
+<p>| 日期类型  | 内容       |<br>| ————- | ————— |<br>| date      | 日期       |<br>| time      | 时间       |<br>| year      | 年         |<br>| datetime  | 日期和时间 |<br>| timestamp | 日期和时间 |</p>
+<p>注：datetime范围大，不受时区影响，timestamp受时区影响。</p>
+<ul>
+<li>设置时区：<code>set time_zone=+10:00</code> 设置为东十区 </li>
+<li>查看当前时区：<code>show variables like &#39;time_zone&#39;</code> </li>
+</ul>
+</li>
+<li><p>Blob类型：</p>
+</li>
+</ol>
+<h5 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h5><ol>
+<li><p>整型如果不设置，默认类型为有符号，</p>
+<p>无符号需要在类型后加unsigned  如：create table tab (num INT UNSIGNED);</p>
+</li>
+<li><p>插入数据超出范围，会默认取临界值。</p>
+</li>
+<li><p>整数插入的数据的范围是由类型决定的，括号内的数值仅仅在位数不够该数值位，且设置了ZEROFILL时有用（很少用）。</p>
+</li>
+<li><p>不显示声明浮点中的M和D时，浮点型数据在范围内就可，而定点型默认为MD为10和 0。</p>
+</li>
+</ol>
+<h3 id="常见约束"><a href="#常见约束" class="headerlink" title="常见约束"></a>常见约束</h3><p>约束：用于限制表中的数据，为了保证我们插入的数据的一致性。</p>
+<p><code>SHOW INDEX FROM 表名</code>    可以查看当前表所添加的约束。</p>
+<ol>
+<li>NOT NULL：非空（NN）</li>
+<li>DEFAULT：有默认值的字段</li>
+<li>UNIQUE：唯一（UQ）</li>
+<li>CHECK：检查约束，<strong>MySQL中不支持，但语法不报错。</strong></li>
+<li>PRIMARY KEY：主键，非空、唯一（PK）</li>
+<li>FOREIGN KEY：外键，用来限制两个表之间的关系，保证该字段的值必须是关联表中与之关联的列的值。</li>
+</ol>
+<p>注：</p>
+<ul>
+<li>AI：自增（auto increment）</li>
+<li>UN：无符号的（unsigned）</li>
+<li>B : 二进制（binary）</li>
+<li>ZF：零填充（zero fill）</li>
+</ul>
+<p><strong>添加约束：</strong> 在创建或修改表时添加约束。添加位置如下：</p>
+<p>CREATE TABLE 表名 （</p>
+<p>​    字段名 类型 列级约束（如果多个列级约束则用空格分开），</p>
+<p>​    字段名 类型 列级约束，</p>
+<p>​    表级约束</p>
+<p>）</p>
+<p>表级约束内容：</p>
+<p>约束类型（字段名）如：FOREIGN KEY(字段名) REFERENCES 表名(字段名)</p>
+<p><strong>约束分类（重要）：</strong> </p>
+<ul>
+<li>列级约束：不支持在该位置添加外键约束</li>
+<li>表级约束：不支持在该位置添加非空和默认值的约束。</li>
+</ul>
+<h4 id="修改时添加或删除约束"><a href="#修改时添加或删除约束" class="headerlink" title="修改时添加或删除约束"></a>修改时添加或删除约束</h4><ul>
+<li>alter table 表名 MODIFY COLUMN 字段名 VARCHAR(10) NOT NULL;    列级约束写法</li>
+<li>alter table 表名 ADD DEFAULT(字段) 20;    表级约束写法</li>
+<li>添加外键：ALTER ATBLE 表1 ADD FOREING KEY(字段1) REFERENCES 表2(字段2)</li>
+<li><strong>注：</strong> 删除约束时与添加数据时类似如：<ul>
+<li>alter table 表名 MODIFY COLUMN 字段名 VARCHAR(10) NULL;    列级约束写法</li>
+</ul>
+</li>
+</ul>
+<h4 id="约束备注（面试）"><a href="#约束备注（面试）" class="headerlink" title="约束备注（面试）"></a>约束备注（面试）</h4><ol>
+<li>主键和唯一键都支持组合键(不推荐这样设置)，如将多个字段组合设置为主键或者唯一键，这样即这多个字段不同时一样，就是合法的。如名字和身份证号组合为主键，但两个人的名字可能相同，也合法。</li>
+<li>语法：  PRIMARY KEY(id,name)</li>
+<li>外键：该表的外键必须是另一个表中的主键（常用）或者唯一键。插入数据时先插入到主表，再插入到从表，删除数据时，先删从表，再删主表。</li>
+</ol>
+<h3 id="TCL（Transaction-Control-Language）"><a href="#TCL（Transaction-Control-Language）" class="headerlink" title="TCL（Transaction Control Language）"></a>TCL（Transaction Control Language）</h3><h3 id="DCL-Data-Control-Langusge"><a href="#DCL-Data-Control-Langusge" class="headerlink" title="DCL (Data Control Langusge)"></a>DCL (Data Control Langusge)</h3><h2 id="六、数据库事务"><a href="#六、数据库事务" class="headerlink" title="六、数据库事务"></a>六、数据库事务</h2><p><strong>数据库引擎：</strong> 因为MySQL的存储引擎有很多，常用的是innodb，myisam，memory等，而这三个中只有innodb是支持事务的。</p>
+<ul>
+<li><code>show engines</code> 查看当前数据库使用的引擎</li>
+</ul>
+<h3 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h3><p>​    通过一组逻辑操作单元（一组DML——sql语句），将数据从一种状态切换到另外一种状态</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>如果其中某条SQL语句执行失败，则会进行<strong>回滚</strong> ，即将之前执行的撤销，回到最开始的状态，所有语句都执行成功时，则事务被顺利执行。</p>
+<pre><code>事务的特点：（ACID）
+原子性(Atomicity)：要么都执行，要么都回滚
+一致性(Consistency)：保证数据的状态操作前和操作后保持一致
+隔离性(Isolation)：多个事务同时操作相同数据库的同一个数据时，一个事务的执行不受另外一个事务的干扰
+持久性(Durablity)：一个事务一旦提交，则数据将持久化到本地，除非其他事务对其进行修改
+</code></pre><p>相关步骤：</p>
+<pre><code>1、开启事务
+2、编写事务的一组逻辑操作单元（多条sql语句）
+3、提交事务或回滚事务
+</code></pre><h3 id="事务的分类："><a href="#事务的分类：" class="headerlink" title="事务的分类："></a>事务的分类：</h3><p>隐式事务，没有明显的开启和结束事务的标志</p>
+<pre><code>比如
+insert、update、delete语句本身就是一个事务
+</code></pre><p>显式事务，具有明显的开启和结束事务的标志</p>
+<ol>
+<li><p>开启事务<br>取消自动提交事务的功能</p>
+<ul>
+<li>查看自动提交是否开启：<code>show variables like &#39;autocommit&#39;;</code> </li>
+<li>取消自动提交：<code>set autocommit=0;</code></li>
+</ul>
+</li>
+<li><p>编写事务的一组逻辑操作单元（多条sql语句）<br>insert<br>update<br>delete</p>
+</li>
+<li><p>提交事务或回滚事务</p>
+</li>
+</ol>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autocommit=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">start</span> <span class="keyword">transaction</span>; <span class="comment"># 写不写这一句都可以</span></span><br><span class="line"><span class="comment"># 一堆SQL 语句</span></span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>问题：</strong> 事务执行完以后（commit后），autocommit是否会再次变为打开的状态。（不会），但是一般不需要重新打开，因为关闭的自动提交只针对该连接有效，通常不会在一个程序代码中进行多次事务操作。</p>
+<h3 id="使用到的关键字"><a href="#使用到的关键字" class="headerlink" title="使用到的关键字"></a>使用到的关键字</h3><pre><code>set autocommit=0;
+start transaction;
+
+commit;
+rollback; # 如果执行了回滚，则数据不会改变，即没有写到磁盘。
+
+savepoint  断点
+commit to 断点
+rollback to 断点
+</code></pre><h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别:"></a>事务的隔离级别:</h3><p>事务并发问题如何发生？</p>
+<pre><code>当多个事务同时操作同一个数据库的相同数据时
+</code></pre><p>事务的<strong>并发问题</strong>有哪些？</p>
+<pre><code>脏读：一个事务读取到了另外一个事务未提交的数据
+不可重复读：同一个事务中，多次读取到的数据不一致
+幻读：一个事务读取数据时，另外一个事务进行更新，导致第一个事务读取到了没有更新的数据
+</code></pre><p>如何避免事务的并发问题？</p>
+<p>隔离级别越高，则效率就越低。</p>
+<pre><code>事务的隔离级别
+1、READ UNCOMMITTED  脏读、不可重复读和幻读均可能出现
+2、READ COMMITTED 可以避免脏读
+3、REPEATABLE READ 可以避免脏读、不可重复读和一部分幻读
+4、SERIALIZABLE可以避免脏读、不可重复读和幻读
+</code></pre><p>设置隔离级别：</p>
+<p><strong>注意：</strong> 每启动一个MySQL连接，该连接就会有一个全局变量@@tx_isolation 表示当前的隔离级别。</p>
+<ol>
+<li><p>设置数据库系统全局的隔离级别（重启后才有效）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set global  transaction isolation level 隔离级别名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置当前连接的隔离级别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolation level 隔离级别名;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注：</strong> 连接数据库的软件相当于开了一个连接。</p>
+<p>查看隔离级别：</p>
+<pre><code>select @@tx_isolation;
+</code></pre><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ol>
+<li><p>在事务中删除表时，delete 支持回滚，而truncate不支持回滚。</p>
+</li>
+<li><p>例如：TRUNCATE 后不支持回滚，数据还是会被删除。</p>
+<ul>
+<li><p>SET autocommit=0;</p>
+<p>START TRANSACTION;</p>
+<p>TRUNCATE TABLE 表名；</p>
+<p>ROLLBACK;</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="七、视图"><a href="#七、视图" class="headerlink" title="七、视图"></a>七、视图</h2><p><strong>疑问：</strong> 如果在创建视图后表有更新，那么下一次调用视图的查询是否会也跟着更新？</p>
+<p>含义：理解成一张虚拟的表（MySQL 5.1之后版本的新特性）,行和列的数据来自定义视图的查询中所生成的表，在使用视图时动态生成，只保存了SQL逻辑，不保存查询内容。</p>
+<p><strong>使用场景：</strong> </p>
+<p>​    多个地方用到同样的查询结果，该查询结果使用的SQL语句较复杂时。</p>
+<p><strong>视图和表的区别：</strong></p>
+<p>由于视图和表基本完全相同，因此像表与视图连接的查询也是支持的。</p>
+<pre><code>    使用方式    占用物理空间
+
+视图    完全相同    不占用，仅仅保存的是sql逻辑(一般不进行增删改）
+
+表    完全相同    占用
+</code></pre><p>视图的好处：</p>
+<ol>
+<li><p><strong>sql语句提高重用性</strong>，效率高</p>
+</li>
+<li><p>和表实现了分离，提高了安全性</p>
+<p><strong>安全性:</strong> 可针对不同的用户设定不同的视图，比如我表中包含了很多其他的数据，有隐私型数据，但是我通过视图返回数据，这样就提高了安全性，视图中只包含了该用户想知道的数据。</p>
+</li>
+<li><p>对数据库重构，不影响程序的运行。</p>
+</li>
+</ol>
+<h3 id="视图的创建"><a href="#视图的创建" class="headerlink" title="视图的创建"></a>视图的创建</h3><p>​    语法：<br>​    CREATE VIEW  视图名<br>​    AS<br>​    查询语句;</p>
+<h3 id="视图的数据的增删改查（不建议这么做）"><a href="#视图的数据的增删改查（不建议这么做）" class="headerlink" title="视图的数据的增删改查（不建议这么做）"></a>视图的数据的增删改查（不建议这么做）</h3><p><strong>重要：</strong> 在视图中更删改数据后，那么原始的表也会跟着改变。</p>
+<p>一般不对视图的数据进行增删改查，对视图设置权限，只允许读。</p>
+<pre><code>1、查看视图的数据 ★
+
+SELECT * FROM my_v4;
+SELECT * FROM my_v1 WHERE last_name=&#39;Partners&#39;;
+
+2、插入视图的数据
+INSERT INTO my_v4(last_name,department_id) VALUES(&#39;虚竹&#39;,90);
+
+3、修改视图的数据
+
+UPDATE my_v4 SET last_name =&#39;梦姑&#39; WHERE last_name=&#39;虚竹&#39;;
+
+4、删除视图的数据
+DELETE FROM my_v4;
+</code></pre><h3 id="某些视图不能更新"><a href="#某些视图不能更新" class="headerlink" title="某些视图不能更新"></a>某些视图不能更新</h3><p>​    包含以下关键字的sql语句：分组函数、distinct、group  by、having、union或者union all<br>​    常量视图<br>​    Select中包含子查询<br>​    join<br>​    from一个不能更新的视图<br>​    where子句的子查询引用了from子句中的表</p>
+<h3 id="视图SQL逻辑的更新"><a href="#视图SQL逻辑的更新" class="headerlink" title="视图SQL逻辑的更新"></a>视图SQL逻辑的更新</h3><p>​    1. 方式一：CREATE OR REPLACE VIEW 视图名 AS 查询语句<br>​        CREATE OR REPLACE VIEW test_v7<br>​        AS<br>​        SELECT last_name FROM employees<br>​        WHERE employee_id&gt;100;</p>
+<pre><code>2. 方式二：ALTER VIEW 视图名 AS ；查询语句；
+ALTER VIEW test_v7
+AS
+SELECT employee_id FROM employees;
+
+SELECT * FROM test_v7;
+</code></pre><h3 id="视图的删除"><a href="#视图的删除" class="headerlink" title="视图的删除"></a>视图的删除</h3><p>​    DROP VIEW test_v1,test_v2,test_v3;</p>
+<h3 id="视图结构的查看"><a href="#视图结构的查看" class="headerlink" title="视图结构的查看"></a>视图结构的查看</h3><p>​    DESC test_v7;<br>​    SHOW CREATE VIEW test_v7;</p>
+<h2 id="八、变量"><a href="#八、变量" class="headerlink" title="八、变量"></a>八、变量</h2><ol>
+<li>系统变量：<ul>
+<li>全局变量：由系统提供，针对整个MySQL服务器的变量，每次启动后赋予默认初值，更改后跨链接有效，跨重启无效。</li>
+<li>会话变量：针对当前连接</li>
+</ul>
+</li>
+<li>自定义变量：<ul>
+<li>用户变量：针对该用户</li>
+<li>局部变量：仅仅定义在begin end中有效（begin end中开始位置）</li>
+</ul>
+</li>
+</ol>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><strong>系统变量：</strong> </p>
+<p>默认为会话（session）级别，即session可以省略。</p>
+<ol>
+<li><code>show global|[session] variables;</code> 查看所有的系统变量</li>
+<li><code>select @@global|[session].系统变量名;</code> 查看指定变量的值</li>
+<li><code>set global|[session] 系统变量名=值;</code> 为某变量赋值</li>
+</ol>
+<p><strong>自定义变量：</strong></p>
+<ol>
+<li><code>SET @用户变量名:=值;</code> 声明并初始化用户变量，或对某用户变量赋予新的值。</li>
+<li><code>SELECT 字段 INTO 用户变量名 FROM 表;</code> 将查询结果付给变量。要求查询结果为一个，而不是多个。</li>
+<li><code>SELECT @用户变量名;</code> 查看用户变量</li>
+<li><code>DECLARE 局部变量名 类型 [DEFAULT 值];</code> 声明局部变量（并赋初值。）</li>
+<li><code>SET @局部变量名 :=值;</code> 为局部变量赋值</li>
+<li><code>SELECT 局部变量名;</code> 查看局部变量的值</li>
+</ol>
+<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><p>含义：<strong>一组</strong>经过预先编译的sql语句的集合<br><strong>好处：</strong> </p>
+<pre><code>1、提高了sql语句的重用性，减少了开发程序员的压力
+2、提高了效率（减少了SQL语句的编译次数和跟数据库服务器连接的次数）
+3、减少了传输次数
+</code></pre><p>分类：</p>
+<pre><code>1、无返回无参
+2、仅仅带in类型，无返回有参
+3、仅仅带out类型，有返回无参
+4、既带in又带out，有返回有参
+5、带inout，有返回有参
+注意：in、out、inout都可以在一个存储过程中带多个
+</code></pre><h3 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h3><p>应用：<strong>常用于增删改，涉及多条数据的增删改</strong>。 而<strong>函数</strong>用来做查询。</p>
+<p>语法：</p>
+<pre><code>create procedure 存储过程名(in|out|inout 参数名  参数类型,...)
+begin
+    存储过程体
+
+end
+</code></pre><p>类似于方法：</p>
+<pre><code>修饰符 返回类型 方法名(参数类型 参数名,...){
+
+    方法体;
+}
+</code></pre><p><strong>注意</strong> </p>
+<ol>
+<li><p>存储过程中每条存储语句中都要有<strong>分号</strong>。通过设置结束标志来判断什么时候结束。</p>
+</li>
+<li><p>设置完结束符以后，结束符就是设置的字符了，因此以后的SQL语句的结束符就是设置的字符，如果需要的话需要针对性再改。</p>
+</li>
+<li><p>设置的新的结束标记仅针对一次连接。</p>
+<p> 1、需要设置新的结束标记<br> delimiter 新的结束标记<br> 示例：<br> delimiter $<br> set @name$  # 作为存储过程的返回值<br> CREATE PROCEDURE 存储过程名(IN|OUT|INOUT 参数名  参数类型,…)<br> BEGIN</p>
+<pre><code> sql语句1;
+ sql语句2;
+</code></pre><p> END $<br> SELECT @name$   # 查询返回值的内容。</p>
+<p> 2、存储过程体中可以有多条sql语句，如果仅仅一条sql语句，则可以省略begin end</p>
+<p> 3、参数前面的符号的意思<br> in:该参数只能作为输入 （该参数不能做返回值）<br> out：该参数只能作为输出（该参数只能做返回值）<br> inout：既能做输入又能做输出，重新赋值后，参数值就会发生改变。</p>
+</li>
+</ol>
+<p>注：</p>
+<ol>
+<li>OUT参数的值在存储过程执行结束之后会自动返回。因此需要在内部将结果付给存储变量，在外部定义用户变量传入才能出过程调用时的参数，然后方便后面使用。</li>
+</ol>
+<h3 id="调用存储过程"><a href="#调用存储过程" class="headerlink" title="调用存储过程"></a>调用存储过程</h3><pre><code>call 存储过程名(实参列表)
+</code></pre><h3 id="删除存储过程"><a href="#删除存储过程" class="headerlink" title="删除存储过程"></a>删除存储过程</h3><p><code>DROP PROCEDURE 存储过程名;</code>  删除存储过程，只能一个一个删</p>
+<h3 id="查案存储过程"><a href="#查案存储过程" class="headerlink" title="查案存储过程"></a>查案存储过程</h3><p><code>SHOW CREATE PROCEDURE 存储过程名;</code>  查看存储过程的信息</p>
+<p>没有更新存储过程的命令。    </p>
+<h2 id="九、函数"><a href="#九、函数" class="headerlink" title="九、函数"></a>九、函数</h2><h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>函数的特点与存储过程相同，</li>
+<li>函数有且仅有一个返回值。</li>
+<li>区别于存储过程，函数用于对查询的封装。</li>
+</ol>
+<h3 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h3><p>学过的函数：LENGTH、SUBSTR、CONCAT等<br>语法：</p>
+<pre><code>CREATE FUNCTION 函数名(参数名 参数类型,...) RETURNS 返回类型
+BEGIN
+    函数体
+
+END
+</code></pre><h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>调用函数，并显示查询的结果。</p>
+<pre><code>SELECT 函数名（实参列表）
+</code></pre><h3 id="函数和存储过程的区别"><a href="#函数和存储过程的区别" class="headerlink" title="函数和存储过程的区别"></a>函数和存储过程的区别</h3><pre><code>        关键字        调用语法    返回值            应用场景
+函数        FUNCTION    SELECT 函数()    只能是一个        一般用于查询结果为一个值并返回时，当有返回值而且仅仅一个
+存储过程    PROCEDURE    CALL 存储过程()    可以有0个或多个        一般用于更新
+</code></pre><h2 id="十、流程控制结构"><a href="#十、流程控制结构" class="headerlink" title="十、流程控制结构"></a>十、流程控制结构</h2><h3 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h3><p>一、全局变量</p>
+<p>作用域：针对于所有会话（连接）有效，但不能跨重启</p>
+<pre><code>查看所有全局变量
+SHOW GLOBAL VARIABLES;
+查看满足条件的部分系统变量
+SHOW GLOBAL VARIABLES LIKE &#39;%char%&#39;;
+查看指定的系统变量的值
+SELECT @@global.autocommit;
+为某个系统变量赋值
+SET @@global.autocommit=0;
+SET GLOBAL autocommit=0;
+</code></pre><p>二、会话变量</p>
+<p>作用域：针对于当前会话（连接）有效</p>
+<pre><code>查看所有会话变量
+SHOW SESSION VARIABLES;
+查看满足条件的部分会话变量
+SHOW SESSION VARIABLES LIKE &#39;%char%&#39;;
+查看指定的会话变量的值
+SELECT @@autocommit;
+SELECT @@session.tx_isolation;
+为某个会话变量赋值
+SET @@session.tx_isolation=&#39;read-uncommitted&#39;;
+SET SESSION tx_isolation=&#39;read-committed&#39;;
+</code></pre><h3 id="自定义变量"><a href="#自定义变量" class="headerlink" title="自定义变量"></a>自定义变量</h3><p>一、用户变量</p>
+<p>声明并初始化：</p>
+<pre><code>SET @变量名=值;
+SET @变量名:=值;
+SELECT @变量名:=值;
+</code></pre><p>赋值：</p>
+<pre><code>方式一：一般用于赋简单的值
+SET 变量名=值;
+SET 变量名:=值;
+SELECT 变量名:=值;
+
+
+方式二：一般用于赋表 中的字段值
+SELECT 字段名或表达式 INTO 变量
+FROM 表;
+</code></pre><p>使用：</p>
+<pre><code>select @变量名;
+</code></pre><p>二、局部变量</p>
+<p>声明：</p>
+<pre><code>declare 变量名 类型 【default 值】;
+</code></pre><p>赋值：</p>
+<pre><code>方式一：一般用于赋简单的值
+SET 变量名=值;
+SET 变量名:=值;
+SELECT 变量名:=值;
+
+
+方式二：一般用于赋表 中的字段值
+SELECT 字段名或表达式 INTO 变量
+FROM 表;
+</code></pre><p>使用：</p>
+<pre><code>select 变量名
+</code></pre><p>二者的区别：</p>
+<pre><code>        作用域            定义位置        语法
+</code></pre><p>用户变量    当前会话        会话的任何地方        加@符号，不用指定类型<br>局部变量    定义它的BEGIN END中     BEGIN END的第一句话    一般不用加@,需要指定类型</p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>一、if函数<br>    语法：if(条件，值1，值2)<br>    特点：可以用在任何位置</p>
+<p>二、case语句</p>
+<p>语法：</p>
+<pre><code>情况一：类似于switch
+case 表达式
+when 值1 then 结果1或语句1(如果是语句，需要加分号) 
+when 值2 then 结果2或语句2(如果是语句，需要加分号)
+...
+else 结果n或语句n(如果是语句，需要加分号)
+end 【case】（如果是放在begin end中需要加上case，如果放在select后面不需要）
+
+情况二：类似于多重if
+case 
+when 条件1 then 结果1或语句1(如果是语句，需要加分号) 
+when 条件2 then 结果2或语句2(如果是语句，需要加分号)
+...
+else 结果n或语句n(如果是语句，需要加分号)
+end 【case】（如果是放在begin end中需要加上case，如果放在select后面不需要）
+</code></pre><p>特点：</p>
+<pre><code>1. 可以用在任何位置
+ 2. ELSE 可以省略
+ 3. 满足条件后，执行THEN 后的语句，然后直接跳出。
+</code></pre><p>三、if elseif语句</p>
+<p>语法：</p>
+<pre><code>if 情况1 then 语句1;
+elseif 情况2 then 语句2;
+...
+else 语句n;
+end if;
+</code></pre><p>特点：<br>    只能用在begin end中！！！！！！！！！！！！！！！</p>
+<p>三者比较：<br>            应用场合<br>    if函数        简单双分支<br>    case结构    等值判断 的多分支<br>    if结构        区间判断 的多分支</p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>语法：</p>
+<pre><code>【标签：】WHILE 循环条件  DO
+    循环体
+END WHILE 【标签】;
+</code></pre><p>特点：</p>
+<pre><code>只能放在BEGIN END里面
+
+如果要搭配leave跳转语句，需要使用标签，否则可以不用标签
+
+leave类似于java中的break语句，跳出所在循环！！！
+</code></pre>
+                
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/11/04/使用GitBook完成你的写作/" data-toggle="tooltip" data-placement="top" title="使用GitBook完成你的创作">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/10/15/Ubuntu安装Docker（官方-阿里源）/" data-toggle="tooltip" data-placement="top" title="Ubuntu安装Docker（官方/阿里源）">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                <!-- tip start -->
+                
+
+                
+                <div class="comment_notes">
+                    <p>
+                        本文为作者原创文章，未经作者允许不得转载。
+                    </p>
+                </div>
+                
+                <!-- tip end -->
+
+                <!-- Music start-->
+                
+                
+
+<link rel="stylesheet" href="/css/music-player/fonts/iconfont.css">
+
+
+<link rel="stylesheet" href="/css/music-player/css/reset.css">
+
+
+<link rel="stylesheet" href="/css/music-player/css/player.css">
+
+
+
+<div class="music-player">
+    <audio class="music-player__audio" ></audio>
+    <div class="music-player__main">
+        <div class="music-player__blur"></div>
+        <div class="music-player__disc">
+            <div class="music-player__image">
+                <img width="100%" src="" alt="">
+            </div>
+            <div class="music-player__pointer"><img width="100%" src="/img/cd_tou.png" alt=""></div>
+        </div>
+        <div class="music-player__controls">
+            <div class="music__info">
+                <h3 class="music__info--title">...</h3>
+                <p class="music__info--singer">...</p>
+            </div>
+            <div class="player-control">
+                <div class="player-control__content">
+                    <div class="player-control__btns">
+                        <div class="player-control__btn player-control__btn--prev"><i class="iconfont icon-prev"></i></div>
+                        <div class="player-control__btn player-control__btn--play"><i class="iconfont icon-play"></i></div>
+                        <div class="player-control__btn player-control__btn--next"><i class="iconfont icon-next"></i></div>
+                        <div class="player-control__btn player-control__btn--mode"><i class="iconfont icon-loop"></i></div>
+                    </div>
+                    <div class="player-control__volume">
+                        <div class="control__volume--icon player-control__btn"><i class="iconfont icon-volume"></i></div>
+                        <div class="control__volume--progress player_progress"></div>
+                    </div>
+                </div>
+                <div class="player-control__content">
+                    <div class="player__song--progress player_progress"></div>
+                    <div class="player__song--timeProgess nowTime">00:00</div>
+                    <div class="player__song--timeProgess totalTime">00:00</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/music-player/utill.js"></script>
+
+
+<script src="/js/music-player/jquery.min.js"></script>
+
+
+<script src="/js/music-player/player.js"></script>
+
+
+                
+                <!-- Music end -->
+
+                <!-- Sharing -->
+                
+                <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                <!--  css & js -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!-- Sharing -->
+
+                <!-- gitment start -->
+                
+                <hr>
+                <div id="blog_comments"></div>
+
+<!--
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+-->
+<!--
+<link rel="stylesheet" href="/css/gitment.css">
+<script type="text/javascript" src="/js/gitment.js"></script>
+-->
+
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css"/>
+
+<!--
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+-->
+
+<script>
+const myTheme = {
+  render(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    container.className = 'gitment-container gitment-root-container'
+    
+     // your custom component
+    container.appendChild(instance.renderSomething(state, instance))
+    
+    container.appendChild(instance.renderHeader(state, instance))
+    container.appendChild(instance.renderComments(state, instance))
+    container.appendChild(instance.renderEditor(state, instance))
+    //container.appendChild(instance.renderFooter(state, instance))
+    return container
+  },
+  renderSomething(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    container.className = 'hello_visitor'
+    if (state.user.login) {
+      container.innerText = `Hello ${state.user.login}, Welcome to comment system`
+    }
+    return container
+  }
+}
+
+
+const gitment = new Gitment({
+    id: 'Wed Oct 16 2019 11:20:36 GMT+0800', // optional
+    owner: "beyonderwei",
+    repo: "gitment",
+    oauth: {
+      client_id: "3154a4ba998ba4f00302",
+      client_secret: "bdef21bcc8a5357adad5f7c9b0371e40034a8246",
+    },
+    theme: myTheme,
+    // ...
+    // For more available options, check out the documentation below
+  })
+  
+  gitment.render('blog_comments')
+  // or
+  // gitment.render(document.getElementById('comments'))
+  // or
+  // document.body.appendChild(gitment.render())
+</script>
+                
+                <!-- gitment end -->
+
+                <!-- 来必力City版安装代码 -->
+                
+                <!-- City版安装代码已完成 -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.csdn.net/CSDN_X_W" target="_blank">CSDN</a></li>
+                    
+                        <li><a href="#" target="_blank">Web</a></li>
+                    
+                        <li><a href="https://github.com/Beyonderwei" target="_blank">Github</a></li>
+                    
+                        <li><a href="#" target="_blank">Other</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+
+
+<style  type="text/css">
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/beyonderwei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Beyonderwei 2021 
+                    <br>
+					瞌睡遇上枕头：
+                    <a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">吉ICP备20000556</a>
+                    <!--<a href="https://github.com/dusign/hexo-theme-snail" target="_blank" rel="noopener">
+                        <i>hexo-theme-snail</i>
+                    </a> | 
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0"
+                        width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=dusign&repo=hexo-theme-snail&type=star&count=true">
+                    </iframe>-->
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- Search -->
+
+<script src="/js/search.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://beyonderwei.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Search -->
+
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+    var path = "/" + search_path;
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- busuanzi -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+    
+        <!-- background effects line -->
+        
+
+        
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🌱&quot;,&quot;just do it&quot;,&quot;🌾&quot;,&quot;🍀&quot;,&quot;don&#39;t give up&quot;,&quot;🍂&quot;,&quot;🌻&quot;,&quot;try it again&quot;,&quot;🍃&quot;,&quot;never say die&quot;,&quot;🌵&quot;,&quot;🌿&quot;,&quot;🌴&quot;]' color='[&quot;rgb(121,93,179)&quot; ,&quot;rgb(76,180,231)&quot; ,&quot;rgb(184,90,154)&quot; ,&quot;rgb(157,211,250)&quot; ,&quot;rgb(255,0,0)&quot; ,&quot;rgb(242,153,29)&quot; ,&quot;rgb(23,204,16)&quot; ,&quot;rgb(222,0,0)&quot; ,&quot;rgb(22,36,92)&quot; ,&quot;rgb(127,24,116)&quot; ,&quot;rgb(119,195,79)&quot; ,&quot;rgb(4,77,34)&quot; ,&quot;rgb(122,2,60)&quot;]'></script>
+        
+
+        <!-- background effects end -->
+    
+
+    <!--<script size="50" alpha='0.3' zIndex="-999" src="/js/ribbonStatic.js"></script>-->
+    
+        <script src="/js/ribbonDynamic.js"></script>
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>

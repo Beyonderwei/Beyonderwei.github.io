@@ -96,7 +96,7 @@
     }
     
     #signature{
-        background-image: url('/img/signature/dusign.png');
+        background-image: url('/img/signature/beyonderwei.png');
     }
     
 </style>
@@ -280,6 +280,219 @@
 
         <div class="post-preview">
 
+            <a href="/2020/02/15/Docker安装Nginx实现反向代理/">
+                <h2 class="post-title">
+                    Docker安装Nginx实现反向代理
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、配置文件&ensp;&ensp;&ensp;&ensp;以前的配置文件为一个nginx.conf，新的版本将其分成了两个，default.conf 和 nginx.conf，为通过数据卷映射的方式，但没有在github上找到分开的这两个文件，因此先通过直接运行的方式得到这两个文件。
+
+先普通方式运行一个nginx容器docker run --name my-nginx -p 80:80 ......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-02-15
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Docker" title="Docker">Docker</a>
+                    
+                      <a href="/tags/#Nginx" title="Nginx">Nginx</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/02/08/打包Vue项目部署到Nginx并访问/">
+                <h2 class="post-title">
+                    打包Vue项目部署到Nginx并访问
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、简介把 Nginx 做为静态资源服务器，用来部署前端项目，本文介绍 Vue 项目打包、部署到 Nginx 的过程，并解决部署后，因 vue-router 使用 history 模式导致的在直接访问项目和点击路由链接时可以访问，而根地址刷新页面空白的问题。
+二、打包项目Vue的有关build、config的文件均保持原本的配置即可，无需更改 ，终端输入npm run build，成功后会在......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-02-08
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Nginx" title="Nginx">Nginx</a>
+                    
+                      <a href="/tags/#Vue" title="Vue">Vue</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/01/20/docker基础/">
+                <h2 class="post-title">
+                    Docker 基础
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、Docker概述1. 简介基于Go语言实现的云开源项目。理念：Build，Ship and Run Any App Anywhere ，缩小版的Linux系统。
+2.  为什么使用Docker解决了运行环境和配置问题的软件容器，方便做持续的集成并有助于整体发布的容器虚拟化技术。 
+
+Docker用来解决开发和运维之间配置环境、运行环境、操作系统、运行依赖包等不同导致的项目部署后无法运行的......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-01-20
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Docker" title="Docker">Docker</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/01/10/前端通过MathJax显示数学公式（vue-MathJax）/">
+                <h2 class="post-title">
+                    前端通过MathJax显示数学公式
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、关于MathJax
+官方网址：MathJax使用文档 
+简介：MathJax支持使用LaTeX，MathML或AsciiMath语法在网页中渲染数学公式。我们常用的语法为LaTex,比如该论坛支持的也是LaTex 。二、应用场景&ensp;&ensp;&ensp;&ensp;想实现在用户选择文件后能够直接在前端预览文件内容，如下：
+
+三、遇到的问题问题1(没有渲染效果)问题描述：&ens......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-01-10
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#MathJax" title="MathJax">MathJax</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/01/09/MySQL高级/">
+                <h2 class="post-title">
+                    MySQL高级
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、架构​    MySQL采用分层结构设计，可在不同需求场景中利用不同的存储引擎，插件式的存储引擎架构将查询处理和其他的系统任务以及数据存储相分离。 
+
+1. 连接层最上层是客户端和连接服务，包含本地的socket和大多数基于客户端/服务端工具实现的类似于tcp/ip的通信，完成连接处理、授权认证等安全方案。连接层上引入了连接池，为通过安全认证的客户端提供线程，在该层可实现SSL安全连接，......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-01-09
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#MySQL" title="MySQL">MySQL</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/01/02/注册-登录-实现过程详解/">
+                <h2 class="post-title">
+                    注册-登录实现过程详解
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、前言&ensp;&ensp;&ensp;&ensp;一般的平台基本上都有用户管理这一部分，虽然我们都是各个平台的用户，对于一般的流程有所了解，看似简单，但是真正实现的过程中确遇到了很多的困难。
+二、实现过程图解注册：看似过程似乎很简单但是这过程还有很多需要考虑的因素，采取邮箱发送验证码的方式实现验证：
+
+验证码如何产生： &ensp;&ensp;&ensp;&ensp;通常我们的验证码是......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-01-02
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#登录" title="登录">登录</a>
+                    
+                      <a href="/tags/#注册" title="注册">注册</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
             <a href="/2019/12/25/Ubuntu上使用Qt-Creator编译、下载PX4代码/">
                 <h2 class="post-title">
                     Ubuntu上使用Qt Creator编译、下载PX4代码
@@ -312,6 +525,78 @@
 
         <div class="post-preview">
 
+            <a href="/2019/12/12/Docker命令汇总/">
+                <h2 class="post-title">
+                    Docker 命令汇总
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    
+attach    Attach to a running container                 # 当前 shell 下 attach 连接指定运行镜像
+build     Build an image from a Dockerfile              # 通过 Dockerfile 定制镜像
+commit    Create a new image from ......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2019-12-12
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Docker" title="Docker">Docker</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2019/11/21/CentOS安装Docker/">
+                <h2 class="post-title">
+                    CentOS 安装Docker
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    1、centos系统的内核必须高于3.10uname -r
+2、yum 包更新到最新yum update
+3、卸载旧版本(如果安装过旧版本的话)yum remove docker  docker-common docker-selinux docker-engine
+4、安装需要的软件包yum install -y yum-utils device-mapper-persistent-dat......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2019-11-21
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Docker" title="Docker">Docker</a>
+                    
+                      <a href="/tags/#CentOS" title="CentOS">CentOS</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
             <a href="/2019/11/04/使用GitBook完成你的写作/">
                 <h2 class="post-title">
                     使用GitBook完成你的创作
@@ -331,296 +616,6 @@
                 <div class="tags">
                     
                       <a href="/tags/#GitBook" title="GitBook">GitBook</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/10/15/Ubuntu安装Docker（官方-阿里源）/">
-                <h2 class="post-title">
-                    Ubuntu安装Docker（官方/阿里源）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、为什么使用Docker&#8195;&#8195;构建后处处运行：Build Ship and Run Any App Anywhere&#8195;&#8195;Docker解决了因为配置、环境等不同造成的项目部署后无法运行的问题，避免多台机器部署时的反复配置。相对于虚拟机来说，因为Docker使用的是宿主机的内核，具有轻量、占用资源少、启动快等特点，容器间相互隔离，不会相互影响。
-二......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-10-15
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Docker" title="Docker">Docker</a>
-                    
-                      <a href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/10/01/Flask-发送邮件/">
-                <h2 class="post-title">
-                    Flask发送邮件
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、什么是POP3、SMTP和IMAP?POP3、SMTP和IMAP
-二、开启邮箱的SMTP服务以常用的网易邮箱为例(其他同理)：登录后进入常规设置
-
-选择POP3/SMTP/IMAP：开启如下两条服务,并注意到这里提示使用的是授权码登录第三方客户端，而非邮箱密码（有些邮箱使用的是密码而非授权码）。
-页面的最下方还有一个提示内容如下，这个也会在后面用到,有两个重要信息：
-
-
-SMTP的服务器......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-10-01
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Flask" title="Flask">Flask</a>
-                    
-                      <a href="/tags/#邮件" title="邮件">邮件</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/09/16/Python-环境搭建/">
-                <h2 class="post-title">
-                    Python基础环境搭建
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、Python IDE
-常用的很多，可根据自己的习惯去选择，以 Sublime Text3211为例（我安装时的最新版本）。
-下载地址：http://www.sublimetext.com/3 （安装时勾选Add to explorer context menu选项）
-
-二、Sublime Text配置
-安装Package Control 插件：（通过这个插件可以来管理其他软件） : 快捷......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-09-16
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Python" title="Python">Python</a>
-                    
-                      <a href="/tags/#Sublime" title="Sublime">Sublime</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/08/12/Git-提交代码时书写多行日志（配置Git-commit-template/">
-                <h2 class="post-title">
-                    Git提交代码书写多行日志
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、应用场景&#8195;&#8195;通常我们会采用git commit -m “提交日志” 的方式去提交代码，但是如果我们程序更改的地方很多，那就需要写更多的日志来记录，当我们查看log以后是下面这个样子：（当然也可以在github上去点击查看效果）这样的提交日志就相对来说很清除，下面就来记录一下实现提交多行日志的方式。
-二、配置 Git 提交模板
-在仓库的根目录下新建一个模板文件：如：......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-08-12
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Git" title="Git">Git</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/07/10/通过GPRS将GPS数据上传到服务器/">
-                <h2 class="post-title">
-                    通过GPRS上传GPS数据到服务器
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、目的&#8195;&#8195;将GPS获取到的位置信息，通过GPRS将数据上传到服务器，当然也可以传输其他的信息，这样就可以实现对某些东西的时时定位，比如共享单车、汽车的定位等等。
-二、使用的器件1. GPRS模块和物联网卡&#8195;&#8195;①. GPRS模块使用的是有方的N10标准版，如下图：&#8195;&#8195;②. 腾讯云上购买的移动卡，比自己买方便许多，腾讯还会......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-07-10
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#GPRS" title="GPRS">GPRS</a>
-                    
-                      <a href="/tags/#GPS" title="GPS">GPS</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/06/12/PX4开发环境搭建（Ubuntu1804-QGC-Qt-Creator-）/">
-                <h2 class="post-title">
-                    PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    前言在这之前作者完全没接触过PX4，安装过程遇到了很多坑，而且每安装下载一个东西都要等好久，出现问题又要重新开始，前后折腾了四天才弄好，希望此文对大家有所帮助。
-一、安装环境
-操作系统：windows10
-虚拟机：VMWare
-Linux系统：Ubuntu1804 Desktop（官网推荐）
-科学上网工具(f*q)：Shadowsocks
-
-备注：
-
-使用虚拟机而不使用双系统方式的原因在于环......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-06-12
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/05/07/PX4开发基础/">
-                <h2 class="post-title">
-                    PX4开发基础
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、与无人机的缘分&ensp;&ensp;&ensp;&ensp;做无人机是源于电赛，因为对无人机比较发烧就分到了无人机的组里，参加的三次电赛两次是做的无人机的题目，虽然后来不再做该方向的，但也算我的一项爱好吧，加上现在毕设是给老师搭建一个PX4的平台（比赛没用过PX4），因为无人机开发比较小众，价格贵、学习环境少并具有一定难度，外加发展的时间并不是很长，开发中就遇到了很多问题，在此做一些记......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-05-07
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/04/17/数据结构——交换排序（冒泡排序、快速排序）/">
-                <h2 class="post-title">
-                    数据结构——交换排序（冒泡、快排）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、冒泡排序排序思想&ensp;&ensp;&ensp;&ensp;从头到尾，两两比较相邻的两个元素，如果顺序不对，则交换顺序，这样每一次即可将参与比较中最小的找出来。
-图解&ensp;&ensp;&ensp;&ensp;从下向上，如果array[i] &lt; array[i-1]则进行交换，如最左侧的一列，35交换-37交换-32不换-21不换-14交换-16交换。这样就得到了第二列，循......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-04-17
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#排序" title="排序">排序</a>
                     
                 </div>
             
@@ -693,9 +688,9 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             
         
             
-            <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
-            
         
+            
+            <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
             
         
             
@@ -703,7 +698,15 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             
         
             
-            <a href="/tags/#Docker" title="Docker" rel="3">Docker</a>
+        
+            
+        
+            
+            <a href="/tags/#Docker" title="Docker" rel="6">Docker</a>
+            
+        
+            
+        
             
         
             
@@ -725,11 +728,25 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             
         
             
+            <a href="/tags/#MySQL" title="MySQL" rel="2">MySQL</a>
+            
+        
+            
             <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
             
         
             
+        
+            
             <a href="/tags/#无人机" title="无人机" rel="3">无人机</a>
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -900,15 +917,15 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         </li>
       
         <li>
-          <a href="/2020/09/03/Linux%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E5%90%8E%E7%AB%AF/">Linux应用开发-后端</a>
-        </li>
-      
-        <li>
           <a href="/2020/07/28/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">JUC并发编程</a>
         </li>
       
         <li>
-          <a href="/2020/02/25/Nginx%E4%BB%A3%E7%90%86%E6%97%B6%E5%9C%A8gunicorn%E7%9A%84%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%9C%9F%E5%AE%9E%E8%AE%BF%E9%97%AEIP/">Nginx代理时在gunicorn的日志中记录真实访问IP</a>
+          <a href="/2020/06/13/AI%E5%9F%BA%E7%A1%80/">AI 基础（ML与DL）</a>
+        </li>
+      
+        <li>
+          <a href="/2020/05/03/Spring-Security%E6%9D%83%E9%99%90%E6%A1%86%E6%9E%B6/">SpringSecurity权限框架（OAuth2）</a>
         </li>
       
     </ul>
@@ -937,7 +954,7 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>
@@ -948,11 +965,21 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
     <div class="widget">
       <ul>
         
+          <a href="categories/#AI"><li>AI</li></a>
+        
           <a href="categories/#物联网"><li>物联网</li></a>
+        
+          <a href="categories/#Docker"><li>Docker</li></a>
+        
+          <a href="categories/#E-R图"><li>E-R图</li></a>
         
           <a href="categories/#后端"><li>后端</li></a>
         
           <a href="categories/#版本控制"><li>版本控制</li></a>
+        
+          <a href="categories/#数据库"><li>数据库</li></a>
+        
+          <a href="categories/#OAuth2"><li>OAuth2</li></a>
         
           <a href="categories/#嵌入式"><li>嵌入式</li></a>
         

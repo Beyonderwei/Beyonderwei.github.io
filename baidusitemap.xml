@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://beyonderwei.com/2020/06/13/AI%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2019/09/30/E-R%E6%A8%A1%E5%9E%8B%E4%B8%8EE-R%E5%9B%BE/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2020/01/20/docker%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2019/11/21/CentOS%E5%AE%89%E8%A3%85Docker/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2019/12/12/Docker%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2020/04/28/OAuth2/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2020/05/03/Spring-Security%E6%9D%83%E9%99%90%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2020/04/02/Redis/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2020/03/03/Linux%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E5%90%8E%E7%AB%AF/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2020/01/09/MySQL%E9%AB%98%E7%BA%A7/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
+    <loc>http://beyonderwei.com/2019/10/16/MySQL%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2021-01-11</lastmod>
+  </url>  <url>
     <loc>http://beyonderwei.com/2019/12/25/Ubuntu%E4%B8%8A%E4%BD%BF%E7%94%A8Qt-Creator%E7%BC%96%E8%AF%91%E3%80%81%E4%B8%8B%E8%BD%BDPX4%E4%BB%A3%E7%A0%81/</loc>
     <lastmod>2021-01-11</lastmod>
   </url>  <url>
@@ -17,9 +50,6 @@
     <lastmod>2020-11-18</lastmod>
   </url>  <url>
     <loc>http://beyonderwei.com/2020/10/08/webpack%E5%9F%BA%E7%A1%80%E5%BF%85%E5%A4%87/</loc>
-    <lastmod>2020-11-18</lastmod>
-  </url>  <url>
-    <loc>http://beyonderwei.com/2020/09/03/Linux%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E5%90%8E%E7%AB%AF/</loc>
     <lastmod>2020-11-18</lastmod>
   </url>  <url>
     <loc>http://beyonderwei.com/2020/02/25/Nginx%E4%BB%A3%E7%90%86%E6%97%B6%E5%9C%A8gunicorn%E7%9A%84%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%9C%9F%E5%AE%9E%E8%AE%BF%E9%97%AEIP/</loc>
