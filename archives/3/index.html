@@ -270,8 +270,6 @@
 
     
 
-    
-
 
 
 <!-- Main Content -->
@@ -280,40 +278,29 @@
 
         <div class="post-preview">
 
-            <a href="/2019/10/16/MySQL基础/">
+            <a href="/2018/10/15/卡尔曼-Kalman-滤波算法原理、C语言实现及实际应用/">
                 <h2 class="post-title">
-                    MySQL基础
+                    Kalman滤波算法
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    DBMS：
-DBMS：数据库管理系统
-实际上数据库还是通过一套软件来管理文件中的数据。
-
-基于共享文件系统的DBMS  如access
-基于客户机/服务器的DBMS： MySQL Oracle等
-
-
-
-目标注：画五角星的要随时都可以写出来。
-一、为什么要学习数据库
-二、数据库的相关概念      
-    DBMS、DB、SQL
-三、数据库存储数据的特点
-四、初始MySQL
-    MySQ......
+                    卡尔曼滤波一、滤波效果展示&#8195;&#8195;蓝色的波形是实际测得的数据，红色的波形是经 Kalman 滤波后的数据波形。注：这里是实际应用激光测距传感器（TOF）vl53l0x 测得的距离数据。
+二、简介&#8195;&#8195;采用递归的方法解决线性滤波问题，只需要当前的测量值和前一个采样周期的估计值就能进行状态估计，需要的存储空间小，每一步的计算量小。
+三、组成1. 预测状态......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-10-16
+                    2018-10-15
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#MySQL" title="MySQL">MySQL</a>
+                      <a href="/tags/#Kalman" title="Kalman">Kalman</a>
+                    
+                      <a href="/tags/#vl53l0x" title="vl53l0x">vl53l0x</a>
                     
                 </div>
             
@@ -327,28 +314,33 @@ DBMS：数据库管理系统
 
         <div class="post-preview">
 
-            <a href="/2019/10/15/Ubuntu安装Docker（官方-阿里源）/">
+            <a href="/2018/07/26/四旋翼-PID-控制/">
                 <h2 class="post-title">
-                    Ubuntu安装Docker（官方/阿里源）
+                    四旋翼PID控制原理
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、为什么使用Docker&#8195;&#8195;构建后处处运行：Build Ship and Run Any App Anywhere&#8195;&#8195;Docker解决了因为配置、环境等不同造成的项目部署后无法运行的问题，避免多台机器部署时的反复配置。相对于虚拟机来说，因为Docker使用的是宿主机的内核，具有轻量、占用资源少、启动快等特点，容器间相互隔离，不会相互影响。
-二......
+                    一、PID 原理&#8195;&#8195; 偏差控制，利用目标值（期望值）与实际测量值构成的偏差（误差）对被控对象进行线性的控制。偏差 = 目标值 - 测量值。
+二、四旋翼串级双闭环 PID 控制&#8195;&#8195;对于四旋翼，可以理解外环为角度环，内环是角速度环。
+1. 外环
+
+目标值：期望轨迹，即期望的姿态角度。
+测量值：实际的姿态角度。
+PID控制器的输入：目标值 - 测量值......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-10-15
+                    2018-07-26
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#Docker" title="Docker">Docker</a>
+                      <a href="/tags/#PID" title="PID">PID</a>
                     
-                      <a href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
+                      <a href="/tags/#四旋翼" title="四旋翼">四旋翼</a>
                     
                 </div>
             
@@ -362,34 +354,28 @@ DBMS：数据库管理系统
 
         <div class="post-preview">
 
-            <a href="/2019/10/01/Flask-发送邮件/">
+            <a href="/2018/05/10/CC3200简单易懂实现引脚拉高、拉低-实现一个简单的物联网系统-5/">
                 <h2 class="post-title">
-                    Flask发送邮件
+                    CC3200实现浇水控制（实现一个简单的物联网系统-5）
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、什么是POP3、SMTP和IMAP?POP3、SMTP和IMAP
-二、开启邮箱的SMTP服务以常用的网易邮箱为例(其他同理)：登录后进入常规设置
-
-选择POP3/SMTP/IMAP：开启如下两条服务,并注意到这里提示使用的是授权码登录第三方客户端，而非邮箱密码（有些邮箱使用的是密码而非授权码）。
-页面的最下方还有一个提示内容如下，这个也会在后面用到,有两个重要信息：
-
-
-SMTP的服务器......
+                    一、序言&#8195;&#8195;前面已经可以实现从服务器获得用户想要的浇水量，下面就需要对IO口进行拉高拉低对水泵的启停进行控制。
+二、CC3200 GPIO 简介&#8195;&#8195;CC3200所有逻辑引脚和部分模拟引脚均可以用来作为通用输入/输出(GPIO)使用。GPIO功能可用于各种逻辑输入输出的场合。 GPIO有4组（GPIO A0~A3），每组8个。 具体如下：&#81......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-10-01
+                    2018-05-10
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#Flask" title="Flask">Flask</a>
+                      <a href="/tags/#IOT" title="IOT">IOT</a>
                     
-                      <a href="/tags/#邮件" title="邮件">邮件</a>
+                      <a href="/tags/#CC3200" title="CC3200">CC3200</a>
                     
                 </div>
             
@@ -403,39 +389,28 @@ SMTP的服务器......
 
         <div class="post-preview">
 
-            <a href="/2019/09/30/E-R模型与E-R图/">
+            <a href="/2018/05/02/CC3200上传数据到服务器-实现一个简单的物联网系统-4/">
                 <h2 class="post-title">
-                    E-R模型与E-R图
+                    CC3200上传数据到服务器（实现一个简单的物联网系统-4）
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    用户需求分析-概念结构设计-ER图
-自底向上方法设计，从中层开始下手，先设计局部ER图，集成再优化。
-E-R模型
-矩形：表示实体
-菱形：关系
-椭圆：属性
-直线：属性与实体之间的从属关系，连接实体和联系
-下划线：主码属性，表示唯一
-双矩形：弱实体集
-下划虚线：弱实体集的鉴别键
-
-相关概念复合属性​    如地址包含了省、市、街道、联系人信息，而联系人信息又包含了姓名、电话等。
-多元联系集
-
-弱......
+                    一、序言&#8195;&#8195;上篇文章已经完成了从服务器 get 数据，这篇将通过 post 的方式，将通过CC3200测得的花卉状态信息（如土壤湿度、光照强度）上传到服务器。其实post的方式也实现了接收服务器返回的数据，所以只发送一个post请求就可以完成数据的上传和获取，具体在下面说明。
+二、CC3200 连接到路由器（AP）&#8195;&#8195;这里已经在上篇文章说过了，......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-09-30
+                    2018-05-02
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#E-R图" title="E-R图">E-R图</a>
+                      <a href="/tags/#IOT" title="IOT">IOT</a>
+                    
+                      <a href="/tags/#CC3200" title="CC3200">CC3200</a>
                     
                 </div>
             
@@ -449,32 +424,27 @@ E-R模型
 
         <div class="post-preview">
 
-            <a href="/2019/09/16/Python-环境搭建/">
+            <a href="/2018/04/28/CC3200-从服务器获取数据-实现一个简单的物联网系统-3/">
                 <h2 class="post-title">
-                    Python基础环境搭建
+                    CC3200从服务器获取数据（实现一个简单的物联网系统-3）
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、Python IDE
-常用的很多，可根据自己的习惯去选择，以 Sublime Text3211为例（我安装时的最新版本）。
-下载地址：http://www.sublimetext.com/3 （安装时勾选Add to explorer context menu选项）
-
-二、Sublime Text配置
-安装Package Control 插件：（通过这个插件可以来管理其他软件） : 快捷......
+                    一、序言&#8195;&#8195;借助 TI 公司的 CC3200 我们可以通过 http 轻松的完成与服务器之间的数据交互，体验CC3200的开箱即用的感觉，下面借助 http_client_demo 这个历程来实现从服务器 get 数据。实现我们从服务器得到用户的浇水信息。&#8195;&#8195;CC3200的SDK 里面提供了所有的关于CC3200的资料，真的非常重要。 如：AP......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-09-16
+                    2018-04-28
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#Python" title="Python">Python</a>
+                      <a href="/tags/#IOT" title="IOT">IOT</a>
                     
-                      <a href="/tags/#Sublime" title="Sublime">Sublime</a>
+                      <a href="/tags/#CC3200" title="CC3200">CC3200</a>
                     
                 </div>
             
@@ -488,27 +458,28 @@ E-R模型
 
         <div class="post-preview">
 
-            <a href="/2019/08/12/Git-提交代码时书写多行日志（配置Git-commit-template/">
+            <a href="/2018/04/23/一个简单的SpringBoot后台服务（-实现一个简单的物联网系统-2-）/">
                 <h2 class="post-title">
-                    Git提交代码书写多行日志
+                    一个简单的后端服务（实现一个简单的物联网系统-2）
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、应用场景&#8195;&#8195;通常我们会采用git commit -m “提交日志” 的方式去提交代码，但是如果我们程序更改的地方很多，那就需要写更多的日志来记录，当我们查看log以后是下面这个样子：（当然也可以在github上去点击查看效果）这样的提交日志就相对来说很清除，下面就来记录一下实现提交多行日志的方式。
-二、配置 Git 提交模板
-在仓库的根目录下新建一个模板文件：如：......
+                    一、简介&#8195;&#8195;可以说站在Spring Boot的肩膀上，相对于我之前用最古老的servlet，完成一个简单的后台服务实在变得太容易太容易。但是对于一个完全不了解的人可以参考目录中的学习方法。对于实现远程浇花的功能，只需要处理APP 和 CC3200 发送过来的 get 、post 请求即可。
+二、说明&#8195;&#8195;①．Spring Boot 只是一个框架，......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-08-12
+                    2018-04-23
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#Git" title="Git">Git</a>
+                      <a href="/tags/#IOT" title="IOT">IOT</a>
+                    
+                      <a href="/tags/#SpringBoot" title="SpringBoot">SpringBoot</a>
                     
                 </div>
             
@@ -522,28 +493,36 @@ E-R模型
 
         <div class="post-preview">
 
-            <a href="/2019/07/10/通过GPRS将GPS数据上传到服务器/">
+            <a href="/2018/04/20/APP与服务器进行数据交互-实现一个简单的物联网系统-1/">
                 <h2 class="post-title">
-                    通过GPRS上传GPS数据到服务器
+                    APP与服务器数据交互（实现一个简单的物联网系统-1）
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、目的&#8195;&#8195;将GPS获取到的位置信息，通过GPRS将数据上传到服务器，当然也可以传输其他的信息，这样就可以实现对某些东西的时时定位，比如共享单车、汽车的定位等等。
-二、使用的器件1. GPRS模块和物联网卡&#8195;&#8195;①. GPRS模块使用的是有方的N10标准版，如下图：&#8195;&#8195;②. 腾讯云上购买的移动卡，比自己买方便许多，腾讯还会......
+                    一、APP POST 数据到服务器&#8195;&#8195;首先 post 的数据应该包括识别这个花卉的信息和我们想要浇水的量，这里我们识别花卉采用花卉的名字，这样后台程序通过花卉名来对应更新数据库中该花的浇水量。
+
+mFlower_name：花卉名  
+mBulk : 浇水量 
+
+实现代码如下：注意：
+
+String urlPath 中的 IP 地址是我局域网的地址，如果你的后台程序是在......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-07-10
+                    2018-04-20
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#GPRS" title="GPRS">GPRS</a>
+                      <a href="/tags/#云服务器" title="云服务器">云服务器</a>
                     
-                      <a href="/tags/#GPS" title="GPS">GPS</a>
+                      <a href="/tags/#IOT" title="IOT">IOT</a>
+                    
+                      <a href="/tags/#APP" title="APP">APP</a>
                     
                 </div>
             
@@ -557,34 +536,27 @@ E-R模型
 
         <div class="post-preview">
 
-            <a href="/2019/06/12/PX4开发环境搭建（Ubuntu1804-QGC-Qt-Creator-）/">
+            <a href="/2018/04/18/配置蓝牙（HC-05）的相关信息（名字、波特率、密码、主从模式等）/">
                 <h2 class="post-title">
-                    PX4开发环境搭建（Ubuntu1804+QGC+Qt Creator ）
+                    HC-05蓝牙配置
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    前言在这之前作者完全没接触过PX4，安装过程遇到了很多坑，而且每安装下载一个东西都要等好久，出现问题又要重新开始，前后折腾了四天才弄好，希望此文对大家有所帮助。
-一、安装环境
-操作系统：windows10
-虚拟机：VMWare
-Linux系统：Ubuntu1804 Desktop（官网推荐）
-科学上网工具(f*q)：Shadowsocks
-
-备注：
-
-使用虚拟机而不使用双系统方式的原因在于环......
+                    一、序言&#8195;&#8195;有时买回来的蓝牙模块的默认配置不能满足我们的使用需求时，就需要对买回来的蓝牙进行自行配置，比如更改波特率来适应自己的程序，或是更改主、从机的设置等等。即使是用默认的设置也需要对密码进行修改，以免设备和其他人也没有进行配置的蓝牙进行配对连接。下面介绍最长用的HC-05 蓝牙模块的简单配置方法。
+二、准备材料
+官方的上位机&#8195;&#8195;下载地址：......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-06-12
+                    2018-04-18
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
+                      <a href="/tags/#蓝牙" title="蓝牙">蓝牙</a>
                     
                 </div>
             
@@ -598,58 +570,29 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
 
         <div class="post-preview">
 
-            <a href="/2019/05/07/PX4开发基础/">
+            <a href="/2018/04/17/实现搭建完整的物联网系统（基于-CC3200、云服务器）/">
                 <h2 class="post-title">
-                    PX4开发基础
+                    搭建完整物联网系统（CC3200+云服务器）
                 </h2>
                 <h3 class="post-subtitle">
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、与无人机的缘分&ensp;&ensp;&ensp;&ensp;做无人机是源于电赛，因为对无人机比较发烧就分到了无人机的组里，参加的三次电赛两次是做的无人机的题目，虽然后来不再做该方向的，但也算我的一项爱好吧，加上现在毕设是给老师搭建一个PX4的平台（比赛没用过PX4），因为无人机开发比较小众，价格贵、学习环境少并具有一定难度，外加发展的时间并不是很长，开发中就遇到了很多问题，在此做一些记......
+                    一、序言&#8195;&#8195;本系列文章主要讲解如何通过 CC3200（简单理解为单片机和WIFI模块的结合体）、云服务器、APP 来实现远程控制。所有的程序全部自己编写，我们可以真正意义上的实现：①. 远程控制家中的热水器烧水②. 远程控制监测环境数据… … 等等。（可以尽情的发挥想象，想象好了就可以开始了！）比如：我想实现远程浇花这个功能（因为室友养的花寒暑假没有人照看，实现这样一......
                 </div>
             </a>
             
                 <p class="post-meta" style="margin: 10px 0;">
                     Posted by Beyonderwei on
-                    2019-05-07
+                    2018-04-17
                 </p>
                 <div class="tags">
                     
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
+                      <a href="/tags/#IOT" title="IOT">IOT</a>
                     
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/04/17/数据结构——交换排序（冒泡排序、快速排序）/">
-                <h2 class="post-title">
-                    数据结构——交换排序（冒泡、快排）
-                </h2>
-                <h3 class="post-subtitle">
+                      <a href="/tags/#CC3200" title="CC3200">CC3200</a>
                     
-                </h3>
-                <div class="post-content-preview">
-                    一、冒泡排序排序思想&ensp;&ensp;&ensp;&ensp;从头到尾，两两比较相邻的两个元素，如果顺序不对，则交换顺序，这样每一次即可将参与比较中最小的找出来。
-图解&ensp;&ensp;&ensp;&ensp;从下向上，如果array[i] &lt; array[i-1]则进行交换，如最左侧的一列，35交换-37交换-32不换-21不换-14交换-16交换。这样就得到了第二列，循......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-04-17
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#排序" title="排序">排序</a>
+                      <a href="/tags/#云服务" title="云服务">云服务</a>
                     
                 </div>
             
@@ -669,10 +612,6 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             <a href="/archives/2/">&larr; Newer Posts</a>
         </li>
     
-    
-        <li class="next">
-            <a href="/archives/4/">Older Posts &rarr;</a>
-        </li>
     
 </ul>
 
@@ -724,15 +663,15 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             
         
             
+        
+            
             <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
             
         
             
+        
+            
             <a href="/tags/#CC3200" title="CC3200" rel="4">CC3200</a>
-            
-        
-            
-        
             
         
             
@@ -742,13 +681,17 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
             
         
             
-        
-            
             <a href="/tags/#Nginx" title="Nginx" rel="3">Nginx</a>
             
         
             
+        
+            
             <a href="/tags/#Flask" title="Flask" rel="2">Flask</a>
+            
+        
+            
+        
             
         
             
@@ -789,6 +732,10 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         
             
         
+            
+        
+            
+            <a href="/tags/#Vue" title="Vue" rel="2">Vue</a>
             
         
             
@@ -955,11 +902,11 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         </li>
       
         <li>
-          <a href="/2020/06/13/AI%E5%9F%BA%E7%A1%80/">AI 基础（ML与DL）</a>
+          <a href="/2020/07/10/WebStorm%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE/">WebStorm 远程仓库配置</a>
         </li>
       
         <li>
-          <a href="/2020/05/03/Spring-Security%E6%9D%83%E9%99%90%E6%A1%86%E6%9E%B6/">SpringSecurity权限框架（OAuth2）</a>
+          <a href="/2020/06/13/AI%E5%9F%BA%E7%A1%80/">AI 基础（ML与DL）</a>
         </li>
       
     </ul>
@@ -988,7 +935,7 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>
@@ -1005,11 +952,13 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         
           <a href="categories/#Docker"><li>Docker</li></a>
         
-          <a href="categories/#E-R图"><li>E-R图</li></a>
-        
           <a href="categories/#后端"><li>后端</li></a>
         
+          <a href="categories/#E-R图"><li>E-R图</li></a>
+        
           <a href="categories/#版本控制"><li>版本控制</li></a>
+        
+          <a href="categories/#设计模式"><li>设计模式</li></a>
         
           <a href="categories/#数据库"><li>数据库</li></a>
         
@@ -1225,8 +1174,6 @@ Linux系统：Ubuntu1804 Desktop（官网推荐）
         <!-- background effects line -->
         
 
-        
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🌱&quot;,&quot;just do it&quot;,&quot;🌾&quot;,&quot;🍀&quot;,&quot;don&#39;t give up&quot;,&quot;🍂&quot;,&quot;🌻&quot;,&quot;try it again&quot;,&quot;🍃&quot;,&quot;never say die&quot;,&quot;🌵&quot;,&quot;🌿&quot;,&quot;🌴&quot;]' color='[&quot;rgb(121,93,179)&quot; ,&quot;rgb(76,180,231)&quot; ,&quot;rgb(184,90,154)&quot; ,&quot;rgb(157,211,250)&quot; ,&quot;rgb(255,0,0)&quot; ,&quot;rgb(242,153,29)&quot; ,&quot;rgb(23,204,16)&quot; ,&quot;rgb(222,0,0)&quot; ,&quot;rgb(22,36,92)&quot; ,&quot;rgb(127,24,116)&quot; ,&quot;rgb(119,195,79)&quot; ,&quot;rgb(4,77,34)&quot; ,&quot;rgb(122,2,60)&quot;]'></script>
         
 
         <!-- background effects end -->
