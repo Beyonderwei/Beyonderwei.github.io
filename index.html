@@ -163,7 +163,7 @@
 
                         
                         <li>
-                            <a href="/about/">关于作者</a>
+                            <a href="/archive/">归档</a>
                         </li>
                         
                     
@@ -177,7 +177,14 @@
 
                         
                         <li>
-                            <a href="/archive/">归档</a>
+                            <a href="/tags/">标签</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">关于作者</a>
                         </li>
                         
                     
@@ -185,13 +192,6 @@
                         
                         <li>
                             <a href="/photography/">相册</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">标签</a>
                         </li>
                         
                     
@@ -295,6 +295,578 @@
 
 
 <!-- Main Content -->
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/01/12/Nacos服务注册配置中心/">
+                <h2 class="post-title">
+                    Nacos 服务注册配置中心（AP、CP）
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    全称：NamingConfigurationService
+
+下载：https://github.com/alibaba/Nacos
+官方文档：https://nacos.io/zh-cn/index.html
+官方文档：https://spring-cloud-alibaba-group.github.io/github-pages/greenwich/spring-cloud-aliba......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2021-01-12
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Nacos" title="Nacos">Nacos</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/01/06/sentinel分布式系统流量防卫兵/">
+                <h2 class="post-title">
+                    sentinel 分布式系统流量防卫兵
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    
+github：https://github.com/alibaba/Sentinel
+中文文档：https://github.com/alibaba/Sentinel/wiki/%E4%BB%8B%E7%BB%8D
+当前稳定版：1.8.1  2021.02.12
+
+一、 Docker 安装 Sentinel注：测试时直接在本地运行jar包进行测试，不使用Docker，不然微服务也要在云服务......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2021-01-06
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Sentinel" title="Sentinel">Sentinel</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/01/02/Sleuth请求链路追踪/">
+                <h2 class="post-title">
+                    Sleuth请求链路追踪
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    
+github：https://github.com/spring-cloud/spring-cloud-sleuth
+
+一、简介​    一般客户端的一个请求在后端系统中会经过多个不同的微服务节点的调用来产生最后的结果，因此会形成一个复杂的调用链路，Sleuth兼容支持 Zipkin 实现请求链路的追踪和展现。SpringCloud从F版起已不需要自己构建Zipkin server了，只需......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2021-01-02
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Sleuth" title="Sleuth">Sleuth</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/12/28/Bus消息总线/">
+                <h2 class="post-title">
+                    Bus消息总线
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、简介​    配合SpringcCloudConfig 实现配置的动态刷新。管理和传播分布式系统间的消息，就像一个分布式执行器，用于广播状态更改和时间推送等，是微服务之间的通信通道。
+​    在微服务系统中，用轻量级的消息代理构建共用的消息主题，并让系统中所有微服务实例连接上来该主题的消息会被所有的实例监听和消费即消息总线。实例监听MQ中的同一个topic(即SpringCloudBu......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-12-28
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Bus" title="Bus">Bus</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/12/23/Docker-安装-RabbitMQ/">
+                <h2 class="post-title">
+                    Docker 安装 RabbitMQ
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    当前稳定版：3.8.11    2021.02.08
+
+拉取镜像
+docker pull rabbitmq 
+
+运行得到容器
+docker run -d --name my-rabbitmq -p 5672:5672 -p 15672:15672 --hostname myRabbit -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PA......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-12-23
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#RabbitMQ" title="RabbitMQ">RabbitMQ</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/12/21/Config配置中心/">
+                <h2 class="post-title">
+                    Config配置中心
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    官网：https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.2.1.RELEASE/reference/html/
+一、简介1.配置中心介绍问题：微服务将单体应用拆分成一个个的子服务，导致服务数量多，由于每个服务都有一套自己的配置信息，为了对服务的相同配置（如数据库、服务注册等配置）进行统一的管理，因此需要一套集中......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-12-21
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Config" title="Config">Config</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/12/16/Gateway网关/">
+                <h2 class="post-title">
+                    Gateway网关
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    官网：https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.1.RELEASE/reference/html/
+官方文档（3.0.1GA）：https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#the-query-ro......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-12-16
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Gateway" title="Gateway">Gateway</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/12/10/Hystrix服务降级/">
+                <h2 class="post-title">
+                    Hystrix服务降级（停更）
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    
+github：https://github.com/Netflix/Hystrix
+使用教程：https://github.com/Netflix/Hystrix/wiki/How-it-Works
+
+一、相关概念1. 服务雪崩由于复杂的项目中系统中各个微服务之间存在相互调用，一旦某个服务出现长时间的不可用，即可能导致服务的雪崩。因此单一的后端依赖可能导致所有的服务在短时间内饱和导致连级效......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-12-10
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Hystrix" title="Hystrix">Hystrix</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/12/03/Jmeter压力测试/">
+                <h2 class="post-title">
+                    Jmeter压力测试
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、安装与运行
+官方网址：https://jmeter.apache.org/
+下载地址：http://jmeter.apache.org/download_jmeter.cgi
+
+要求：JDK8及以上环境,直接解压使用，无需安装。直接双击 jmeter.bat 即可运行。
+
+二、使用教程1. 语言切换Options -&gt; Choose Language
+2. 添加线程组
+测试计划：在......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-12-03
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Jmeter" title="Jmeter">Jmeter</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/12/02/OpenFeign服务调用/">
+                <h2 class="post-title">
+                    OpenFeign服务调用
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、简介同样是客户端的负载均衡和服务调用工具，客户端的声明式的Web Service客户端，只需定义一个服务的接口，然后在上面添加注解，完成对服务方接口的绑定。OpenFeign 是对原有 Feign 的封装，使之支持SpringMVC标准注解和HttpMessageConverters。简化了使用Ribbon时，封装服务调用客户端的开发量。实际上 OpenFeign  也包含了Ribbon......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-12-02
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#OpenFeign" title="OpenFeign">OpenFeign</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/11/30/Ribbon服务调用/">
+                <h2 class="post-title">
+                    Ribbon服务调用
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、简介SpringCloud Ribbon是基于Netflix Ribbon实现的一个客户端负载均衡和服务调用的客户端组件。使用上只需在配置文件中加入LoadBalancer，具有完善的连接、超时、重试等配置，也可基于Ribbon实现自定义的负载均衡算法。未来Spring将使用LoadBalancer来代替Ribbon.
+Ribbon实际上就是RestTemplate接入了负载均衡。
+gi......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-11-30
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Ribbon" title="Ribbon">Ribbon</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/11/26/Docker安装Zookeeper/">
+                <h2 class="post-title">
+                    Zookeeper服务注册与发现，Docker安装（CP）
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    Zookeeper由Java语言编写。
+一、安装
+搜索Zookeeper
+docker search zookeeper
+
+拉取指定版本
+docker pull zookeerper:3.6.2 
+
+运行镜像
+docker run --name 容器名 -p 2181:2181 --restart always -d 镜像id
+
+启动后会EXPOSE端口：2181（对client端提供服务）......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-11-26
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Zookeeper" title="Zookeeper">Zookeeper</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/11/20/Consul-服务注册与发现/">
+                <h2 class="post-title">
+                    Consul 服务注册与发现（CP）
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、简介​    Consul用于微服务的注册和发现，由Go语言编写，提供HTTP和DNS两种服务发现方式，支持HTTP、TCP、Docker、Shell脚本定制化，支持多数据中心，有可视化的Web界面。
+二、安装
+拉镜像，当前最新1.9.3，Consul 官网
+docker pull consul:1.9.3 
+
+运行得到容器 (默认是以开发模式启动，数据保存在内存中,持久化需要通过数据卷......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-11-20
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Consul" title="Consul">Consul</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/11/15/服务注册中心Eureka/">
+                <h2 class="post-title">
+                    服务注册中心Eureka（AP）
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    Eureka由java语言编写。已经弃用。
+一、服务治理Spring Cloud封装了Netflix公司开发的Eureka来实现服务的治理，但是该模块已经停更。
+在传统的RPC远程调用框架中，管理每个服务与服务之间的依赖关系表复杂，所以需要使用服务治理，管理服务与服务之间的依赖关系，可以实现服务调用、负载均衡、容错等，实现服务发现与注册。
+二、 服务注册与发现Eureka 采用了CS的设计架......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-11-15
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Eureka" title="Eureka">Eureka</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/11/10/IDEA中多服务管理/">
+                <h2 class="post-title">
+                    IDEA中多服务管理
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、目标因为微服务比较多的时候，一个个启动关闭，难于管理，因此IDEA提供了Servides来进行多个服务的管理（原本的叫做RunDashboard，新版本直接在Servides中管理）。
+二、不显示漏斗在项目的.idea文件夹下找到workspace.xml，添加如下代码片段，重启IDEA。
+1234567&lt;component name="RunDashboard"&gt;    &......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-11-10
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#IDEA" title="IDEA">IDEA</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2020/11/03/Devtools热部署/">
+                <h2 class="post-title">
+                    通过Devtools实现热部署
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、主要目标实现更改代码后，后台自动的运行当前已经更改后的程序，避免频繁的手动关闭、启动项目。
+开发过程中使用，方便调试，实际生产环境则需要关掉。
+二、配置方式
+在项目的pom文件中引入依赖：
+123456&lt;dependency&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;         ......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2020-11-03
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Devtools" title="Devtools">Devtools</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
 
     
 
@@ -457,612 +1029,6 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
 
     
 
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/07/10/WebStorm远程仓库配置/">
-                <h2 class="post-title">
-                    WebStorm 远程仓库配置
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、需求场景&ensp;&ensp;&ensp;&ensp;为了实现代码的备份和协作，通常本地的项目会同步到远程仓库。而常用的开发工具一般都集成了Git，因此可以直接在IDE内就完成代码的版本控制，免去了命令行的操作。因此本文介绍如何在Gitee、webStorm中进行相应的配置实现上述需求。Github、IDEA（或其他JetBrains公司的软件）与之基本相同，只是因为国内Github常......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-07-10
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#WebStorm" title="WebStorm">WebStorm</a>
-                    
-                      <a href="/tags/#Vue" title="Vue">Vue</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/06/13/AI基础/">
-                <h2 class="post-title">
-                    AI 基础（ML与DL）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    实际上处于弱人工智能范畴 
-数据结构：
-
-树形的深度优先搜索
-广度优先搜索
-排序
-动态规划
-最长公共子序列
-字符串的最长公共子串 
-
-
-递归：
-二叉树的翻转
-
-
-
-书籍推荐：模式识别与机器学习、统计学习方法。
-一、机器学习基础1. 按学习方式分类
-监督学习：带着标签去学习，告诉它这个是什么，那个是什么。
-无监督学习（以聚类为代表）
-半监督学习
-强化学习
-
-2. 学习结构分类
-回归
-分类
-
-​......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-06-13
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#DeepLearning" title="DeepLearning">DeepLearning</a>
-                    
-                      <a href="/tags/#MachineLearning" title="MachineLearning">MachineLearning</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/05/03/Spring-Security权限框架/">
-                <h2 class="post-title">
-                    SpringSecurity权限框架（OAuth2）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、简介​    Spring的安全框架，主要包含两个部分，包括用户认证和用户授权。本质上就是Filter（过滤器），对请求进行过滤，
-
-基于session：则通过对cookie里的sessionid进行解析，然后在服务器中查询确认，
-基于token：解析token，然后加到Spring-security中管理
-
-1. 用户认证用户的登录认证，用来判断用户是否能访问这个系统。
-2. 用户授权......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-05-03
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Spring" title="Spring">Spring</a>
-                    
-                      <a href="/tags/#SpringSecurity" title="SpringSecurity">SpringSecurity</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/04/28/OAuth2/">
-                <h2 class="post-title">
-                    OAuth2
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    相关资料官方网站：https://oauth.net/
-中文文档：
-
-https://vertxchina.github.io/vertx-translation-chinese/auth/Oauth2.html
-https://colobu.com/2017/04/28/oauth2-rfc6749/
-
-腾讯开放平台：https://wiki.open.qq.com/wiki/mobile......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-04-28
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#OAuth2" title="OAuth2">OAuth2</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/04/02/Redis/">
-                <h2 class="post-title">
-                    Redis
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    主要学的三个数据库
-MySQL(关系型) 多用于冷数据
-MongoDB(介于关系型与非关系型之间)  基于分布式文件存储的数据库
-Redis(非关系型数据库)  多用于常改变，类型多样的数据。分布式 内存 数据库
-
-一、相关概念NoSQL简介：泛指 非关系型数据库 ，为了解决大规模数据集合多重数据种类，包括大规模数据存储。这些类型的数据存储不需要固定的模式，无需多余的操作就可以横向扩展。 
-......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-04-02
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Redis" title="Redis">Redis</a>
-                    
-                      <a href="/tags/#NoSQL" title="NoSQL">NoSQL</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/03/03/Linux应用开发-后端/">
-                <h2 class="post-title">
-                    Linux应用开发-后端
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    Linux（林纳斯）一、简介1. 主要的应用领域
-服务器
-Linux生来就是被设计作为服务器的，众多服务程序均部署在Linux上。
-
-嵌入式系统
-Linux完全开源，可对内核进行裁剪，最小可打到几百kb，常应用于嵌入式系统，如机顶盒、白家电等。安卓的内核也是Linux。
-
-
-2. 学习阶段
-① 基本的操作命令：文件命令、编辑工具、linux用户管理
-② 各种配置：环境变量、网络配置、服务配置......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-03-03
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Linux" title="Linux">Linux</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/02/25/Nginx代理时在gunicorn的日志中记录真实访问IP/">
-                <h2 class="post-title">
-                    Nginx代理时在gunicorn的日志中记录真实访问IP
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、问题概述在通过Nginx负载均衡的情况下，gunicorn的log中记录的访问访问日志并不是用户的IP，而是Nginx主机的IP。
-二、解决方法1. Nginx配置：其中proxy_set_header X-Real-IP $remote_addr;在请求头中加入了真实的用户IP信息，并一起发送给了后端的gunicorn 服务。123456location /api &#123;    ......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-02-25
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Nginx" title="Nginx">Nginx</a>
-                    
-                      <a href="/tags/#gunicorn" title="gunicorn">gunicorn</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/02/23/通过Docker部署Flask应用（gunicorn-gevent）/">
-                <h2 class="post-title">
-                    通过Docker部署Flask应用（gunicorn+gevent）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、项目架构&ensp;&ensp;&ensp;&ensp;前后端分离项目中，为缓解服务器压力，通常我们后端代码会部署到多个服务器上，而通过Docker容器虚拟化技术可以让我们避免因开发和运维之间配置环境、运行环境、操作系统、运行依赖包等不同导致的项目部署后无法运行的问题，同时也简化了部署过程。这里后端使用的是gunicorn，相当于java开发者熟悉的tomcat。&ensp;&ensp;......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-02-23
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Docker" title="Docker">Docker</a>
-                    
-                      <a href="/tags/#Flask" title="Flask">Flask</a>
-                    
-                      <a href="/tags/#gunicorn" title="gunicorn">gunicorn</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/02/15/Docker安装Nginx实现反向代理/">
-                <h2 class="post-title">
-                    Docker安装Nginx实现反向代理
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、配置文件&ensp;&ensp;&ensp;&ensp;以前的配置文件为一个nginx.conf，新的版本将其分成了两个，default.conf 和 nginx.conf，为通过数据卷映射的方式，但没有在github上找到分开的这两个文件，因此先通过直接运行的方式得到这两个文件。
-
-先普通方式运行一个nginx容器docker run --name my-nginx -p 80:80 ......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-02-15
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Docker" title="Docker">Docker</a>
-                    
-                      <a href="/tags/#Nginx" title="Nginx">Nginx</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/02/08/打包Vue项目部署到Nginx并访问/">
-                <h2 class="post-title">
-                    打包Vue项目部署到Nginx并访问
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、简介把 Nginx 做为静态资源服务器，用来部署前端项目，本文介绍 Vue 项目打包、部署到 Nginx 的过程，并解决部署后，因 vue-router 使用 history 模式导致的在直接访问项目和点击路由链接时可以访问，而根地址刷新页面空白的问题。
-二、打包项目Vue的有关build、config的文件均保持原本的配置即可，无需更改 ，终端输入npm run build，成功后会在......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-02-08
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Nginx" title="Nginx">Nginx</a>
-                    
-                      <a href="/tags/#Vue" title="Vue">Vue</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/01/20/docker基础/">
-                <h2 class="post-title">
-                    Docker 基础
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、Docker概述1. 简介基于Go语言实现的云开源项目。理念：Build，Ship and Run Any App Anywhere ，缩小版的Linux系统。
-2.  为什么使用Docker解决了运行环境和配置问题的软件容器，方便做持续的集成并有助于整体发布的容器虚拟化技术。 
-
-Docker用来解决开发和运维之间配置环境、运行环境、操作系统、运行依赖包等不同导致的项目部署后无法运行的......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-01-20
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Docker" title="Docker">Docker</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/01/10/前端通过MathJax显示数学公式（vue-MathJax）/">
-                <h2 class="post-title">
-                    前端通过MathJax显示数学公式
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、关于MathJax
-官方网址：MathJax使用文档 
-简介：MathJax支持使用LaTeX，MathML或AsciiMath语法在网页中渲染数学公式。我们常用的语法为LaTex,比如该论坛支持的也是LaTex 。二、应用场景&ensp;&ensp;&ensp;&ensp;想实现在用户选择文件后能够直接在前端预览文件内容，如下：
-
-三、遇到的问题问题1(没有渲染效果)问题描述：&ens......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-01-10
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#MathJax" title="MathJax">MathJax</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/01/09/MySQL高级/">
-                <h2 class="post-title">
-                    MySQL高级
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、架构​    MySQL采用分层结构设计，可在不同需求场景中利用不同的存储引擎，插件式的存储引擎架构将查询处理和其他的系统任务以及数据存储相分离。 
-
-1. 连接层最上层是客户端和连接服务，包含本地的socket和大多数基于客户端/服务端工具实现的类似于tcp/ip的通信，完成连接处理、授权认证等安全方案。连接层上引入了连接池，为通过安全认证的客户端提供线程，在该层可实现SSL安全连接，......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-01-09
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#MySQL" title="MySQL">MySQL</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/01/02/注册-登录-实现过程详解/">
-                <h2 class="post-title">
-                    注册-登录实现过程详解
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、前言&ensp;&ensp;&ensp;&ensp;一般的平台基本上都有用户管理这一部分，虽然我们都是各个平台的用户，对于一般的流程有所了解，看似简单，但是真正实现的过程中确遇到了很多的困难。
-二、实现过程图解注册：看似过程似乎很简单但是这过程还有很多需要考虑的因素，采取邮箱发送验证码的方式实现验证：
-
-验证码如何产生： &ensp;&ensp;&ensp;&ensp;通常我们的验证码是......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-01-02
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#登录" title="登录">登录</a>
-                    
-                      <a href="/tags/#注册" title="注册">注册</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/12/25/Ubuntu上使用Qt-Creator编译、下载PX4代码/">
-                <h2 class="post-title">
-                    Ubuntu上使用Qt Creator编译、下载PX4代码
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、创建工程文件在命令行执行以下几条命令：1234cd ~/src/Firmwaremkdir ../Firmware-buildcd ../Firmware-buildcmake ../Firmware -G "CodeBlocks - Unix Makefiles" -DCONFIG=nuttx_px4fmu-v2_default注意：官方文档通常没有-DCONFIG这个参数或者参数就是......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-12-25
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#无人机" title="无人机">无人机</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2019/12/12/Docker命令汇总/">
-                <h2 class="post-title">
-                    Docker 命令汇总
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    
-attach    Attach to a running container                 # 当前 shell 下 attach 连接指定运行镜像
-build     Build an image from a Dockerfile              # 通过 Dockerfile 定制镜像
-commit    Create a new image from ......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2019-12-12
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Docker" title="Docker">Docker</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
 
 
 <!-- Pager -->
@@ -1130,9 +1096,19 @@ commit    Create a new image from ......
             
         
             
+            <a href="/tags/#CC3200" title="CC3200" rel="4">CC3200</a>
+            
         
             
-            <a href="/tags/#CC3200" title="CC3200" rel="4">CC3200</a>
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -1144,11 +1120,29 @@ commit    Create a new image from ......
             
         
             
-            <a href="/tags/#Nginx" title="Nginx" rel="4">Nginx</a>
+        
             
         
             
             <a href="/tags/#Flask" title="Flask" rel="2">Flask</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Nginx" title="Nginx" rel="4">Nginx</a>
+            
+        
+            
+        
             
         
             
@@ -1168,15 +1162,15 @@ commit    Create a new image from ......
             
         
             
-        
-            
             <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
             
         
             
+            <a href="/tags/#无人机" title="无人机" rel="3">无人机</a>
+            
         
             
-            <a href="/tags/#无人机" title="无人机" rel="3">无人机</a>
+        
             
         
             
@@ -1224,15 +1218,19 @@ commit    Create a new image from ......
             
         
             
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
             <a href="/tags/#排序" title="排序" rel="3">排序</a>
-            
-        
-            
-        
-            
-        
-            
-        
             
         
             
@@ -1351,23 +1349,23 @@ commit    Create a new image from ......
     <ul>
       
         <li>
-          <a href="/2020/10/12/npm%E5%9F%BA%E7%A1%80%E5%BF%85%E5%A4%87/">npm基础</a>
+          <a href="/2021/01/12/Nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Nacos 服务注册配置中心（AP、CP）</a>
         </li>
       
         <li>
-          <a href="/2020/10/08/webpack%E5%9F%BA%E7%A1%80%E5%BF%85%E5%A4%87/">Webpack基础</a>
+          <a href="/2021/01/06/sentinel%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%B5%81%E9%87%8F%E9%98%B2%E5%8D%AB%E5%85%B5/">sentinel 分布式系统流量防卫兵</a>
         </li>
       
         <li>
-          <a href="/2020/08/03/Nginx/">Nginx 基础</a>
+          <a href="/2021/01/02/Sleuth%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/">Sleuth请求链路追踪</a>
         </li>
       
         <li>
-          <a href="/2020/07/28/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">JUC并发编程</a>
+          <a href="/2020/12/28/Bus%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF/">Bus消息总线</a>
         </li>
       
         <li>
-          <a href="/2020/07/10/WebStorm%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE/">WebStorm 远程仓库配置</a>
+          <a href="/2020/12/23/Docker-%E5%AE%89%E8%A3%85-RabbitMQ/">Docker 安装 RabbitMQ</a>
         </li>
       
     </ul>
@@ -1396,7 +1394,7 @@ commit    Create a new image from ......
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>
@@ -1407,11 +1405,17 @@ commit    Create a new image from ......
     <div class="widget">
       <ul>
         
+          <a href="categories/#SpringCloud"><li>SpringCloud</li></a>
+        
           <a href="categories/#AI"><li>AI</li></a>
         
           <a href="categories/#物联网"><li>物联网</li></a>
         
+          <a href="categories/#IDEA"><li>IDEA</li></a>
+        
           <a href="categories/#Docker"><li>Docker</li></a>
+        
+          <a href="categories/#MQ"><li>MQ</li></a>
         
           <a href="categories/#E-R图"><li>E-R图</li></a>
         
@@ -1419,13 +1423,15 @@ commit    Create a new image from ......
         
           <a href="categories/#版本控制"><li>版本控制</li></a>
         
-          <a href="categories/#设计模式"><li>设计模式</li></a>
+          <a href="categories/#Tools"><li>Tools</li></a>
         
-          <a href="categories/#数据库"><li>数据库</li></a>
+          <a href="categories/#设计模式"><li>设计模式</li></a>
         
           <a href="categories/#Nginx"><li>Nginx</li></a>
         
           <a href="categories/#OAuth2"><li>OAuth2</li></a>
+        
+          <a href="categories/#数据库"><li>数据库</li></a>
         
           <a href="categories/#嵌入式"><li>嵌入式</li></a>
         
