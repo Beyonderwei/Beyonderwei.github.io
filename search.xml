@@ -4,6 +4,188 @@
   
     
     <entry>
+      <title>Swin Transformer目标检测4——测试训练效果</title>
+      <link href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B4%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E8%AE%AD%E7%BB%83%E6%95%88%E6%9E%9C/"/>
+      <url>/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B4%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E8%AE%AD%E7%BB%83%E6%95%88%E6%9E%9C/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、测试"><a href="#一、测试" class="headerlink" title="一、测试"></a>一、测试</h3><ul><li>添加一个自己的图片在demo目录下，</li></ul><p>执行：<code>python demo/image_demo.py demo/000019.jpg configs\swin\mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py work_dirs/mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco/latest.pth</code></p><ul><li>latest.pth 就是自己训练好的最新的权重文件，默认会放在workdir下。</li></ul><h3 id="二、不输出实例分割图"><a href="#二、不输出实例分割图" class="headerlink" title="二、不输出实例分割图"></a>二、不输出实例分割图</h3><p>demo/image_demo.py 做如下修改：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test a single image</span></span><br><span class="line">result = inference_detector(model, args.img)</span><br><span class="line">new_result = result[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># show the results</span></span><br><span class="line">show_result_pyplot(model, args.img, new_result, score_thr=args.score_thr)</span><br></pre></td></tr></table></figure><h3 id="三、训练-cascade-mask-rcnn-swin"><a href="#三、训练-cascade-mask-rcnn-swin" class="headerlink" title="三、训练 cascade_mask_rcnn_swin"></a>三、训练 cascade_mask_rcnn_swin</h3><ul><li>与之前训练mask<em>rcnn_swin</em>一样，但是如果是单卡多修改如下部分</li><li>configs/swin/cascade_mask_rcnn_swin_small_patch4_window7_mstrain_480-800_giou_4conv1f_adamw_3x_coco.py 文件中，所有的 SyncBN 改为 BN。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swin Transformer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Swin Transformer目标检测3——训练自己数据集</title>
+      <link href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B3%E2%80%94%E2%80%94%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
+      <url>/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B3%E2%80%94%E2%80%94%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E6%95%B0%E6%8D%AE%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、修改工程"><a href="#一、修改工程" class="headerlink" title="一、修改工程"></a>一、修改工程</h3><ul><li><ol><li>设置类别：修改 configs/<em>base</em>/models/mask_rcnn_swin_fpn.py 中 num_classes 为自己数据集的类别（有两处需要修改）</li></ol></li><li><ol><li><p>配置权重信息：修改 configs/<em>base</em>/default_runtime.py 中的 interval，loadfrom</p><ul><li>interval：dict(interval=1)  # 表示多少个 epoch 验证一次，然后保存一次权重信息</li><li>loadfrom：表示加载哪一个训练好的权重，可以直接写绝对路径如： <code>load_from = r&quot;E:\workspace\Python\Pytorch\Swin-Transformer-Object-Detection\mask_rcnn_swin_tiny_patch4_window7.pth&quot;</code></li></ul></li></ol></li><li><ol><li><p>修改训练尺寸大小：<strong>如果显存够的话可以不改（基本都运行不起来）</strong>，文件位置为：configs/swin/mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py</p><ul><li>修改所有的 img_scale 为 ：img_scale  = [(224, 224)] 或者 img_scale  = [(256, 256)]  或者 480，512等。</li><li>同时 configs/<em>base</em>/datasets/coco_instance.py 中的 img_scale 也要改成 img_scale  = [(224, 224)]  或者其他值</li></ul></li></ol></li><li><ol><li>配置数据集路径：configs/<em>base</em>/datasets/coco_instance.py 文件的最上面指定了数据集的路径，因此在项目下新建 data/coco目录，下面四个子目录  annotations和test2017，train2017，val2017。</li></ol></li><li><ol><li>修改该文件下的 train val test 的路径为自己新建的路径：</li></ol></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">train=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_train2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'train2017/'</span>,</span><br><span class="line">        pipeline=train_pipeline),</span><br><span class="line">    val=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_val2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'val2017/'</span>,</span><br><span class="line">        pipeline=test_pipeline),</span><br><span class="line">    test=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_test2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'test2017/'</span>,</span><br><span class="line">        pipeline=test_pipeline))</span><br></pre></td></tr></table></figure><ul><li><ol><li>修改 batch size 和 线程数：根据自己的显存和CPU来设置</li></ol></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">samples_per_gpu=<span class="number">2</span>,  <span class="comment"># batch size</span></span><br><span class="line">workers_per_gpu=<span class="number">2</span>,  <span class="comment"># 每个GPU对应线程数 可以大一些</span></span><br></pre></td></tr></table></figure><ul><li><ol><li><p>修改分类数组：mmdet/datasets/coco.py</p><ul><li>CLASSES中填写自己的分类：<code>CLASSES = (&#39;person&#39;, &#39;bicycle&#39;, &#39;car&#39;)</code></li></ul></li></ol></li></ul><h3 id="五、开始训练"><a href="#五、开始训练" class="headerlink" title="五、开始训练"></a>五、开始训练</h3><p>执行：<code>python tools/train.py configs\swin\mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swin Transformer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Swin Transformer目标检测2——环境配置2</title>
+      <link href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B2%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE2/"/>
+      <url>/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B2%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE2/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、所需软件（包）介绍"><a href="#一、所需软件（包）介绍" class="headerlink" title="一、所需软件（包）介绍"></a>一、所需软件（包）介绍</h3><ul><li><strong>VS 2017-2019</strong> ，用里面的一个编译软件去编译文件，用于安装mmcv，因为mmcv没有提供编译好的可用于windows的文件。(<strong>注意只能安装2017-2019版本，不然在编译mmcv时会报错，只装C++部分即可</strong>)。下载地址：<a href="https://docs.microsoft.com/zh-cn/visualstudio/releases/2019/release-notes" target="_blank" rel="noopener">VS 2019下载</a></li><li><strong>MMDetection</strong>：是一个基于 PyTorch 的目标检测开源工具箱。但是依赖 mmcv，支持 pytorch 1.5+。</li><li><strong>mmcv</strong>：类似OpenCV，是一个开源的面向计算机视觉的基础库，高质量实现CUDA算子，使用它的话需要 python 3.6+</li></ul><h3 id="二、环境安装"><a href="#二、环境安装" class="headerlink" title="二、环境安装"></a>二、环境安装</h3><h4 id="0-版本选择"><a href="#0-版本选择" class="headerlink" title="0. 版本选择"></a>0. 版本选择</h4><ul><li>VS 2019  建议安装2019版本。</li><li>MMDetection：2.20.0  （地址：<a href="https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md" target="_blank" rel="noopener">https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md</a>）</li><li>mmcv：1.3.17  （参考：<a href="https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md" target="_blank" rel="noopener">https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md</a>）由 VS的编译工具 cl 编译得到。</li></ul><p>注：想选择使用2.20.0版本，但是最后你会发现没办法使用，他会退回到2.11.0，Github上issues中解决办法就会让他退回到2.11.0这个版本。</p><h4 id="1-VS-2019-安装"><a href="#1-VS-2019-安装" class="headerlink" title="1. VS 2019 安装"></a>1. VS 2019 安装</h4><p>直接去VS官网下载，第一步下载的时候可能需要翻墙，后面下载的时候不用翻墙，安装时只勾选桌面端的C++部分就可以。</p><ul><li>添加环境变量到系统环境变量-&gt;Path下，地址在安装目录下（根据自己的安装位置）：D:\install_in_D\VS2019\2019\Community\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x64</li><li>验证是否可用：</li></ul><p><img src="https://beyonderwei-blog.oss-cn-shanghai.aliyuncs.com/article/AIbase/Swin%20Transformer001.png" alt="image.png"></p><h4 id="2-创建conda-虚拟环境"><a href="#2-创建conda-虚拟环境" class="headerlink" title="2. 创建conda 虚拟环境"></a>2. 创建conda 虚拟环境</h4><h5 id="方案一（直接创建）"><a href="#方案一（直接创建）" class="headerlink" title="方案一（直接创建）"></a>方案一（直接创建）</h5><ul><li>直接创建：<code>conda create -n swin_det python=3.8</code></li><li>激活conda环境：<code>activate swin_det</code></li></ul><h5 id="方案二（指定目录创建）"><a href="#方案二（指定目录创建）" class="headerlink" title="方案二（指定目录创建）"></a>方案二（指定目录创建）</h5><ul><li>指定目录创建：如在  E:\workspace\Python\Pytorch\STOD 目录下执行下面的命令：</li><li>执行：<code>conda create --prefix=E:\workspace\Python\Pytorch\STOD\swin_det python=3.8</code></li><li>激活 conda 环境：<code>activate E:\workspace\Python\Pytorch\STOD\swin_det</code></li></ul><h5 id="3-pytorch-安装"><a href="#3-pytorch-安装" class="headerlink" title="3. pytorch 安装"></a>3. pytorch 安装</h5><ul><li>官网地址：<a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a></li><li>安装：<code>pip3 install torch==1.8.2+cu111 torchvision==0.9.2+cu111 torchaudio===0.8.2 -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html</code><ul><li>指定阿里源 (国内一般需要)<code>-i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</code></li></ul></li></ul><h4 id="4-安装其他必要的Python包"><a href="#4-安装其他必要的Python包" class="headerlink" title="4. 安装其他必要的Python包"></a>4. 安装其他必要的Python包</h4><ul><li>在虚拟环境下执行：</li></ul><p><code>pip install cython matplotlib opencv-python timm -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</code></p><h4 id="5-安装mmcv"><a href="#5-安装mmcv" class="headerlink" title="5. 安装mmcv"></a>5. 安装mmcv</h4><ul><li>项目地址：<a href="https://github.com/open-mmlab/mmcv/blob/master/README_zh-CN.md" target="_blank" rel="noopener">https://github.com/open-mmlab/mmcv/blob/master/README_zh-CN.md</a></li><li>进入之前创建的conda环境跟目录内：如：E:\workspace\Python\Pytorch\STOD\swin_det</li><li>克隆指定版本的 mmcv代码（或者clone master 之后再checkout）。<ul><li><code>git clone -b v1.3.17 git@github.com:open-mmlab/mmcv.git</code>（需要你在github配置了密钥，没有配置的话使用https链接克隆）</li></ul></li><li>此时环境内就有 mmcv的文件夹。</li><li><strong>打开 conda的power shell（一定要用这个）</strong></li></ul><p><img src="https://beyonderwei-blog.oss-cn-shanghai.aliyuncs.com/article/AIbase/Swin%20Transformer002.png" alt="image.png"></p><ul><li>进入到 conda环境目录，激活conda 环境<ul><li>直接创建的conda环境的使用：<code>conda activate swin_det</code></li><li>指定了conda环境路径的使用：<code>conda activate .\mmdet_swin</code></li></ul></li><li>进入到 mmcv 目录下，执行 <code>pip install -r requirements.txt</code>来安装mmcv所需的python包</li><li>配置环境变量：应该是因为在安装mmcv时用到。<ul><li><code>$env:TORCH_CUDA_ARCH_LIST=&quot;8.6&quot;</code>  8.6为显卡算力，查询位置：<a href="https://developer.nvidia.com/zh-cn/cuda-gpus" target="_blank" rel="noopener">英伟达官网（3060看英文文档）</a>，3060 查看算力位置：<a href="https://www.nvidia.com/en-us/geforce/graphics-cards/compare/?section=compare-specs" target="_blank" rel="noopener">英文算力位置</a></li><li><code>$env:MMCV_WITH_OPS = 1</code></li><li><code>$env:MAX_JOBS = 8</code> 根据CPU核心数设置（其实我是10核心，不大于你CPU核心应该就没事）</li></ul></li><li>运行：<code>python setup.py build_ext</code>（这步包括下面的一步就会用到之前VS中的cl工具）</li><li>运行：<code>python setup.py develop</code></li><li>验证：codna list   会看到  mmcv-full（记得确定一下版本对不对 1.3.17）</li></ul><h4 id="6-安装mmdetection"><a href="#6-安装mmdetection" class="headerlink" title="6. 安装mmdetection"></a>6. 安装mmdetection</h4><ul><li>进入之前创建的conda环境目录内：如我的目录：E:\workspace\Python\Pytorch\STOD\swin_det，确保已经激活了conda虚拟环境</li><li>克隆mmdetection 的代码，找到要拉取的版本后 git clone（或者clone master 之后再checkout），地址：<a href="https://github.com/open-mmlab/mmdetection/tree/v2.20.0" target="_blank" rel="noopener">https://github.com/open-mmlab/mmdetection/tree/v2.20.0</a></li><li><code>git clone -b v2.20.0 git@github.com:open-mmlab/mmdetection.git</code>（需要你在github配置了密钥，没有配置的话使用https链接克隆）</li><li>进入 mmdetection的代码目录，安装mmdetection所需的python包，执行：<code>pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</code> (会在下载mmtrack时候出错，这是某个测试环境需要的包，暂时不管它，把它屏蔽掉，再运行上面命令)。<ul><li>屏蔽方式：</li><li><img src="https://beyonderwei-blog.oss-cn-shanghai.aliyuncs.com/article/AIbase/Swin%20Transformer003.png" alt="image.png"></li></ul></li><li>安装 mmdetection，执行 ：<code>python setup.py develop</code> (过程中安装了pycocotools，但是最后发现用不到)</li><li>验证  pip list  可以看到  mmdet（记得确定一下版本对不对 2.20.0）</li></ul><p>注：apex可以尝试直接用pip装，但是不是确定是否可用，可以尝试。</p><h4 id="7-安装-apex"><a href="#7-安装-apex" class="headerlink" title="7. 安装 apex"></a>7. 安装 apex</h4><ul><li>进入之前创建的conda环境目录内</li><li>激活conda 环境</li><li>clone apex 项目：<a href="https://github.com/NVIDIA/apex" target="_blank" rel="noopener">https://github.com/NVIDIA/apex</a></li><li>进入 apex 文件夹</li><li>执行：<code>python setup.py install</code></li><li>pip list 能看见 apex （0.1版本，只有这一个版本）</li><li>注：安装的apex会在训练模型时候有一个警告内容如下：（但实际没啥影响）<ul><li><code>fused_weight_gradient_mlp_cuda module not found. gradient accumulation fusion with weight gradient computation disabled.</code></li></ul></li></ul><h4 id="8-拉取代码"><a href="#8-拉取代码" class="headerlink" title="8. 拉取代码"></a>8. 拉取代码</h4><ul><li>地址：<a href="https://github.com/SwinTransformer/Swin-Transformer-Object-Detection" target="_blank" rel="noopener">https://github.com/SwinTransformer/Swin-Transformer-Object-Detection</a></li><li>设置工程所用环境为前面准备好的虚拟环境</li></ul><h4 id="9-测试工程"><a href="#9-测试工程" class="headerlink" title="9. 测试工程"></a>9. 测试工程</h4><ul><li>下载权值文件：(直接丢在项目根目录下)</li></ul><p><img src="https://beyonderwei-blog.oss-cn-shanghai.aliyuncs.com/article/AIbase/Swin%20Transformer004.png" alt="image.png"></p><ul><li>验证执行如下命令：</li></ul><p><code>python demo/image_demo.py demo/demo.jpg configs/swin/mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py mask_rcnn_swin_tiny_patch4_window7.pth</code></p><ul><li>成功的话 能看到实例图片，当 mask_rcnn_swin_tiny_patch4_window7.pth 不在项目根目录下的时候，需要在前面指定具体位置。</li></ul><h4 id="10-常见问题"><a href="#10-常见问题" class="headerlink" title="10. 常见问题"></a>10. 常见问题</h4><ul><li>Q1：TypeError: MaskRCNN: SwinTransformer: <strong>init</strong>() got an unexpected keyword argument ‘embed_dim’</li><li>A1：在虚拟环境下，进入Swin-Transformer-Object-Detection 项目目录，执行：<code>python setup.py develop</code></li><li>此时会发现 mmdetection被换了版本，变为了 2.11.0，我也没办法，最终使用的并不是开始设想的2.20.0</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swin Transformer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Swin Transformer目标检测1——环境配置1</title>
+      <link href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B1%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE1/"/>
+      <url>/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B1%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE1/</url>
+      
+        <content type="html"><![CDATA[<ul><li>目标检测模型排行榜COCO数据集：<a href="https://paperswithcode.com/sota/object-detection-on-coco" target="_blank" rel="noopener">https://paperswithcode.com/sota/object-detection-on-coco</a></li><li>课程资料：2元购买<ul><li>内容：思维导图、Markdown笔记内容、软件包、权值文件、工程等。</li><li>购买方式：微信搜索 Beyonderwei，关注公众号回复：<strong>目标检测</strong></li><li>购买后获得加入微信交流群资格（加入方式私聊客服）</li></ul></li></ul><h3 id="一、预备内容"><a href="#一、预备内容" class="headerlink" title="一、预备内容"></a>一、预备内容</h3><ul><li>Windows 10</li><li>PyCharm</li><li>Cuda + cudnn</li><li>Python 3.6+</li><li>Anaconda</li><li>VS2017-2019</li></ul><h3 id="二、视频中的环境介绍"><a href="#二、视频中的环境介绍" class="headerlink" title="二、视频中的环境介绍"></a>二、视频中的环境介绍</h3><h4 id="1-软件版本"><a href="#1-软件版本" class="headerlink" title="1. 软件版本"></a>1. 软件版本</h4><ul><li>Windows 10（其他系统没试过，应该都没啥问题）</li><li>PyCharm 2021.3（只是IDE，版本不同也没关系）</li><li>显卡  3060 12G</li><li>Cuda 11.1 （与显卡、Pytorch要求合适即可）</li><li>Python 3.8</li><li>Anaconda3 2021.05（版本无限制）</li><li>VS2019</li></ul><h4 id="2-Conda-虚拟环境中Python包版本"><a href="#2-Conda-虚拟环境中Python包版本" class="headerlink" title="2. Conda 虚拟环境中Python包版本"></a>2. Conda 虚拟环境中Python包版本</h4><ul><li>Pytorch 1.8.2</li><li>mmcv 1.3.17</li><li>mmdetection 2.20.0</li></ul><p>实际上最终还是不得已用 mmdetection  2.11.0版本。</p><h4 id="3-前期知识"><a href="#3-前期知识" class="headerlink" title="3. 前期知识"></a>3. 前期知识</h4><ul><li>了解常见的目标检测网络：yolo、faster rcnn、ssd等</li><li>ViT Swin Transformer原理：建议看李沐老师的视频<ul><li>ViT：<a href="https://www.bilibili.com/video/BV15P4y137jb?spm_id_from=333.337.search-card.all.click" target="_blank" rel="noopener">https://www.bilibili.com/video/BV15P4y137jb?spm_id_from=333.337.search-card.all.click</a></li><li>Swin Transformer ： <a href="https://www.bilibili.com/video/BV13L4y1475U/?spm_id_from=333.788" target="_blank" rel="noopener">https://www.bilibili.com/video/BV13L4y1475U/?spm_id_from=333.788</a></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swin Transformer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>投票排名系统(3)——投票流程与持久化</title>
+      <link href="/2021/08/07/%E6%8A%95%E7%A5%A8%E6%8E%92%E5%90%8D%E7%B3%BB%E7%BB%9F-3-%E2%80%94%E2%80%94%E6%8A%95%E7%A5%A8%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8C%81%E4%B9%85%E5%8C%96/"/>
+      <url>/2021/08/07/%E6%8A%95%E7%A5%A8%E6%8E%92%E5%90%8D%E7%B3%BB%E7%BB%9F-3-%E2%80%94%E2%80%94%E6%8A%95%E7%A5%A8%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8C%81%E4%B9%85%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、投票流程"><a href="#一、投票流程" class="headerlink" title="一、投票流程"></a>一、投票流程</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 之所以我们通过Redis的Sorted Set来保存选手的信息，一方面是因为可以快速的对选手进行排名，还有一点便是为了用于投票功能的实现。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 通常投票（主播排名中就相当于送礼物）是一个被操作非常非常频繁的请求，想象一下你在看直播时，尤其是大主播，他们的礼物栏通常都是基本不间断的，更何况我们的应用要应对的还不只是一个主播，而是成千上万个，因此如果直接操作数据库基本是不可能的。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以投票的过程实际上就是增加Sorted Set 中某个id的分数，从而实现投票的流程。<br><img src="https://img-blog.csdnimg.cn/573952628bc44d3db3aa2599c1a341ca.png" alt="在这里插入图片描述"><br>对应的Redis命令就是：<code>rdb.zincrby(&quot;vote&quot;), 1,  id)</code><br><strong>注意：</strong> 实际中可能增加的数值并不是1，而是根据礼物的金额而定。</p><h3 id="二、数据的持久化"><a href="#二、数据的持久化" class="headerlink" title="二、数据的持久化"></a>二、数据的持久化</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 虽然说Redis带有数据的持久化功能，但是通常还只是用来做缓存的，因此票数信息最终还是要落盘写到数据库Mongo或者MySQL中，而不是一直在内存中。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 通过上面的分析我们知道投票是一个很频繁的操作，不可能每一次投票都操作数据组，因此你可能会想到如下的方案：</p><h4 id="1-定时持久化"><a href="#1-定时持久化" class="headerlink" title="1. 定时持久化"></a>1. 定时持久化</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这是非常容易想到的一个方案，既然不能每次都操作数据库，但是我间隔一定时间同步一次（比如5秒、1分钟等），既保证了投票功能的正常运行，又能将票数信息持久化到数据库。过程很简单，如下：<br><img src="https://img-blog.csdnimg.cn/289f4fa3509d495a9b889168b7e1c60b.png" alt="在这里插入图片描述"><br>看似很美好，但是这并不是一个好的方案，主要存在以下问题：</p><ul><li>每次同步的数据量非常大，</li><li>大量数据信息需要被同步就导致从Redis查询时需要获取整个ZSet，主播很多时也可能会是一个大key了，会导致操作耗时，存在阻塞风险，同时可能对服务器的带宽</li><li>向数据库中写数据时，相当于一次更新了整张表的票数信息数据，同样也非常耗时，给数据库带来压力</li></ul><h4 id="2-定时持久化改变的数据"><a href="#2-定时持久化改变的数据" class="headerlink" title="2. 定时持久化改变的数据"></a>2. 定时持久化改变的数据</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 既然第一个方案会出现一次性持久化大量数据，并且这里面可能很多主播的票数信息是没有改变的，那么何不通过一种方法，记录下哪些主播的票数变化了，然后只持久化变化了的这些主播的票数，这样可以大大减少每次持久化需要更新的数据，同时通过减小持久化的时间间隔，这样每次做数据持久化时，更新的数据就更少，就避免了方案1中的问题。</p><ul><li>记录票数变化的主播：<br>上述方案的主要点在于如何记录票数变化的主播，实际很简单，只需要在投票接口将票数变化了的主播记录到Hash中，key就是主播的id，值可以记录主播的票数变化（增加了多少票）：<br><img src="https://img-blog.csdnimg.cn/52c75107b68a4d939fda36a0225cd597.png" alt="在这里插入图片描述"></li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这样当每次定时任务执行时，只需要从Hash中获取票数变化了的主播的ID，然后只更新这些主播的票数信息，那么就可以将每次的更新数量降低，避免方案1中的问题。</p><ul><li>更新数据：<br><img src="https://img-blog.csdnimg.cn/402f78e1d9c84ff6a18a67b792ab0249.png" alt="在这里插入图片描述"><h4 id="3-定时-amp-定变化量阈值更新数据"><a href="#3-定时-amp-定变化量阈值更新数据" class="headerlink" title="3. 定时 &amp; 定变化量阈值更新数据"></a>3. 定时 &amp; 定变化量阈值更新数据</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 由于定时操作可能在更新时，某些主播的票数已经变化非常多了，因此需要对票数的变化量设置一个阈值，当变化量达到一定程度的时候，也进行一次更新。（有没有感觉很熟悉，其实就是Redis数据持久化时的AOF方案呀），只不过我们是只把Redis用于缓存，确实大部分场景Redis更适合做缓存而不是数据库。</li><li>定变化量阈值更新数据：<br>除了方案二中添加定时任务以外，设定一个阈值，用于在每次变化量大于阈值时，更新用户的票数到数据库，流程如下：<br><img src="https://img-blog.csdnimg.cn/e191532d65784730a9193c92b45c0677.png" alt="在这里插入图片描述"></li></ul><h4 id="4-问题讨论"><a href="#4-问题讨论" class="headerlink" title="4. 问题讨论"></a>4. 问题讨论</h4><ul><li><strong>问题讨论（1）：</strong> 定时更新的时间选择，大一点好还是小一点好？<br><strong>答案（1）：</strong> 肯定不是，因为越大意味着持久化时的数据量就越大，导致操作耗时，越小可以减小一次持久化的数据量，但是太小又会导致每次只持久化很少的数据，因此需要根据投票量综合考虑，同时也要考虑对最大数据丢失的容忍程度，因为缓存是可能挂掉的。</li><li><strong>问题讨论（2）：</strong> 为什么拿Hash存储票数变化：<br><strong>答案（2）：</strong> 因为只需要记录票数变化的主播ID和变化量，且不需要排名，因此不使用ZSet或是Set，如果不记录票数变化量，也可以使用Set。</li><li><strong>问题讨论（3）：</strong>  Hash的过期时间：<br><strong>答案（3）：</strong> 肯定要大于持久化数据的时间间隔，当然为了保险起见可以设置3倍的数据持久化的定时时间。</li></ul><h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><ul><li><p>本节我们主要讲了投票的实现流程和数据的持久化方案，其中数据的持久化方案中我们从简单的最容易想到的方案出发，不断分析问题、不断优化，得到了一个算是比较好的实现方式。</p></li><li><p>实际上在此基础上我们还有一些值得讨论和优化的地方，这部分内容在下一节介绍，</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>投票排名系统(2)——缓存设计</title>
+      <link href="/2021/08/01/%E6%8A%95%E7%A5%A8%E6%8E%92%E5%90%8D%E7%B3%BB%E7%BB%9F-2-%E2%80%94%E2%80%94%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1/"/>
+      <url>/2021/08/01/%E6%8A%95%E7%A5%A8%E6%8E%92%E5%90%8D%E7%B3%BB%E7%BB%9F-2-%E2%80%94%E2%80%94%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、前提条件"><a href="#一、前提条件" class="headerlink" title="一、前提条件"></a>一、前提条件</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 假设我们已经有了一个主播表，形式是下面这样：（你可能还会需要其他字段，请自行添加）</p><div class="table-container"><table><thead><tr><th>id</th><th>名字</th><th>票数</th></tr></thead><tbody><tr><td>1</td><td>张三</td><td>100</td></tr><tr><td>2</td><td>李四</td><td>210</td></tr></tbody></table></div><ul><li><strong>票数：</strong> 票数越高排名越高，比如一个大炮是10票，这个礼物需要10块钱，一个飞机100票，需要100块钱这样子。<h4 id="1-问题讨论"><a href="#1-问题讨论" class="headerlink" title="1. 问题讨论"></a>1. 问题讨论</h4><ul><li><strong>问题讨论（1）：</strong> 表中要不要有主播的排名这个字段？<br><strong>答案（1）：</strong> 显然是不需要的，因为票数是频繁变化的，我们通过票数去计算排名即可，如果加上了排名这个字段，那么一个票数更新就会牵扯到一群人甚至整张表内主播的排名更新，这样做的更新代价是非常大的，更新时间也是完全不可接受的。</li></ul></li></ul><h3 id="二、缓存设计"><a href="#二、缓存设计" class="headerlink" title="二、缓存设计"></a>二、缓存设计</h3><p>这里我们先从最简单的设计开始，然后不断的优化</p><h4 id="1-获取排名"><a href="#1-获取排名" class="headerlink" title="1. 获取排名"></a>1. 获取排名</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 上面提到了主播表中没有主播的排名字段，因此每次获取排行版第一页排名靠前的主播就需要排序，但是当有几千、几万的主播时，每次都需要排序，查询时间也会大大增加，无法达到较高的QPS，所以最常见的做法就是通过缓存来实现，即Redis的Sorted Set(ZSet)类型：<br><img src="https://img-blog.csdnimg.cn/e5802bb881d64ab69628544f3b9b0910.png?" alt="在这里插入图片描述"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Redis会帮我们根据每个键的分数来维护这个排名，具体的原理可以参考<strong>zset的底层数据结构</strong>，加上Redis是在内存中的，因此获取排名的速度提升是相当明显的。</p><ul><li>id：即用户的ID</li><li>score：实际存储的就是每个主播的票数</li></ul><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这时我们即可通过ZSet的 <code>zrevrange</code> 函数，获取到排名靠前（票数高）的钱前N名用户。由于是直接操作Redis，因此查询速度可以说是有数量级上的提升。</p><h4 id="2-获取排行榜首页主播信息"><a href="#2-获取排行榜首页主播信息" class="headerlink" title="2. 获取排行榜首页主播信息"></a>2. 获取排行榜首页主播信息</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 由于排行榜的首页还需要展示用户的其他信息，因此我们不但需要知道排名靠前的用户的id，还需要查询出用户的详细信息。<br>相对于直接对票数排序，再获取排名靠前的用户信息来说，我们通过用户ID来查找排行榜用户，速度会快很多（因为无论是MySQL或是MongoDB主键字段是<strong>默认加了索引的</strong>，因此查询速度还是很快的）</p><p><strong>但还是不够快：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 即使ID字段有索引，可以加快查询的速度，但是由于排行榜首页的访问量实在是太大了，因此还是要对用户信息加缓存。真实的业务场景下，排行榜首页的人员变动并没有那么大，相当于每次去数据库查询的一组用户的信息变化不大，那么对这些数据加缓存将极大的加快查询速度。</p><ol><li>主播信息如下（使用Redis的String类型）：<br><img src="https://img-blog.csdnimg.cn/20a862ee2f2942cd873a87b2c65e660f.png?" alt="在这里插入图片描述"></li><li>查询首页主播信息流程<br><img src="https://img-blog.csdnimg.cn/7fd197da50864292945a675c83edf1a3.png?" alt="在这里插入图片描述"><h4 id="3-问题讨论"><a href="#3-问题讨论" class="headerlink" title="3. 问题讨论"></a>3. 问题讨论</h4></li></ol><ul><li><p><strong>问题讨论（1）：</strong> 获取用户排名的时候给分数添加索引，这样查询不就快了嘛，何必设计的这么麻烦？<br><strong>答案（1）：</strong> 这就犯了一个及其低级的错误，因为给经常变动的数据添加索引反而适得其反，索引本身是B+树等结构，如果是经常变动的数据，索引维护过程反而会消耗大量时间。</p></li><li><p><strong>问题讨论（2）：</strong> 主播的信息为什么不保存在Hash中，这样就相当于套了一层，管理起来更加方便（一个Hash）<br><strong>答案（2）：</strong> Hash是不支持给内部的key-value设置过期时间的，因此这就会形成一个超大的key，没有过期就会导致Hash内部有很多冷数据，浪费内存空间。如果给Hash设置过期时间，就会涉及大key的重建等问题，带来不必要的麻烦</p></li><li><p><strong>问题讨论（3）：</strong> 主播信息（保存在String类型中）的过期时间如何设置？<br><strong>答案（3）：</strong> 可以根据实际情况定10min，20min等（如排名反复变化可将过期时间延长一些），但是切记要在基础过期时间上加一个随机时间，避免同时过期造成的缓存雪崩。</p></li></ul><h4 id="4-特别提醒"><a href="#4-特别提醒" class="headerlink" title="4. 特别提醒"></a>4. 特别提醒</h4><ul><li>在从Redis中获取多个主播详细信息时，请使用pipeline方式，不然则相当于需要N次的网络时间。这是绝对不能忍的。</li><li>同样的道理，从MySQL 或者MongoDB中查询一组主播ID的时候也需要使用批量查询的方式。</li></ul><h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本节我们主要根据实际需求来设计了首页数据的缓存结构，主要使用到了Redis的ZSet和String两个类型，并分析了为什么用户信息不能使用Hash来存储。通过这样的方式，我们的首页数据查询接口的QPS基本上就可以上百了。主要的时间消耗在网络传输上。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下一节我们将介绍投票的实现流程和数据持久化部分。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>投票排名系统(1)——场景分析与介绍</title>
+      <link href="/2021/07/31/%E6%8A%95%E7%A5%A8%E6%8E%92%E5%90%8D%E7%B3%BB%E7%BB%9F-1-%E2%80%94%E2%80%94%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90%E4%B8%8E%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2021/07/31/%E6%8A%95%E7%A5%A8%E6%8E%92%E5%90%8D%E7%B3%BB%E7%BB%9F-1-%E2%80%94%E2%80%94%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90%E4%B8%8E%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<p><strong>重要说明：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这是一个系列文章，如果你也正在做或打算做这样一个投票排名系统，请耐心看完，相信你一定会有所收获，该系列文章仅是作者觉得还不错的实现方式，可能你在哪些地方会有更好的想法，欢迎在评论区留下你的想法和建议。（主要基于MySQL和Redis实现）</p><h3 id="一、你将收获什么"><a href="#一、你将收获什么" class="headerlink" title="一、你将收获什么"></a>一、你将收获什么</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 通过一个简单但常见的具有高并发场景的小例子，分享在整个系统设计过程中各种问题的处理，包括缓存设计、数据持久化方案，通过提问的方式激发你更多的思考，让我们一起学习成长。</p><h3 id="二、序言"><a href="#二、序言" class="headerlink" title="二、序言"></a>二、序言</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 无论学习还是做需求，投票排名是一个出现频繁且重要的业务场景，可能你在生活中就经常会接触到，比如下面这些：</p><ol><li>某博客平台按照点赞数、新增评论等作为评判条件，出一个最受欢迎文章的界面</li><li>某本地生活平台根据消费数量，出一个本周最受欢迎店家的界面</li><li>某娱乐平台要向公众统计最受欢迎的十大歌手</li><li>某直播平台搞主播PK活动，要排一个礼物榜</li></ol><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这些场景我们或许都不陌生，你可能在学校就会遇到类似这样的项目，但本质上他们都是一个投票排名系统。这里以【主播PK活动】为例，讲述具体的实现过程。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <strong>为什么是【主播PK】：</strong> 使用这个例子的原因在于可以让你排除一些外部干扰，比如文章投票可能你会顾虑到刷访问量，点赞、评论等情况，你要考虑到统计访问用户、点赞用户等情况（当然都可以实现）。但主播PK场景的每一票都相当于真实的钱，你刷任你刷。</p><h3 id="三、场景分析"><a href="#三、场景分析" class="headerlink" title="三、场景分析"></a>三、场景分析</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 首先我们需要分析一下这个场景有什么特点，然后再去寻找解决方案。综合分析特点如下：</p><ul><li>需要一个前端页面来展示主播排名结果，这里以一个前端网页为例</li><li>这个前端页面（特别是前几页）需要面对大量用户的高并发请求</li><li>票数经常变化（大量用户给大量主播送礼物）</li><li>排名要近乎实时更新</li><li>数据要有持久化策略，不能一直在缓存中。</li></ul><h3 id="四、解决方案"><a href="#四、解决方案" class="headerlink" title="四、解决方案"></a>四、解决方案</h3><h4 id="1-前端页面资源"><a href="#1-前端页面资源" class="headerlink" title="1. 前端页面资源"></a>1. 前端页面资源</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 由于前端页面（特别是前几页）需要面对大量用户的高并发请求，所以前端的页面可以放在CDN上。</p><h4 id="2-票数经常变化"><a href="#2-票数经常变化" class="headerlink" title="2.票数经常变化"></a>2.票数经常变化</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 场景下大量用户给大量主播送礼物，每个主播的 “票数”变化频繁，不可能直接操作数据库，因此要有缓存，变化第一时间实际上是写到缓存中，肯定需要Redis。</p><h4 id="3-排名要近乎实时更新"><a href="#3-排名要近乎实时更新" class="headerlink" title="3. 排名要近乎实时更新"></a>3. 排名要近乎实时更新</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 要能快速的统计出排名，方便分页查询获取排名的某页数据。因此肯定会用到Redis Sorted Set的数据类型。</p><h4 id="4-数据信息持久化"><a href="#4-数据信息持久化" class="headerlink" title="4. 数据信息持久化"></a>4. 数据信息持久化</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 票数信息要持久化到数据库，避免缓存崩掉数据丢失，当然可以使用MySQL、MongoDB等。</p><h3 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 通过上面的分析可以看出，重点在于缓存设计以及持久化方案。具体实现方式参考下节。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一文看懂HTTPS</title>
+      <link href="/2021/04/28/%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82HTTPS/"/>
+      <url>/2021/04/28/%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82HTTPS/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h2><ul><li><strong>对称加密：</strong> 只有一个密钥，可以对数据进行加密，也可以对加密的数据进行解密，加密解密速度快，但是安全性相对较低。</li><li><strong>非对称加密：</strong> 有一对密钥，私钥加密的数据只能通过公钥来解密，公钥加密的数据只能通过私钥来解密</li><li><strong>CA（认证机构）：</strong> 与各个操作系统厂商之间协商好了，操作系统如安卓、windows等都在出场时添加了这些CA的公钥（windos在控制面板/网络和Internet/Internet选项/内容/证书/中间证书颁发机构）</li><li><strong>Client （浏览器）：</strong> 即操作系统的浏览器</li><li><strong>操作系统：</strong> 浏览器所在的客户端，实际上可以将浏览器和操作系统合在一起。</li><li><strong>Server （服务器）：</strong> 网站的后端服务</li><li><strong>证书：</strong> 由CA（认证机构）颁发给服务端的，用于浏览器对服务器的验证。（下面详细解释）</li></ul><h2 id="二、图解说明"><a href="#二、图解说明" class="headerlink" title="二、图解说明"></a>二、图解说明</h2><h4 id="1-密钥"><a href="#1-密钥" class="headerlink" title="1. 密钥"></a>1. 密钥</h4><p>&nbsp; &nbsp; &nbsp; &nbsp;  密钥包含三组，分别为服务端的公钥和私钥、认证机构的私钥和公钥，浏览器与服务器通信所用的随机密钥。（重要：<strong>私钥之所以称为私钥，是不会让外人知道的</strong>）</p><ul><li><strong>服务器公私钥：</strong> 包括S.私钥、S.公钥，用于与浏览器之间交换随机密钥（非对称加密的密钥），为什么要交换在后面问题汇总中解释。</li><li><strong>随机密钥：</strong> 主要通信过程中的加密密钥，用于对HTTPS通信过程中数据的加密。</li><li><strong>CA 公私钥：</strong> 包括CA.私钥，CA.公钥，用于对服务端进行签证，最后用于对浏览器对服务器的认证。<h4 id="2-证书"><a href="#2-证书" class="headerlink" title="2. 证书"></a>2. 证书</h4>&nbsp; &nbsp; &nbsp; &nbsp; 证书，实际上就是一些数据，主要包括下面几部分内容：</li><li>服务器公钥（通过CA的私钥加密了的）</li><li>签证公司：直接是明文，比如Globalsign，用于从操作系统中找到CA的公钥</li><li><p>服务器域名（通过CA的私钥加密后的）</p><h2 id="三、-流程图"><a href="#三、-流程图" class="headerlink" title="三、 流程图"></a>三、 流程图</h2><p><strong>先了解一下整个流程，然后再去思考为什么这样设计。</strong><br><img src="https://img-blog.csdnimg.cn/20210429111815946.png" alt="在这里插入图片描述"></p></li><li><p>① 申请证书：服务端向CA机构申请证书，申请条件包括网站的域名（IP）服务端的公钥等信息，CA对服务端进行核实后，认定这是一个合法的公司，因此颁发认证。</p></li><li><p>② 返回证书：返回证书，证书内容在第二部分说到过（回去重温一下）</p></li><li><p>③ 客户端第一次通过HTTPS访问服务器：HTTPS 通过443端口（默认端口）访问服务器</p></li><li><p>④ 返回CA颁发的证书以及自己的公钥。</p></li><li><p>⑤ 验证证书：浏览器根据证书中签证公司的名字，找到存储在操作系统中的CA.公钥，然后通过公钥对证书进行解密（因为证书是被CA.私钥加密过的），因此能够拿到S.公钥和服务器域名等信息。通过验证能确定这是否是一个合法的证书。</p></li><li><p>⑥ 浏览器生成一个随机密钥（对称加密），用于后序通信，随机密钥和随机密钥的加密方式通过S.公钥加密后发送给服务端，该随机密钥只能通过S.私钥解开。</p></li><li><p>⑦ 服务端通过S.私钥解密，得到随机密钥，并作为后序的通信</p></li><li><p>⑧ 返回确认，确认收到随机密钥，然后后序的通讯中的数据便通过随机密钥来加密，而这随机密钥是浏览器和服务端都知道的方式。</p></li><li><p>⑨ 相互通信，此时的通信内容通过随机密钥加密</p></li></ul><h2 id="四、问题解答"><a href="#四、问题解答" class="headerlink" title="四、问题解答"></a>四、问题解答</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;  <strong>带着思考去看下面的问题，明白了下面的问题，那边便能够理解为什么HTTPS 流程如此设计</strong>。</p><h4 id="1-操作系统为什么能够提前存有CA公钥"><a href="#1-操作系统为什么能够提前存有CA公钥" class="headerlink" title="1. 操作系统为什么能够提前存有CA公钥"></a>1. 操作系统为什么能够提前存有CA公钥</h4><p>&nbsp; &nbsp; &nbsp; &nbsp; 理解了上面的流程，你可能会有一个疑问，是不是任何有一对私钥和公钥的人都可以对服务端颁发证书呢？确实如此，但是并不是任何人的公钥都会装在操作系统之中，这些CA机构都是与操作系统厂商之间有合作（联结），如windows下就有这些证书：比如GloableSign<br><img src="https://img-blog.csdnimg.cn/20210429154619360.png" alt="在这里插入图片描述"><br>如果你自己搞了一套这种CA认证，你的证书就不会装入到所有的操作系统之中。</p><h4 id="2-服务器的私钥和公钥有什么作用"><a href="#2-服务器的私钥和公钥有什么作用" class="headerlink" title="2. 服务器的私钥和公钥有什么作用"></a>2. 服务器的私钥和公钥有什么作用</h4><p><strong>作用：</strong> 用来与客户端之间交换随机密钥，这样通过服务端公钥加密的随机密钥，只能由服务端解开，因此这个随机密钥的传输就安全了。</p><p><strong>解释：</strong> 交换了随机密钥以后，通过随机密钥进行后续的所有通信数据加密，因为这对密钥只有服务端和浏览器知道，因此保证了数据安全。你可能会想，为什么不一直使用服务端的公私钥通信呢？答案在下面一个问题。</p><h4 id="3-为什么不一直使用服务端的公私钥通信呢"><a href="#3-为什么不一直使用服务端的公私钥通信呢" class="headerlink" title="3. 为什么不一直使用服务端的公私钥通信呢"></a>3. 为什么不一直使用服务端的公私钥通信呢</h4><p><strong>非对称加密：</strong> 由于公私钥的加密方式属于非对称加密，安全性得到了保证，我把公钥告诉浏览器，而加密的数据只有我拿私钥才能解开。但非对称加密算法无论是加密或者解密过程都将消耗更多的时间和更多的算力，无疑为通信过程添加了多的负担，也导致通信速率的下降。</p><p><strong>对称加密：</strong> 既然非对称加密会导致效率下降，那么我们使用对称加密呢？虽然对称加密的加密过程和解密过程都速度很快，但是在传输密钥的过程中窃听者将传递的密钥截获，那么后序的加密实际上相当于是透明的，没有加密的效果了。</p><p><strong>解决方案：</strong> 因此一个组合的方式，在交换随机密钥（对称加密）的时候通过服务端的非对称加密来交换随机密钥，而通信的过程采用对称加密的方式加密数据就解决了上述问题。</p><p><strong>疑问（重要）：</strong> <strong>但是问题真的就这样解决了嘛？</strong> 那么还要认证机构干什么？认证机构起到了什么作用。</p><h4 id="4-认证机构到底起到了什么作用（重要）"><a href="#4-认证机构到底起到了什么作用（重要）" class="headerlink" title="4. 认证机构到底起到了什么作用（重要）"></a>4. 认证机构到底起到了什么作用（重要）</h4><p><strong>作用：</strong> 起到的是客户端对服务器的认证，即浏览器可以根据证书判断，这个服务器是我要访问的合法服务器。</p><p>&nbsp; &nbsp; &nbsp; &nbsp; 上图中可以发现，服务端的公钥和CA的公钥实际上都会被窃听者拦截得到，但是窃听者并没办法获取到服务端的私钥，因而就没办法破解出通信所使用的随机密钥。但是你可能会说，即使没有认证机构，那么服务端的私钥也不会被泄露啊？这就涉及到了另外一种窃听的方式：</p><p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>窃听者可以伪造一套自己的私钥和公钥</strong>，来模拟成一个假的服务端，倘若没有认证机构的认证，那么浏览器就无法判断与自己通信的这个服务端到底是不是我们想要访问的合法的服务端，如果一旦与伪造服务端的窃听者之间进行通信，那么数据的安全就没办法得到保障了。而这才是认证机构真正的作用。</p><p>&nbsp; &nbsp; &nbsp; &nbsp; 因为合法的服务器发送给浏览器的 S.公钥 等数据，这些数据是通过 CA.私钥 加密的，只有 CA.公钥 才能解开，而通过 CA.私钥 加密过得证书都是通过CA认证了，确保了这家公司的合法性，一旦从事非法窃取，那么便能够追踪溯源，从而保证了安全。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTPS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Nacos 服务注册配置中心（AP、CP）</title>
       <link href="/2021/01/12/Nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/"/>
       <url>/2021/01/12/Nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</url>
@@ -1651,9 +1833,9 @@
       
         <tags>
             
-            <tag> IOT </tag>
-            
             <tag> 云服务器 </tag>
+            
+            <tag> IOT </tag>
             
             <tag> APP </tag>
             

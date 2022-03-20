@@ -163,14 +163,14 @@
 
                         
                         <li>
-                            <a href="/archive/">归档</a>
+                            <a href="/about/">关于作者</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/categories/">分类</a>
+                            <a href="/archive/">归档</a>
                         </li>
                         
                     
@@ -184,7 +184,7 @@
 
                         
                         <li>
-                            <a href="/about/">关于作者</a>
+                            <a href="/categories/">分类</a>
                         </li>
                         
                     
@@ -295,6 +295,309 @@
 
 
 <!-- Main Content -->
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2022/03/20/Swin-Transformer目标检测4——测试训练效果/">
+                <h2 class="post-title">
+                    Swin Transformer目标检测4——测试训练效果
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、测试
+添加一个自己的图片在demo目录下，
+
+执行：python demo/image_demo.py demo/000019.jpg configs\swin\mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py work_dirs/mask_rcnn_swin_tiny_patch4_window7_m......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2022-03-20
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Swin Transformer" title="Swin Transformer">Swin Transformer</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2022/03/20/Swin-Transformer目标检测3——训练自己数据集/">
+                <h2 class="post-title">
+                    Swin Transformer目标检测3——训练自己数据集
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、修改工程
+
+设置类别：修改 configs/base/models/mask_rcnn_swin_fpn.py 中 num_classes 为自己数据集的类别（有两处需要修改）
+
+
+
+配置权重信息：修改 configs/base/default_runtime.py 中的 interval，loadfrom
+
+interval：dict(interval=1)  # 表示多少个 epoc......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2022-03-20
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Swin Transformer" title="Swin Transformer">Swin Transformer</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2022/03/20/Swin-Transformer目标检测2——环境配置2/">
+                <h2 class="post-title">
+                    Swin Transformer目标检测2——环境配置2
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、所需软件（包）介绍
+VS 2017-2019 ，用里面的一个编译软件去编译文件，用于安装mmcv，因为mmcv没有提供编译好的可用于windows的文件。(注意只能安装2017-2019版本，不然在编译mmcv时会报错，只装C++部分即可)。下载地址：VS 2019下载
+MMDetection：是一个基于 PyTorch 的目标检测开源工具箱。但是依赖 mmcv，支持 pytorch 1......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2022-03-20
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Swin Transformer" title="Swin Transformer">Swin Transformer</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2022/03/20/Swin-Transformer目标检测1——环境配置1/">
+                <h2 class="post-title">
+                    Swin Transformer目标检测1——环境配置1
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    
+目标检测模型排行榜COCO数据集：https://paperswithcode.com/sota/object-detection-on-coco
+课程资料：2元购买
+内容：思维导图、Markdown笔记内容、软件包、权值文件、工程等。
+购买方式：微信搜索 Beyonderwei，关注公众号回复：目标检测
+购买后获得加入微信交流群资格（加入方式私聊客服）
+
+
+
+一、预备内容
+Windows......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2022-03-20
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#Swin Transformer" title="Swin Transformer">Swin Transformer</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/08/07/投票排名系统-3-——投票流程与持久化/">
+                <h2 class="post-title">
+                    投票排名系统(3)——投票流程与持久化
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、投票流程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 之所以我们通过Redis的Sorted Set来保存选手的信息，一方面是因为可以快速的对选手进行排名，还有一点便是为了用于投票功能的实现。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 通常投票（主播排名中就相当于送礼物）是一个被操作非常非常频繁的请求，想象一下你在看直播时，尤其是......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2021-08-07
+                </p>
+                <div class="tags">
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/08/01/投票排名系统-2-——缓存设计/">
+                <h2 class="post-title">
+                    投票排名系统(2)——缓存设计
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、前提条件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 假设我们已经有了一个主播表，形式是下面这样：（你可能还会需要其他字段，请自行添加）
+
+
+
+
+id
+名字
+票数
+
+
+
+
+1
+张三
+100
+
+
+2
+李四
+210
+
+
+
+
+
+票数： 票数越高排名越高，比如一个大炮是10票，这个礼物需要10块钱，一个飞机100票，需要100块钱这样子。1. 问题讨论
+问题讨论（1）......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2021-08-01
+                </p>
+                <div class="tags">
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/07/31/投票排名系统-1-——场景分析与介绍/">
+                <h2 class="post-title">
+                    投票排名系统(1)——场景分析与介绍
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    重要说明：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这是一个系列文章，如果你也正在做或打算做这样一个投票排名系统，请耐心看完，相信你一定会有所收获，该系列文章仅是作者觉得还不错的实现方式，可能你在哪些地方会有更好的想法，欢迎在评论区留下你的想法和建议。（主要基于MySQL和Redis实现）
+一、你将收获什么&nbsp;&nbsp;&nbsp;&nbsp;&nb......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2021-07-31
+                </p>
+                <div class="tags">
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
+
+    
+
+        <div class="post-preview">
+
+            <a href="/2021/04/28/一文看懂HTTPS/">
+                <h2 class="post-title">
+                    一文看懂HTTPS
+                </h2>
+                <h3 class="post-subtitle">
+                    
+                </h3>
+                <div class="post-content-preview">
+                    一、基础知识
+对称加密： 只有一个密钥，可以对数据进行加密，也可以对加密的数据进行解密，加密解密速度快，但是安全性相对较低。
+非对称加密： 有一对密钥，私钥加密的数据只能通过公钥来解密，公钥加密的数据只能通过私钥来解密
+CA（认证机构）： 与各个操作系统厂商之间协商好了，操作系统如安卓、windows等都在出场时添加了这些CA的公钥（windos在控制面板/网络和Internet/Inter......
+                </div>
+            </a>
+            
+                <p class="post-meta" style="margin: 10px 0;">
+                    Posted by Beyonderwei on
+                    2021-04-28
+                </p>
+                <div class="tags">
+                    
+                      <a href="/tags/#HTTPS" title="HTTPS">HTTPS</a>
+                    
+                </div>
+            
+
+        </div>
+        <hr>
+
+    
 
     
 
@@ -726,309 +1029,6 @@ docker run --name 容器名 -p 2181:2181 --restart always -d 镜像id
 
     
 
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/11/20/Consul-服务注册与发现/">
-                <h2 class="post-title">
-                    Consul 服务注册与发现（CP）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、简介​    Consul用于微服务的注册和发现，由Go语言编写，提供HTTP和DNS两种服务发现方式，支持HTTP、TCP、Docker、Shell脚本定制化，支持多数据中心，有可视化的Web界面。
-二、安装
-拉镜像，当前最新1.9.3，Consul 官网
-docker pull consul:1.9.3 
-
-运行得到容器 (默认是以开发模式启动，数据保存在内存中,持久化需要通过数据卷......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-11-20
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Consul" title="Consul">Consul</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/11/15/服务注册中心Eureka/">
-                <h2 class="post-title">
-                    服务注册中心Eureka（AP）
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    Eureka由java语言编写。已经弃用。
-一、服务治理Spring Cloud封装了Netflix公司开发的Eureka来实现服务的治理，但是该模块已经停更。
-在传统的RPC远程调用框架中，管理每个服务与服务之间的依赖关系表复杂，所以需要使用服务治理，管理服务与服务之间的依赖关系，可以实现服务调用、负载均衡、容错等，实现服务发现与注册。
-二、 服务注册与发现Eureka 采用了CS的设计架......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-11-15
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Eureka" title="Eureka">Eureka</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/11/10/IDEA中多服务管理/">
-                <h2 class="post-title">
-                    IDEA中多服务管理
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、目标因为微服务比较多的时候，一个个启动关闭，难于管理，因此IDEA提供了Servides来进行多个服务的管理（原本的叫做RunDashboard，新版本直接在Servides中管理）。
-二、不显示漏斗在项目的.idea文件夹下找到workspace.xml，添加如下代码片段，重启IDEA。
-1234567&lt;component name="RunDashboard"&gt;    &......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-11-10
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#IDEA" title="IDEA">IDEA</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/11/03/Devtools热部署/">
-                <h2 class="post-title">
-                    通过Devtools实现热部署
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、主要目标实现更改代码后，后台自动的运行当前已经更改后的程序，避免频繁的手动关闭、启动项目。
-开发过程中使用，方便调试，实际生产环境则需要关掉。
-二、配置方式
-在项目的pom文件中引入依赖：
-123456&lt;dependency&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;         ......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-11-03
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Devtools" title="Devtools">Devtools</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/10/12/npm基础必备/">
-                <h2 class="post-title">
-                    npm基础
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    Node Package Manage
-简介是node.js的包管理工具，类似maven，负责管理js依赖。在安装node.js时就自动安装了npm
-文件
-package.json    依赖包的配置信息以及工程的信息，可根据该文件下载依赖。
-package-lock.json    锁定了包的版本。
-node_modules    该文件夹下为下载的所有的包
-
-常用命令项目初始化
-npm ......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-10-12
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#npm" title="npm">npm</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/10/08/webpack基础必备/">
-                <h2 class="post-title">
-                    Webpack基础
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    作用前端静态文件的打包工具：
-
-功能：将多个静态文件（js,css）打包成一个文件。
-使用场景：在部署前将项目打包
-优点：防止用户多次请求静态资源界面。
-
-安装
-npm install -g webpack webpack-cli    安装webpack 和 webpack-cli
-webpack -v     查看版本
-
-配置文件
-在要打包的文件夹同级目录下创建webpack.confi......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-10-08
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Webpack" title="Webpack">Webpack</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/08/03/Nginx/">
-                <h2 class="post-title">
-                    Nginx 基础
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    一、简介高性能的HTTP和反向代理服务器，占用内存少，并发能力强，为性能优化而开发，并发连接数高达五万。支持热部署，不间断运行。专门用来做静态资源服务器。
-相关概念
-正向代理：用户通过浏览器配置代理服务器，然后通过访问代理服务器的方式来访问互联网中的远程服务器。
-
-反向代理：客户端无需做任何配置，只需要将请求发给反向代理服务器，由反向代理服务器去选择目标服务器获取数据，再返回给客户端，对外暴......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-08-03
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#Nginx" title="Nginx">Nginx</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
-    
-
-        <div class="post-preview">
-
-            <a href="/2020/07/28/JUC并发编程/">
-                <h2 class="post-title">
-                    JUC并发编程
-                </h2>
-                <h3 class="post-subtitle">
-                    
-                </h3>
-                <div class="post-content-preview">
-                    JUC并发编程
-高内聚低耦合，线程操作资源类
-生产者、消费者：判断，干活，通知
-多线程交互（wait notify时）中要防止多线程的虚假唤醒 。条件的判断不能用if，只能用while。while循环体在线程被终止的时候会被重新判断而if不会被重新判断，即wait必须在while的循环体内。 
-标志位
-
-知识点
-synchronized 锁的不是某个方法，而是整个资源类，即当前的这个对象。
-......
-                </div>
-            </a>
-            
-                <p class="post-meta" style="margin: 10px 0;">
-                    Posted by Beyonderwei on
-                    2020-07-28
-                </p>
-                <div class="tags">
-                    
-                      <a href="/tags/#JUC" title="JUC">JUC</a>
-                    
-                      <a href="/tags/#并发编程" title="并发编程">并发编程</a>
-                    
-                </div>
-            
-
-        </div>
-        <hr>
-
-    
-
 
 
 <!-- Pager -->
@@ -1090,9 +1090,13 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
             
         
             
+            <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
+            
         
             
-            <a href="/tags/#IOT" title="IOT" rel="6">IOT</a>
+        
+            
+        
             
         
             
@@ -1102,17 +1106,17 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
             
         
             
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
             <a href="/tags/#Docker" title="Docker" rel="6">Docker</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Nginx" title="Nginx" rel="4">Nginx</a>
             
         
             
@@ -1138,22 +1142,6 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
             
         
             
-            <a href="/tags/#Nginx" title="Nginx" rel="4">Nginx</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
         
             
         
@@ -1162,7 +1150,15 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
             
         
             
+        
+            
             <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
+            
+        
+            
+        
+            
+        
             
         
             
@@ -1182,7 +1178,7 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
             
         
             
-        
+            <a href="/tags/#Swin Transformer" title="Swin Transformer" rel="4">Swin Transformer</a>
             
         
             
@@ -1226,11 +1222,21 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
             
         
             
-        
-            
-        
-            
             <a href="/tags/#排序" title="排序" rel="3">排序</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -1349,23 +1355,23 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
     <ul>
       
         <li>
-          <a href="/2021/01/12/Nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">Nacos 服务注册配置中心（AP、CP）</a>
+          <a href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B4%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E8%AE%AD%E7%BB%83%E6%95%88%E6%9E%9C/">Swin Transformer目标检测4——测试训练效果</a>
         </li>
       
         <li>
-          <a href="/2021/01/06/sentinel%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%B5%81%E9%87%8F%E9%98%B2%E5%8D%AB%E5%85%B5/">sentinel 分布式系统流量防卫兵</a>
+          <a href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B3%E2%80%94%E2%80%94%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E6%95%B0%E6%8D%AE%E9%9B%86/">Swin Transformer目标检测3——训练自己数据集</a>
         </li>
       
         <li>
-          <a href="/2021/01/02/Sleuth%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/">Sleuth请求链路追踪</a>
+          <a href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B2%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE2/">Swin Transformer目标检测2——环境配置2</a>
         </li>
       
         <li>
-          <a href="/2020/12/28/Bus%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF/">Bus消息总线</a>
+          <a href="/2022/03/20/Swin-Transformer%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B1%E2%80%94%E2%80%94%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE1/">Swin Transformer目标检测1——环境配置1</a>
         </li>
       
         <li>
-          <a href="/2020/12/23/Docker-%E5%AE%89%E8%A3%85-RabbitMQ/">Docker 安装 RabbitMQ</a>
+          <a href="/2021/08/07/%E6%8A%95%E7%A5%A8%E6%8E%92%E5%90%8D%E7%B3%BB%E7%BB%9F-3-%E2%80%94%E2%80%94%E6%8A%95%E7%A5%A8%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%8C%81%E4%B9%85%E5%8C%96/">投票排名系统(3)——投票流程与持久化</a>
         </li>
       
     </ul>
@@ -1394,7 +1400,7 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
         
     <h5>归档</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
 
         <hr>
@@ -1407,39 +1413,41 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
         
           <a href="categories/#SpringCloud"><li>SpringCloud</li></a>
         
+          <a href="categories/#物联网"><li>物联网</li></a>
+        
           <a href="categories/#AI"><li>AI</li></a>
         
-          <a href="categories/#物联网"><li>物联网</li></a>
+          <a href="categories/#Docker"><li>Docker</li></a>
         
           <a href="categories/#IDEA"><li>IDEA</li></a>
         
-          <a href="categories/#Docker"><li>Docker</li></a>
+          <a href="categories/#后端"><li>后端</li></a>
         
           <a href="categories/#MQ"><li>MQ</li></a>
         
           <a href="categories/#E-R图"><li>E-R图</li></a>
         
-          <a href="categories/#后端"><li>后端</li></a>
-        
           <a href="categories/#版本控制"><li>版本控制</li></a>
         
           <a href="categories/#Tools"><li>Tools</li></a>
         
-          <a href="categories/#设计模式"><li>设计模式</li></a>
+          <a href="categories/#数据库"><li>数据库</li></a>
         
           <a href="categories/#Nginx"><li>Nginx</li></a>
         
-          <a href="categories/#OAuth2"><li>OAuth2</li></a>
-        
-          <a href="categories/#数据库"><li>数据库</li></a>
+          <a href="categories/#设计模式"><li>设计模式</li></a>
         
           <a href="categories/#嵌入式"><li>嵌入式</li></a>
+        
+          <a href="categories/#OAuth2"><li>OAuth2</li></a>
         
           <a href="categories/#Python"><li>Python</li></a>
         
           <a href="categories/#前端"><li>前端</li></a>
         
           <a href="categories/#GitBook"><li>GitBook</li></a>
+        
+          <a href="categories/#计算机网络"><li>计算机网络</li></a>
         
           <a href="categories/#算法"><li>算法</li></a>
         
@@ -1517,7 +1525,7 @@ synchronized 锁的不是某个方法，而是整个资源类，即当前的这�
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Beyonderwei 2021 
+                    Copyright &copy; Beyonderwei 2022 
                     <br>
 					瞌睡遇上枕头：
                     <a href="http://beian.miit.gov.cn" target="_blank" rel="noopener">吉ICP备20000556</a>
