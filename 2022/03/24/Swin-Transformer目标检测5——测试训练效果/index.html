@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          Swin Transformer目标检测3——训练自己数据集 - beyonderwei
+          Swin Transformer目标检测4——测试训练效果 - beyonderwei
         
     </title>
 
-    <link rel="canonical" href="https://beyonderwei.com/2022/03/20/Swin-Transformer目标检测3——训练自己数据集/">
+    <link rel="canonical" href="https://beyonderwei.com/2022/03/24/Swin-Transformer目标检测5——测试训练效果/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -114,17 +114,17 @@
                               <a class="tag" href="/tags/#Swin Transformer" title="Swin Transformer">Swin Transformer</a>
                             
                         </div>
-                        <h1>Swin Transformer目标检测3——训练自己数据集</h1>
+                        <h1>Swin Transformer目标检测4——测试训练效果</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Beyonderwei on
-                            2022-03-20
+                            2022-03-24
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">387</span> and
+                                Words <span class="post-count">140</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -271,70 +271,28 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="一、修改工程"><a href="#一、修改工程" class="headerlink" title="一、修改工程"></a>一、修改工程</h3><ul>
-<li><ol>
-<li>设置类别：修改 configs/<em>base</em>/models/mask_rcnn_swin_fpn.py 中 num_classes 为自己数据集的类别（有两处需要修改）</li>
-</ol>
-</li>
-<li><ol>
-<li><p>配置权重信息：修改 configs/<em>base</em>/default_runtime.py 中的 interval，loadfrom</p>
+                <h3 id="一、测试"><a href="#一、测试" class="headerlink" title="一、测试"></a>一、测试</h3><ul>
+<li>添加一个自己的图片在demo目录下，</li>
+</ul>
+<p>执行：<code>python demo/image_demo.py demo/000019.jpg configs\swin\mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py work_dirs/mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco/latest.pth</code></p>
 <ul>
-<li>interval：dict(interval=1)  # 表示多少个 epoch 验证一次，然后保存一次权重信息</li>
-<li>loadfrom：表示加载哪一个训练好的权重，可以直接写绝对路径如： <code>load_from = r&quot;E:\workspace\Python\Pytorch\Swin-Transformer-Object-Detection\mask_rcnn_swin_tiny_patch4_window7.pth&quot;</code></li>
+<li>latest.pth 就是自己训练好的最新的权重文件，默认会放在workdir下。</li>
 </ul>
-</li>
-</ol>
-</li>
-<li><ol>
-<li><p>修改训练尺寸大小：<strong>如果显存够的话可以不改（基本都运行不起来）</strong>，文件位置为：configs/swin/mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py</p>
-<ul>
-<li>修改所有的 img_scale 为 ：img_scale  = [(224, 224)] 或者 img_scale  = [(256, 256)]  或者 480，512等。</li>
-<li>同时 configs/<em>base</em>/datasets/coco_instance.py 中的 img_scale 也要改成 img_scale  = [(224, 224)]  或者其他值</li>
+<h3 id="二、不输出实例分割图"><a href="#二、不输出实例分割图" class="headerlink" title="二、不输出实例分割图"></a>二、不输出实例分割图</h3><p>demo/image_demo.py 做如下修改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test a single image</span></span><br><span class="line">result = inference_detector(model, args.img)</span><br><span class="line">new_result = result[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># show the results</span></span><br><span class="line">show_result_pyplot(model, args.img, new_result, score_thr=args.score_thr)</span><br></pre></td></tr></table></figure>
+<h3 id="三、训练-cascade-mask-rcnn-swin"><a href="#三、训练-cascade-mask-rcnn-swin" class="headerlink" title="三、训练 cascade_mask_rcnn_swin"></a>三、训练 cascade_mask_rcnn_swin</h3><ul>
+<li>与之前训练mask<em>rcnn_swin</em>一样，但是如果是单卡多修改如下部分</li>
+<li>configs/swin/cascade_mask_rcnn_swin_small_patch4_window7_mstrain_480-800_giou_4conv1f_adamw_3x_coco.py 文件中，所有的 SyncBN 改为 BN。</li>
 </ul>
-</li>
-</ol>
-</li>
-<li><ol>
-<li>配置数据集路径：configs/<em>base</em>/datasets/coco_instance.py 文件的最上面指定了数据集的路径，因此在项目下新建 data/coco目录，下面四个子目录  annotations和test2017，train2017，val2017。</li>
-</ol>
-</li>
-<li><ol>
-<li>修改该文件下的 train val test 的路径为自己新建的路径：</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">train=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_train2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'train2017/'</span>,</span><br><span class="line">        pipeline=train_pipeline),</span><br><span class="line">    val=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_val2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'val2017/'</span>,</span><br><span class="line">        pipeline=test_pipeline),</span><br><span class="line">    test=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_test2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'test2017/'</span>,</span><br><span class="line">        pipeline=test_pipeline))</span><br></pre></td></tr></table></figure>
-<ul>
-<li><ol>
-<li>修改 batch size 和 线程数：根据自己的显存和CPU来设置</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">samples_per_gpu=<span class="number">2</span>,  <span class="comment"># batch size</span></span><br><span class="line">workers_per_gpu=<span class="number">2</span>,  <span class="comment"># 每个GPU对应线程数 可以大一些</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><ol>
-<li><p>修改分类数组：mmdet/datasets/coco.py</p>
-<ul>
-<li>CLASSES中填写自己的分类：<code>CLASSES = (&#39;person&#39;, &#39;bicycle&#39;, &#39;car&#39;)</code></li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="五、开始训练"><a href="#五、开始训练" class="headerlink" title="五、开始训练"></a>五、开始训练</h3><p>执行：<code>python tools/train.py configs\swin\mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py</code></p>
 
                 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2022/03/20/Swin-Transformer目标检测4——测试训练效果/" data-toggle="tooltip" data-placement="top" title="Swin Transformer目标检测4——测试训练效果">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2022/03/20/Swin-Transformer目标检测2——环境配置2/" data-toggle="tooltip" data-placement="top" title="Swin Transformer目标检测2——环境配置2">Next Post &rarr;</a>
+                        <a href="/2022/03/23/Swin-Transformer目标检测4——训练自己数据集/" data-toggle="tooltip" data-placement="top" title="Swin Transformer目标检测3——训练自己数据集">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -479,7 +437,7 @@ const myTheme = {
 
 
 const gitment = new Gitment({
-    id: 'Sun Mar 20 2022 21:43:12 GMT+0800', // optional
+    id: 'Thu Mar 24 2022 21:44:20 GMT+0800', // optional
     owner: "beyonderwei",
     repo: "gitment",
     oauth: {

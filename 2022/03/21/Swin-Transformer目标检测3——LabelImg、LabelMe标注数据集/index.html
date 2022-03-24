@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          Swin Transformer目标检测4——测试训练效果 - beyonderwei
+          Swin Transformer目标检测3——LabelImg、LabelMe标注数据集 - beyonderwei
         
     </title>
 
-    <link rel="canonical" href="https://beyonderwei.com/2022/03/20/Swin-Transformer目标检测4——测试训练效果/">
+    <link rel="canonical" href="https://beyonderwei.com/2022/03/21/Swin-Transformer目标检测3——LabelImg、LabelMe标注数据集/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -114,17 +114,17 @@
                               <a class="tag" href="/tags/#Swin Transformer" title="Swin Transformer">Swin Transformer</a>
                             
                         </div>
-                        <h1>Swin Transformer目标检测4——测试训练效果</h1>
+                        <h1>Swin Transformer目标检测3——LabelImg、LabelMe标注数据集</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Beyonderwei on
-                            2022-03-20
+                            2022-03-21
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">140</span> and
+                                Words <span class="post-count">375</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -271,18 +271,40 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="一、测试"><a href="#一、测试" class="headerlink" title="一、测试"></a>一、测试</h3><ul>
-<li>添加一个自己的图片在demo目录下，</li>
+                <h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><ul>
+<li>常用数据集格式：VOC、COCO</li>
+<li>LabelImg：能标注 VOC、YOLO格式数据集，标注VOC数据集尤其推荐</li>
+<li>LabelMe：格式为LabelMe，提供了转VOC、COCO格式的脚本，可以标注矩形、圆形、线段、点。标注语义分割、实例分割数据集尤其推荐。</li>
 </ul>
-<p>执行：<code>python demo/image_demo.py demo/000019.jpg configs\swin\mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco.py work_dirs/mask_rcnn_swin_tiny_patch4_window7_mstrain_480-800_adamw_3x_coco/latest.pth</code></p>
+<h3 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h3><ul>
+<li>LabelImg：<code>pip install labelimg -i [http://mirrors.aliyun.com/pypi/simple/](http://mirrors.aliyun.com/pypi/simple/) --trusted-host mirrors.aliyun.com</code></li>
+<li>LabelMe：<code>pip install labelme -i [http://mirrors.aliyun.com/pypi/simple/](http://mirrors.aliyun.com/pypi/simple/) --trusted-host mirrors.aliyun.com</code></li>
+</ul>
+<h3 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h3><h4 id="1-LabelImg"><a href="#1-LabelImg" class="headerlink" title="1. LabelImg"></a>1. LabelImg</h4><ul>
+<li>直接在命令行使用 <code>labelimg</code>启动软件</li>
+<li>勾选 View - Auto Save mode：这样切换到下一张图时就会将标签文件自动保存在Change Save Dir设定的文件夹。</li>
+<li>Open Dir：选择图片所在的文件夹  JPEGimages</li>
+<li>Change Save Dir：选择保存标签文件要保存的目录 Annotations</li>
+</ul>
+<p><strong>快捷键：</strong></p>
 <ul>
-<li>latest.pth 就是自己训练好的最新的权重文件，默认会放在workdir下。</li>
+<li><strong>A：上一张图</strong></li>
+<li><strong>D：下一张图</strong></li>
+<li><strong>W：绘制矩形框</strong></li>
 </ul>
-<h3 id="二、不输出实例分割图"><a href="#二、不输出实例分割图" class="headerlink" title="二、不输出实例分割图"></a>二、不输出实例分割图</h3><p>demo/image_demo.py 做如下修改：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test a single image</span></span><br><span class="line">result = inference_detector(model, args.img)</span><br><span class="line">new_result = result[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># show the results</span></span><br><span class="line">show_result_pyplot(model, args.img, new_result, score_thr=args.score_thr)</span><br></pre></td></tr></table></figure>
-<h3 id="三、训练-cascade-mask-rcnn-swin"><a href="#三、训练-cascade-mask-rcnn-swin" class="headerlink" title="三、训练 cascade_mask_rcnn_swin"></a>三、训练 cascade_mask_rcnn_swin</h3><ul>
-<li>与之前训练mask<em>rcnn_swin</em>一样，但是如果是单卡多修改如下部分</li>
-<li>configs/swin/cascade_mask_rcnn_swin_small_patch4_window7_mstrain_480-800_giou_4conv1f_adamw_3x_coco.py 文件中，所有的 SyncBN 改为 BN。</li>
+<h4 id="2-LabelMe"><a href="#2-LabelMe" class="headerlink" title="2. LabelMe:"></a>2. LabelMe:</h4><ul>
+<li>直接在命令行使用 <code>labelme</code>启动软件</li>
+<li>勾选 File-&gt;Automatically：这样切换到下一张图时就会将标签文件自动保存在Change Save Dir设定的文件夹。</li>
+<li>Open Dir：选择图片所在的文件夹  JPEGimages</li>
+<li>File-&gt; Change Output Dir：选择保存标签文件所在的目录 Annotations</li>
+<li>Edit -&gt; Create Rectangle：选中，开始画矩形框</li>
+<li>注：如果想删除某个框，需要先点击左侧 Edit Polygons，然后再选择你要删的框，点击del键</li>
+</ul>
+<p><strong>快捷键：</strong></p>
+<ul>
+<li><strong>A：上一张图</strong></li>
+<li><strong>D：下一张图</strong></li>
+<li><strong>Ctrl + R：</strong>画矩形框</li>
 </ul>
 
                 
@@ -290,9 +312,13 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
+                    <li class="previous">
+                        <a href="/2022/03/23/Swin-Transformer目标检测4——训练自己数据集/" data-toggle="tooltip" data-placement="top" title="Swin Transformer目标检测3——训练自己数据集">&larr; Previous Post</a>
+                    </li>
+                    
                     
                     <li class="next">
-                        <a href="/2022/03/20/Swin-Transformer目标检测3——训练自己数据集/" data-toggle="tooltip" data-placement="top" title="Swin Transformer目标检测3——训练自己数据集">Next Post &rarr;</a>
+                        <a href="/2022/03/20/Swin-Transformer目标检测2——环境配置2/" data-toggle="tooltip" data-placement="top" title="Swin Transformer目标检测2——环境配置2">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -437,7 +463,7 @@ const myTheme = {
 
 
 const gitment = new Gitment({
-    id: 'Sun Mar 20 2022 21:44:20 GMT+0800', // optional
+    id: 'Mon Mar 21 2022 21:42:50 GMT+0800', // optional
     owner: "beyonderwei",
     repo: "gitment",
     oauth: {
