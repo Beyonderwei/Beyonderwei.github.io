@@ -124,8 +124,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">1.4k</span> and
-                                Reading Time <span class="post-count">6</span> Minutes
+                                Words <span class="post-count">1.5k</span> and
+                                Reading Time <span class="post-count">7</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -186,13 +186,6 @@
 
                         
                         <li>
-                            <a href="/about/">关于作者</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">归档</a>
                         </li>
                         
@@ -201,6 +194,13 @@
                         
                         <li>
                             <a href="/categories/">分类</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">关于作者</a>
                         </li>
                         
                     
@@ -300,6 +300,9 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dataset settings</span></span><br><span class="line">dataset_type = <span class="string">'CocoDataset'</span></span><br><span class="line">data_root = <span class="string">'data/coco/'</span></span><br><span class="line">img_norm_cfg = dict(</span><br><span class="line">    mean=[<span class="number">123.675</span>, <span class="number">116.28</span>, <span class="number">103.53</span>], std=[<span class="number">58.395</span>, <span class="number">57.12</span>, <span class="number">57.375</span>], to_rgb=<span class="literal">True</span>)</span><br><span class="line">train_pipeline = [</span><br><span class="line">    dict(type=<span class="string">'LoadImageFromFile'</span>),</span><br><span class="line">    dict(type=<span class="string">'LoadAnnotations'</span>, with_bbox=<span class="literal">True</span>, with_mask=<span class="literal">True</span>),</span><br><span class="line">    dict(type=<span class="string">'Resize'</span>, img_scale=(<span class="number">512</span>, <span class="number">512</span>), keep_ratio=<span class="literal">True</span>),</span><br><span class="line">    dict(type=<span class="string">'RandomFlip'</span>, flip_ratio=<span class="number">0.5</span>),</span><br><span class="line">    dict(type=<span class="string">'Normalize'</span>, **img_norm_cfg),</span><br><span class="line">    dict(type=<span class="string">'Pad'</span>, size_divisor=<span class="number">32</span>),</span><br><span class="line">    dict(type=<span class="string">'DefaultFormatBundle'</span>),</span><br><span class="line">    dict(type=<span class="string">'Collect'</span>, keys=[<span class="string">'img'</span>, <span class="string">'gt_bboxes'</span>, <span class="string">'gt_labels'</span>]),</span><br><span class="line">]</span><br><span class="line">test_pipeline = [</span><br><span class="line">    dict(type=<span class="string">'LoadImageFromFile'</span>),</span><br><span class="line">    dict(</span><br><span class="line">        type=<span class="string">'MultiScaleFlipAug'</span>,</span><br><span class="line">        img_scale=(<span class="number">512</span>, <span class="number">512</span>),</span><br><span class="line">        flip=<span class="literal">False</span>,</span><br><span class="line">        transforms=[</span><br><span class="line">            dict(type=<span class="string">'Resize'</span>, keep_ratio=<span class="literal">True</span>),</span><br><span class="line">            dict(type=<span class="string">'RandomFlip'</span>),</span><br><span class="line">            dict(type=<span class="string">'Normalize'</span>, **img_norm_cfg),</span><br><span class="line">            dict(type=<span class="string">'Pad'</span>, size_divisor=<span class="number">32</span>),</span><br><span class="line">            dict(type=<span class="string">'ImageToTensor'</span>, keys=[<span class="string">'img'</span>]),</span><br><span class="line">            dict(type=<span class="string">'Collect'</span>, keys=[<span class="string">'img'</span>]),</span><br><span class="line">        ])</span><br><span class="line">]</span><br><span class="line">data = dict(</span><br><span class="line">    samples_per_gpu=<span class="number">4</span>,</span><br><span class="line">    workers_per_gpu=<span class="number">4</span>,</span><br><span class="line">    train=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_train2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'train2017/'</span>,</span><br><span class="line">        pipeline=train_pipeline),</span><br><span class="line">    val=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_val2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'val2017/'</span>,</span><br><span class="line">        pipeline=test_pipeline),</span><br><span class="line">    test=dict(</span><br><span class="line">        type=dataset_type,</span><br><span class="line">        ann_file=data_root + <span class="string">'annotations/instances_test2017.json'</span>,</span><br><span class="line">        img_prefix=data_root + <span class="string">'test2017/'</span>,</span><br><span class="line">        pipeline=test_pipeline))</span><br><span class="line">evaluation = dict(metric=[<span class="string">'bbox'</span>])</span><br></pre></td></tr></table></figure>
 <h3 id="五、数据集"><a href="#五、数据集" class="headerlink" title="五、数据集"></a>五、数据集</h3><p>数据集依然使用默认的coco格式，数据集制作参考<a href="https://www.bilibili.com/video/BV1oP4y1T7Mv/" target="_blank" rel="noopener">数据集标注（LabelImg、LabelMe使用方法）</a><br>注：其实这里是可以使用voc格式的，先挖个坑，后面补上。</p>
 <h3 id="六、训练模型"><a href="#六、训练模型" class="headerlink" title="六、训练模型"></a>六、训练模型</h3><p>直接执行： <code>python tools/train.py configs/swin/faster_rcnn_swin_t-p4-w7_fpn_1x_coco.py</code><br>注意：第一次执行会下载权值文件，需要等待一段时间，或者用特殊办法快点下载，权值文件会自动保存到你的电脑上，下次运行的时候就不再需要重新下载了，当然也可以和之前一样，提前下载好权值文件，然后配置一下。</p>
+<h3 id="七、测试训练效果"><a href="#七、测试训练效果" class="headerlink" title="七、测试训练效果"></a>七、测试训练效果</h3><p>添加一个自己的图片在demo目录下，</p>
+<p>执行：<code>python demo/image_demo.py demo/000071.jpg configs/swin/faster_rcnn_swin_t-p4-w7_fpn_ms-crop-3x_coco.py work_dirs/faster_rcnn_swin_t-p4-w7_fpn_ms-crop-3x_coco/latest.pth</code></p>
+<p>latest.pth 就是自己训练好的最新的权重文件，默认会放在workdir下。</p>
 <h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h3><p>Q1. 报错：ImportError: cannot import name ‘init_random_seed’ from ‘mmdet.apis’<br>A1：进如到虚拟环境后，在mmdetection的项目目录下执行<code>python setup.py develop</code> ,此时 mmdet被换成 2.23.0版本。</p>
 
                 
@@ -769,21 +772,6 @@ const gitment = new Gitment({
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
