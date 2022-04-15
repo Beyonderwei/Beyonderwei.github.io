@@ -163,6 +163,13 @@
 
                         
                         <li>
+                            <a href="/about/">关于作者</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">归档</a>
                         </li>
                         
@@ -171,13 +178,6 @@
                         
                         <li>
                             <a href="/categories/">分类</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">关于作者</a>
                         </li>
                         
                     
@@ -308,8 +308,8 @@
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、环境与工程参考前面一节：【Swin Transformer做主干的 Faster RCNN 目标检测网络】使用的是同一个工程，环境无需再次配置。
-二、Swin Transformer RetinaNet  网络代码1. 在configs/swin 目录下新建文件：retinanet_swin-t-p4-w7_fpn_1x_coco.py文件内容如下：注意：虽然这里面/base/model......
+                    一、环境与工程参考上一节：Swin Transformer做主干的 Faster RCNN 目标检测网络使用的是同一个工程，环境无需再次配置。
+二、Swin Transformer RetinaNet  网络代码1. 修改configs/swin 目录下文件：retinanet_swin-t-p4-w7_fpn_1x_coco.py名字为retinanet_swin-t-p4-w7_fpn_......
                 </div>
             </a>
             
@@ -341,8 +341,8 @@
                     
                 </h3>
                 <div class="post-content-preview">
-                    一、环境与工程参考上一篇：【Swin Transformer做主干的 Faster RCNN 目标检测网络】使用的是同一个工程，环境无需再次配置。
-二、Swin Transformer YOLO3 网络代码这里就没在分开写每一个部分了，mmdetection项目里面也是直接在一个文件里面全部写完的，应该是可复用的代码少吧。1. 在configs/swin 目录下新建文件：yolov3_swi......
+                    一、环境与工程参考上一节：Swin Transformer做主干的 Faster RCNN 目标检测网络使用的是同一个工程，环境无需再次配置。
+二、Swin Transformer YOLO3 网络代码这里就没在分开写每一个部分了，mmdetection项目里面也是直接在一个文件里面全部写完的，应该是可复用的代码少吧。1. 在configs/swin 目录下新建文件：yolov3_swin_......
                 </div>
             </a>
             
@@ -1087,9 +1087,9 @@ github：https://github.com/Netflix/Hystrix
             
         
             
-        
-            
             <a href="/tags/#CC3200" title="CC3200" rel="4">CC3200</a>
+            
+        
             
         
             
@@ -1115,13 +1115,9 @@ github：https://github.com/Netflix/Hystrix
             
         
             
+        
+            
             <a href="/tags/#Flask" title="Flask" rel="2">Flask</a>
-            
-        
-            
-        
-            
-        
             
         
             
@@ -1149,7 +1145,17 @@ github：https://github.com/Netflix/Hystrix
             
         
             
+            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
+            
+        
+            
+        
+            
+        
+            
             <a href="/tags/#无人机" title="无人机" rel="3">无人机</a>
+            
+        
             
         
             
@@ -1175,17 +1181,7 @@ github：https://github.com/Netflix/Hystrix
             
         
             
-        
-            
             <a href="/tags/#Vue" title="Vue" rel="2">Vue</a>
-            
-        
-            
-            <a href="/tags/#gunicorn" title="gunicorn" rel="2">gunicorn</a>
-            
-        
-            
-        
             
         
             
@@ -1216,6 +1212,10 @@ github：https://github.com/Netflix/Hystrix
         
             
             <a href="/tags/#排序" title="排序" rel="3">排序</a>
+            
+        
+            
+        
             
         
             
@@ -1424,11 +1424,11 @@ github：https://github.com/Netflix/Hystrix
         
           <a href="categories/#设计模式"><li>设计模式</li></a>
         
-          <a href="categories/#OAuth2"><li>OAuth2</li></a>
+          <a href="categories/#Nginx"><li>Nginx</li></a>
         
           <a href="categories/#嵌入式"><li>嵌入式</li></a>
         
-          <a href="categories/#Nginx"><li>Nginx</li></a>
+          <a href="categories/#OAuth2"><li>OAuth2</li></a>
         
           <a href="categories/#Python"><li>Python</li></a>
         
@@ -1436,9 +1436,9 @@ github：https://github.com/Netflix/Hystrix
         
           <a href="categories/#GitBook"><li>GitBook</li></a>
         
-          <a href="categories/#计算机网络"><li>计算机网络</li></a>
-        
           <a href="categories/#算法"><li>算法</li></a>
+        
+          <a href="categories/#计算机网络"><li>计算机网络</li></a>
         
           <a href="categories/#数据结构"><li>数据结构</li></a>
         
@@ -1649,6 +1649,21 @@ github：https://github.com/Netflix/Hystrix
     
         <script src="/js/ribbonDynamic.js"></script>
     
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
